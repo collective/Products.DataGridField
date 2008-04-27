@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+
+<!-- DataGridWidget row renderer in view mode
+
+	Render one row in DataGridWidget. By overriding this
+	file, one can custom and provide different styles for rows
+	in same DataGridWidget (condition logic is to be added by 
+	the customer).
+	
+	Author: Mikko Ohtamaa, Red Innovation, 2006
+
+ -->   
+         
+<body>
+
+    <!-- VIEW -->
+    <metal:define define-macro="view_row">   
+	    <tr tal:define="oddrow repeat/rows/odd"
+		     tal:attributes="class python:field.allow_oddeven and (oddrow and 'odd' or 'even') or nothing;">
+		   <tal:block tal:repeat="columnd columns">
+	        <td tal:attributes="class python:not columnd['visible'] and 'dgw-hidden-column' or '';"> 
+		         <span tal:define="
+				       column columnd/id; 
+		               column_definition python: widget.getColumnDefinition(field, column);
+		               cell_macro python: path('here/%s/macros' % column_definition.getMacro());
+		               view_macro cell_macro/view_cell;
+		               cell_value python:rows.get(column);">
+		               <span metal:use-macro="view_macro"/>
+		         </span
+			   >
+	        </td>
+		   </tal:block>
+	    </tr>  
+    </metal:define>
+</body>
+</html>

@@ -1,0 +1,103 @@
+From 1.6 beta 3 (unreleased)
+
+- Eggified in Products.AddRemoveWidget
+  [SteveM]
+
+- Register skin layer correctly.
+  [maurits]
+
+- Move installation to GenericSetup.
+  [wichert]
+
+- Removed lots and lots of unneeded import. Pyflakes found that Plone 2.1 
+  support has been broken for a while, so stop claiming it's still supported.
+  [wichert]
+
+- Added validator isDataGridFilled (copied from Poi, where it can
+  later be removed).  Use this as validator on a DataGridField if you
+  want it to have at least one entry: currently a bogus/hidden entry
+  always remains even when you remove all real entries, so making a
+  DataGridField required has no real effect.
+  See http://plone.org/products/poi/issues/139 and 160.
+  [maurits]
+
+From 1.6 beta 2
+
+- Disabled INSTALL_DEMO_TYPES from config.py.  Repeat after me: "enable INSTALL_DEMO_TYPES; 
+  make changes; run tests; disable INSTALL_DEMO_TYPES; commit" :) [andrewburkhalter]
+
+From 1.5
+
+- Pop-up help column by Juan Grigera
+
+- Added CheckboxColumn by Radim Novotny
+
+- Plone 3.0 compatible (fixed CMFCorePermissions import)
+
+- Fixed http://plone.org/products/datagridfield/issues/16 (applied the patch)
+
+- DataGridField has new property allow_oddeven. Setting this to True will highlight
+  odd end even rows in the view/edit tables. Default: False
+
+- FixedColumn has optional parameter "visible" (default True). Setting this to False 
+  will hide (using css) column from both - view and edit forms.
+
+From 1.5 RC 3
+
+- Added CheckboxColumn. Implementation based on RadioColumn, so there are same bugs.
+  CheckboxColumn lose values if any field on the form raises validation error.
+  Be aware of that, better does not use CheckboxColumn in forms with required fields
+  or fields with validators.
+  [Contributor: naro, radim novotny]
+
+From 1.5 RC 2
+
+- Fixed row adding in IE. This was one of the most horrible debugging session
+  I have had. There was some obscure IE bug which prevented making a DOM
+  node orignally hidden to visible. I created "hacky" workaround for this.
+  Tested in IE 6.0 and FF 1.5. 
+  
+- Wolfram Fenske's I18N patch is disabled, since it doesn't work in Plone 2.5.
+  The code is almost there. If someone wants to make it complete, it shouldn't
+  take too much time.
+
+From 1.5 RC 1
+
+- Added workaround for bad DGF initializing which caused empty rows when DGF was created
+  programmatically
+
+From 1.0 to 1.5
+
+- Plone 2.5 compatibility guaranteed
+
+- DGF row manipulators rewritten. Automatically adding new rows feature is
+  now optional, thus making it possible for columns to have prefilled
+  default values without creating a mess. Disabling auto insert is necessary
+  for columns like SelectWidget which don't have empty default values.
+  
+- Refactored page template code to be more easily extendable. Now CSS file
+  is used for styling DataGridWidgets.
+
+- New column type: Link column 
+
+- (Wolfram Fenske) I18N patch
+
+	Archetypes widgets have an attribute i18n_domain, which is used to
+	determine which message catalog to use for translation. In
+	DataGridField, this attribute is ignored.
+	
+	I have attached a small patch (in fact, smaller than this bug report)
+	which fixes these problems. I didn't want to introduce a lot of new
+	code, so I did the translation of the labels in the Column class, not
+	in the page template, which might also have been a good way to do it.
+	Since the functions "getLabel()" and "getColumnLabels()" are only
+	called by the page template anyway, I believe this is not an issue.
+	But if you'd rather translate the labels in the page template, please
+	let me know and I'll write a different patch.
+
+- (Juan Grigera) Marshaller patch
+
+	I enjoyed your DataGriedField/Widget product for Plone, and would like
+	to contributea small patch/bugfix. In the field mutator (set) the
+	passed value is not always a record, but sometimes a string.
+	In fact the RFC822Marshaller passes a string. 

@@ -1,0 +1,2 @@
+This file enables "Refresh automatically" option in Zope Management Interface.
+Go to ZMI -> Products -> This product -> refresh tab.

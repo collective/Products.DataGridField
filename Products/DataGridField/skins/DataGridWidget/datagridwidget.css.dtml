@@ -1,0 +1,96 @@
+/*
+  DataGridWidget CSS definitions
+  ------------------------------------------
+  
+  Copyright 2006 Red Innovation <http://www.redinnovation.com>
+  
+  <dtml-with base_properties> (Loads base_properties variables)
+
+  <dtml-call "REQUEST.set('portal_url', portal_url())"> (Do not change this)
+    
+*/
+
+table.datagridwidget-table-view {
+	width: 100%;
+}
+
+input.datagrid-radio-button {
+	/* Radio buttons try to use Plone's default text input 
+	   field CSS properties, like borders and background shade image */
+	border: 0;
+	background: transparent;
+}
+
+td.datagridwidget-radio {
+	/* IE adds quite heavy padding - force more sensible values */
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
+
+td.datagridwidget-select {
+	/* Looks like browser want to shrink drop down menu boxes 
+	   to zero width if there is any fight from the space.
+	   
+	   Workaround is to force select width. Override this value
+	   according to your needs */
+	width: 5em;
+}
+
+tr.datagridwidget-row {
+	vertical-align: top;
+}
+
+/*
+ 	Workaround for IE which cannot propeply handle
+ 	background images in cloned TR input fields.
+ 	Plone is shipped with default input background gradient image
+ */
+.datagridwidget-cell input {
+	background: white;
+	background-image: none;
+}
+
+tr.datagridwidget-empty-row {
+	/* Hidden row with default selection widget values */
+	display: none;
+}
+
+td.datagridwidget-cell {
+	vertical-align: top;
+	padding: 2px;
+}
+
+td.datagridwidget-manipulator {
+	width: 16px;
+	text-align: center;
+	padding: 0;
+	margin: 0;	
+}
+
+td.datagridwidget-manipulator img {
+	cursor: pointer;	
+}
+
+td.datagridwidget-hidden-data {
+	display: none;	
+}
+
+
+a.datagridwidget-add-button, a.datagridwidget-add-button:hover {
+	text-decoration: none;
+    background: &dtml-globalBackgroundColor; url(&dtml-portal_url;/linkOpaque.gif) 9px 1px no-repeat;
+    cursor: pointer;
+    font-size: &dtml-fontSmallSize;;
+    padding: 1px 1px 1px 15px;
+    text-transform: &dtml-textTransform;;
+    float: right;	
+}
+
+.dgw-hidden-column {
+    display: none;
+}
+
+/* 
+  </dtml-with>  (end of loaded base_properties variables)
+*/

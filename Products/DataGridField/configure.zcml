@@ -1,0 +1,25 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:cmf="http://namespaces.zope.org/cmf"
+   xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+   i18n_domain="plone">
+
+  <genericsetup:registerProfile
+     name="default"
+     title="DataGridWidget"
+     directory="profiles/default"
+     description="Profile for DataGridWidget."
+     provides="Products.GenericSetup.interfaces.EXTENSION"
+     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+     />
+
+  <genericsetup:registerProfile
+     name="example"
+     title="DataGridWidget"
+     directory="profiles/default"
+     description="Example content types for DataGridWidget."
+     provides="Products.GenericSetup.interfaces.EXTENSION"
+     for=".interfaces.DemoProfile"
+     />
+
+</configure>

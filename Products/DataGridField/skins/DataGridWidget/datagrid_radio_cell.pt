@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+      
+      
+<!-- View/edit radio button choice cells -->
+
+<body>
+    <!-- VIEW -->
+    <metal:view_cell_macro define-macro="view_cell"
+      tal:define="vocab python: column_definition.getVocabulary(context)">                
+      <div tal:content="python:widget.getUserFriendlySelectionItem(here, cell_value, vocab)" />
+    </metal:view_cell_macro>
+
+    <!-- EDIT -->
+    <metal:edit_cell_macro define-macro="edit_cell">       
+    	<table style="width: 100%"
+	       	   	tal:define="vocab python: column_definition.getVocabulary(context)">
+			<tr>       	 		
+		       <td class ="datagridwidget-radio" tal:repeat="item vocab" style="text-align: center">      
+		       	   <span tal:content="python: widget.getUserFriendlySelectionItem(here, item, vocab)"/>
+		       	   <br/>
+				   <input class="noborder"
+			   		  type="radio"
+			   		  tal:attributes="checked python:rows.get(column) == item;
+			   		  				 name string:${fieldName}.${column}.${repeat/rows/number};
+			   		  				 value string:${item};
+			   		  				 id string:${column}_${fieldId};			   		  				 
+			   		  				 "/>
+
+			  	</td>
+			</tr>
+		</table>
+    </metal:edit_cell_macro>
+
+
+   <!-- EMPTY EDIT -->
+    <metal:edit_cell_macro define-macro="edit_empty_cell">
+		<table style="width: 100%"
+	       	   	tal:define="vocab python: column_definition.getVocabulary(context)">
+    
+			<tr>       	 		
+		       <td class="radio" tal:repeat="item vocab" style="text-align: center">      
+		       	   <span tal:content="python: widget.getUserFriendlySelectionItem(here, item, vocab)"/>
+		       	   <br/>
+				   <input class="noborder"
+				   		  type="radio"
+				   		  tal:attributes="name string:${fieldName}.${column}.999999;
+				   		  				  value string:${item};
+	  			   		  				 
+				   		  				  "/>
+		
+			  	</td>
+			</tr>
+		</table>       	
+    </metal:edit_cell_macro>
+    
+</body>
+
+</html>
+

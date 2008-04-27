@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+      
+      
+<!-- View/edit fixed text cells. User cannot edit anything. -->
+
+<body>
+    <!-- VIEW -->
+    <metal:view_cell_macro define-macro="view_cell">
+    	<div tal:content="cell_value" />    
+    </metal:view_cell_macro>
+
+    <!-- EDIT -->
+    <metal:edit_cell_macro define-macro="edit_cell">
+	   <div tal:content="python:rows.get(column)" />
+
+       <input tal:attributes="name string:${fieldName}.${column}:records;
+                                       id string:${column}_${fieldId};
+                                       value cell_value;"
+                       type="hidden" />
+	    
+    </metal:edit_cell_macro>
+
+
+   <!-- EMPTY EDIT -->
+    <metal:edit_cell_macro define-macro="edit_empty_cell">
+		<div/>
+    </metal:edit_cell_macro>
+
+</body>
+
+</html>
+

@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+      
+      
+<!-- View/edit drop down select menu cells -->
+
+<body>
+    <!-- VIEW -->
+    <metal:view_cell_macro define-macro="view_cell"
+      tal:define="vocab python: column_definition.getVocabulary(context)">                
+      <div tal:content="python:widget.getUserFriendlySelectionItem(here, cell_value, vocab)" />
+    </metal:view_cell_macro>
+
+    <!-- EDIT -->
+    <metal:edit_cell_macro define-macro="edit_cell">
+       <select class="datagridwidget-select" name="myfield.name:records"
+            tal:define="vocab python: column_definition.getVocabulary(context)"
+            tal:attributes="name string:${fieldName}.${column}:records;
+                            value python:rows.get(column);
+                            id string:${column}_${fieldId};
+                            ">
+               <option tal:repeat="item vocab"
+                  tal:attributes="value item;
+                                  selected python:item==rows.get(column) and 'selected' or None;"
+                      tal:content="python:widget.getUserFriendlySelectionItem(here, item, vocab)"/>
+      </select>
+    </metal:edit_cell_macro>
+
+
+   <!-- EMPTY EDIT -->
+    <metal:edit_empty_cell_macro define-macro="edit_empty_cell">
+     <select class="datagridwidget-select" name="myfield.name:records"
+            tal:define="vocab python: column_definition.getVocabulary(context)"
+                tal:attributes="name string:${fieldName}.${column}:records;
+                                id string:${column}_${fieldId};
+                                ">
+                
+               <option tal:repeat="item vocab"
+                  tal:attributes="value item;
+                                  selected python:item==column_definition.getDefault(context) and 'selected' or None;"
+                      tal:content="python:widget.getUserFriendlySelectionItem(here, item, vocab)"/>
+
+     </select>
+   </metal:edit_empty_cell_macro>
+</body>
+
+</html>
+

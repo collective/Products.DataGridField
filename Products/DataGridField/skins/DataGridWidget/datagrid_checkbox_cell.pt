@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+      
+      
+<!-- View/edit radio button choice cells -->
+
+<body>
+    <!-- VIEW -->
+    <metal:view_cell_macro define-macro="view_cell">
+	  <div style="font-size:120%; line-height:100%;" tal:condition="cell_value">&#10004;</div>
+	  <div tal:condition="not:cell_value">-</div>
+    </metal:view_cell_macro>
+
+    <!-- EDIT -->
+    <metal:edit_cell_macro define-macro="edit_cell">       
+		   <input class="noborder"
+	  	   		  type="checkbox"
+				  value="1"
+		   		  tal:attributes="checked python:rows.get(column) == '1';
+ 		   		  				 name string:${fieldName}.${column}.${repeat/rows/number};
+		   		  				 id string:${column}_${fieldId};			   		  				 
+	   		  				 "/>
+    </metal:edit_cell_macro>
+
+
+   <!-- EMPTY EDIT -->
+    <metal:edit_cell_macro define-macro="edit_empty_cell">
+		<tal:block>
+		   <input class="noborder"
+		   		  type="checkbox"
+				  value="1"
+		   		  tal:attributes="name string:${fieldName}.${column}.999999;"
+				/>
+		</tal:block>
+    </metal:edit_cell_macro>
+    
+</body>
+
+</html>
+
