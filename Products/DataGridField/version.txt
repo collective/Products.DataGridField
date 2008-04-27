@@ -1,1 +1,1 @@
-1.6b3 (svn/unreleased)
+1.6b3
