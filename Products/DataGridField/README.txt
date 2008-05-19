@@ -22,10 +22,25 @@ Features
 Requirements
 ------------
 
-	o Plone Plone 2.5.x or Plone 3.0.x
+	o Plone Plone 2.5.x, Plone 3.0.x, or Plone 3.1.x
 
 	o A browser with Javascript support. There isn't yet graceful degeneration for 
 	  browsers without or disabled Javascript.
+
+Installation
+------------
+
+The 1.6 branch of DataGridField is distributed as both an old-style Zope 2 product and an
+egg at the Python Package index.  Information about configuring either for a zope instance
+house a Plone site can be found by reading the `Installing an Add-on Product`_ 
+tutorial and the "Installing a third party product" section of the `Managing Project with zc.buildout`_ tutorial. 
+
+.. _Installing an Add-on Product: http://plone.org/documentation/tutorial/third-party-products
+.. _Managing Project with zc.buildout: http://plone.org/documentation/tutorial/buildout/installing-a-third-party-product
+
+Once you've succesfully done this, you can use the Add/Remove Products screen to install the DataGridField into your 
+site. See below for information about experimenting with the demo types.
+
 
 Quality
 -------
@@ -114,11 +129,9 @@ Known features
 Demo
 ----
 
-A demo type is included. Set INSTALL_DEMO_TYPES = True in config.py to enable 
-it. It is disabled by default. This type is neither pretty nor very functional, 
-but demonstrates how a data grid should be used. Also, to run unit tests, you 
-need to set this variable. I couldn't come up with a nice hack which would tell 
-config.py whether it's imported from unit testing framework or not.
+A demo type is included. It is disabled by default. This type is neither pretty nor very functional, 
+but demonstrates how a data grid should be used. You can install this type into your site by 
+running the "DataGridField (Example DGF content types)" from the Generic Setup tool within the ZMI.
 
 References
 ----------

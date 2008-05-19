@@ -1,3 +1,32 @@
+From 1.6 beta 4 (unreleased)
+
+- Adding Plone 2.5.x DataGridField profile "default_25x" to overcome difference in 
+  GS namespace for the registration of our skin directory.  Without this, one needed
+  to manually add the correct FSDV within the portal_skins tool for .pt, .dtml, 
+  images, etc. to exist with the DataGridWidget's skins directory. [andrewb] 
+
+- Adding back Extensions and Install.py with install() function for consistent 
+  Add/Remove Products experience back to Plone 2.5.x, which did not handle 
+  GenericSetup profile-based installation.  The install code delegates to Generic
+  Setup for maximal code reuse. The justification is that to completely remove
+  a Add/Remove Product support in Plone 2.5.x between a beta 2 and beta 3 release
+  is overly extreme.  This will workaround will be rectified in a future release. [andrewb]
+  
+  Note: This was added manually without history because the the eggified version 
+  of DataGridField was moved, rather than copied, thus no history at:
+  http://dev.plone.org/archetypes/log/Products.DataGridField?action=follow_copy&rev=&stop_rev=&mode=follow_copy
+
+- Updated installation instructions, info about example types, and added note about ceasing 
+  Plone 2.5.x support [andrewb]
+
+- Removed check of "@@plone_lock_info" within example types' GS declarations, 
+  so actions render in pre-Plone locking era [andrewb]
+
+- Made all tests pass in Plone 2.5.x, 3.0.x, and 3.1.x [andrewb]
+
+- Made explicit names for the different GS profiles that one might choose 
+ to install within portal_setup [andrewb]
+
 From 1.6 beta 3 (unreleased)
 
 - Eggified in Products.AddRemoveWidget

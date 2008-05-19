@@ -6,18 +6,27 @@
 
   <genericsetup:registerProfile
      name="default"
-     title="DataGridWidget"
+     title="DataGridField"
      directory="profiles/default"
-     description="Profile for DataGridWidget."
+     description="Profile for DataGridField."
+     provides="Products.GenericSetup.interfaces.EXTENSION"
+     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+     />
+
+  <genericsetup:registerProfile
+     name="default_25x"
+     title="DataGridField (Plone 2.5 profile)"
+     directory="profiles/default_25x"
+     description="Profile for DataGridField (Plone 2.5.x only)."
      provides="Products.GenericSetup.interfaces.EXTENSION"
      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
      />
 
   <genericsetup:registerProfile
      name="example"
-     title="DataGridWidget"
-     directory="profiles/default"
-     description="Example content types for DataGridWidget."
+     title="DataGridField (Example DGF content types)"
+     directory="profiles/example"
+     description="Example content types for DataGridField."
      provides="Products.GenericSetup.interfaces.EXTENSION"
      for=".interfaces.DemoProfile"
      />

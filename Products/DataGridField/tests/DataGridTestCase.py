@@ -1,33 +1,15 @@
 from Testing import ZopeTestCase
+from Products.DataGridField import HAS_PLONE31
 
-from Products.DataGridField import config
-config.INSTALL_DEMO_TYPES = True
-
-# Make the boring stuff load quietly
-ZopeTestCase.installProduct('CMFCore', quiet=1)
-ZopeTestCase.installProduct('CMFDefault', quiet=1)
-ZopeTestCase.installProduct('CMFCalendar', quiet=1)
-ZopeTestCase.installProduct('CMFTopic', quiet=1)
-ZopeTestCase.installProduct('DCWorkflow', quiet=1)
-ZopeTestCase.installProduct('CMFActionIcons', quiet=1)
-ZopeTestCase.installProduct('CMFQuickInstallerTool', quiet=1)
-ZopeTestCase.installProduct('CMFFormController', quiet=1)
-ZopeTestCase.installProduct('GroupUserFolder', quiet=1)
-ZopeTestCase.installProduct('ZCTextIndex', quiet=1)
-ZopeTestCase.installProduct('TextIndexNG2', quiet=1)
-ZopeTestCase.installProduct('SecureMailHost', quiet=1)
-ZopeTestCase.installProduct('CMFPlone')
-
-ZopeTestCase.installProduct('Archetypes')
-ZopeTestCase.installProduct('PortalTransforms', quiet=1)
-ZopeTestCase.installProduct('MimetypesRegistry', quiet=1)
 ZopeTestCase.installProduct('DataGridField')
 
 from Products.PloneTestCase import PloneTestCase
 
-PRODUCTS = ['Archetypes', 'DataGridField']
-
-PloneTestCase.setupPloneSite(products=PRODUCTS)
+if HAS_PLONE31:
+    # passing multiple extension profiles works for Plone 3.1.x
+    PloneTestCase.setupPloneSite(extension_profiles=['Products.DataGridField:default','Products.DataGridField:example',])
+else:
+    PloneTestCase.setupPloneSite(products=["DataGridField",], extension_profiles=['Products.DataGridField:example',])
 
 class DataGridTestCase(PloneTestCase.PloneTestCase):
 

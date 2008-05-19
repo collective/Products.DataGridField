@@ -50,3 +50,16 @@ def initialize(context):
         fti = ftis,
         ).initialize(context)
 
+try:
+    from Products.CMFPlone.migrations import v3_1
+except ImportError:
+    HAS_PLONE31 = False
+else:
+    HAS_PLONE31 = True
+
+try:
+    from Products.CMFPlone.migrations import v3_0
+except ImportError:
+    HAS_PLONE30 = False
+else:
+    HAS_PLONE30 = True
