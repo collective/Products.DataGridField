@@ -29,7 +29,7 @@
   <permission value="View"/>
  </action>
  <action title="Edit" action_id="edit" category="object"
-    condition_expr="python:hasattr(object, '@@plone_lock_info') and object.restrictedTraverse('@@plone_lock_info').is_locked_for_current_user() or True"
+    condition_expr=""
     url_expr="string:${object_url}/edit" visible="True">
   <permission value="Modify portal content"/>
  </action>
