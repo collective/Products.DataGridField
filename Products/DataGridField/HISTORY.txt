@@ -1,8 +1,9 @@
 (svn/unreleased)
 
-From 1.6rc2 (svn/unreleased)
+From 1.7 (svn/unreleased)
 
-- Change [developer's name]
+- Move installation back to GenericSetup, end of Plone 2.5.x support
+  [andrewb, but real thanks goes to wichert]
 
 
 From 1.6rc1

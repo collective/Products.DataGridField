@@ -20,17 +20,17 @@
  <alias from="index.html" to="(Default)"/>
  <alias from="properties" to="base_metadata"/>
  <alias from="view" to="(Default)"/>
- <action title="View" action_id="view" category="object" condition_expr=""
+ <action title="View" action_id="view" category="object" condition_expr="python:hasattr(object, '@@plone_lock_info') and object.restrictedTraverse('@@plone_lock_info').is_locked_for_current_user() or True"
     url_expr="string:${object_url}/view" visible="True">
   <permission value="View"/>
  </action>
  <action title="Edit" action_id="edit" category="object"
-    condition_expr=""
+    condition_expr="python:hasattr(object, '@@plone_lock_info') and object.restrictedTraverse('@@plone_lock_info').is_locked_for_current_user() or True"
     url_expr="string:${object_url}/edit" visible="True">
   <permission value="Modify portal content"/>
  </action>
  <action title="Properties" action_id="metadata" category="object"
-    condition_expr="" url_expr="string:${object_url}/properties"
+    condition_expr="python:hasattr(object, '@@plone_lock_info') and object.restrictedTraverse('@@plone_lock_info').is_locked_for_current_user() or True" url_expr="string:${object_url}/properties"
     visible="True">
   <permission value="Modify portal content"/>
  </action>

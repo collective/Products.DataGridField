@@ -14,15 +14,6 @@
      />
 
   <genericsetup:registerProfile
-     name="default_25x"
-     title="DataGridField (Plone 2.5 profile)"
-     directory="profiles/default_25x"
-     description="Profile for DataGridField (Plone 2.5.x only)."
-     provides="Products.GenericSetup.interfaces.EXTENSION"
-     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-     />
-
-  <genericsetup:registerProfile
      name="example"
      title="DataGridField (Example DGF content types)"
      directory="profiles/example"

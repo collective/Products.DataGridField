@@ -1,7 +1,7 @@
 DataGridField
 =============
 
-Version 1.6rc2 (svn/unreleased)
+Version 1.7 (svn/unreleased)
 
 Released under the GNU General Public License
 
@@ -22,7 +22,7 @@ Features
 Requirements
 ------------
 
-	o Plone Plone 2.5.x, Plone 3.0.x, or Plone 3.1.x
+	o Plone 3.0.x, or Plone 3.1.x (if support for Plone 2.5.x is needed, look for the latest release in the 1.6 branch)
 
 	o A browser with Javascript support. There isn't yet graceful degeneration for 
 	  browsers without or disabled Javascript.
@@ -30,7 +30,7 @@ Requirements
 Installation
 ------------
 
-The 1.6 branch of DataGridField is distributed as both an old-style Zope 2 product and an
+The 1.7 branch of DataGridField is distributed as an
 egg at the Python Package index.  Information about configuring either for a zope instance
 house a Plone site can be found by reading the `Installing an Add-on Product`_ 
 tutorial and the "Installing a third party product" section of the `Managing Project with zc.buildout`_ tutorial. 
