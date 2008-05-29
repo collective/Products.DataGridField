@@ -1,5 +1,9 @@
 (svn/unreleased)
 
+From 1.6rc2 (svn/unreleased)
+
+- Change [developer's name]
+
 
 From 1.6rc1
 
