@@ -1,4 +1,7 @@
-From 1.6 beta 4 (unreleased)
+(svn/unreleased)
+
+
+From 1.6rc1
 
 - Adding Plone 2.5.x DataGridField profile "default_25x" to overcome difference in 
   GS namespace for the registration of our skin directory.  Without this, one needed
