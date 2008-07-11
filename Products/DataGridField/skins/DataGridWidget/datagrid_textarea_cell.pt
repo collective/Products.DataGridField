@@ -17,7 +17,7 @@
 
     <!-- EDIT -->
     <metal:edit_cell_macro define-macro="edit_cell">
-       <textarea style="width: 100%" name="myfield.name:records" 
+       <textarea style="width: 100%"  rows="5" name="myfield.name:records" 
                  tal:content="cell_value"
                        tal:attributes="name string:${fieldName}.${column}:records;
                                        id string:${column}_${fieldId};
@@ -27,7 +27,7 @@
     
    <!-- EMPTY EDIT -->
     <metal:edit_empty_cell_macro define-macro="edit_empty_cell">
-       <textarea style="width: 100%" name="myfield.name:records" 
+       <textarea style="width: 100%" rows="5" name="myfield.name:records" 
                  tal:content="python:column_definition.getDefault(here)"
                        tal:attributes="name string:${fieldName}.${column}:records;
                                        id string:${column}_${fieldId};                                     
