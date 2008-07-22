@@ -2,6 +2,11 @@
 
 From 1.7 (svn/unreleased)
 
+- allow Products.Archetypes.interfaces.IVocabulary providing objects as 
+  Vocabularies. This makes SelectColumn usable in archetypes.schemaextender
+  w/o having to patch the extended class.
+  [jensens]
+
 - Move installation back to GenericSetup, end of Plone 2.5.x support
   [andrewb, but real thanks goes to wichert]
 

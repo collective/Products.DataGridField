@@ -14,6 +14,7 @@ __docformat__ = 'epytext'
 
 from AccessControl import ClassSecurityInfo
 from Globals import InitializeClass
+from Products.Archetypes.interfaces import IVocabulary
 from Products.DataGridField.Column import Column
 
 
@@ -36,6 +37,8 @@ class SelectColumn(Column):
     def getVocabulary(self, instance):
         """ Gets this column vocabulary for specific Archetypes instance
         """
+        if IVocabulary.providedBy(self.vocabulary):
+            return self.vocabulary.getDisplayList(instance)
         try:
             func = getattr(instance, self.vocabulary)
         except AttributeError:
