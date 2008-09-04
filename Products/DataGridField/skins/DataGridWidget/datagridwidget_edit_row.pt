@@ -50,7 +50,7 @@
     </metal:define>
     
     <metal:define define-macro="edit_empty_row">
-	    <tr id="datagridwidget-empty-row"
+	    <tr id="datagridwidget-row"
 	    	class="datagridwidget-empty-row"
 	    	tal:define="fieldId string:${fieldName}_new;">
            <tal:block tal:repeat="columnd columns">
