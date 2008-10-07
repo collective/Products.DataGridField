@@ -17,7 +17,7 @@ from AccessControl import ClassSecurityInfo
 from Globals import InitializeClass
 
 
-class Column:
+class Column(object):
     """ Stardard text edit column """
 
     security = ClassSecurityInfo()
