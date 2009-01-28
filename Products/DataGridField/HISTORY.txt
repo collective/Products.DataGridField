@@ -1,4 +1,7 @@
-(svn/unreleased)
+1.6.1 (svn/unreleased)
+
+- Information about update
+  [Developer name in brackets]
 
 1.6 (2009-1-28)
 

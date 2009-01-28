@@ -1,7 +1,7 @@
 DataGridField
 =============
 
-Version 1.6
+Version 1.6.1 (svn/unreleased)
 
 Released under the GNU General Public License
 
