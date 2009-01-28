@@ -1,6 +1,6 @@
 (svn/unreleased)
 
-From 1.6rc2 (svn/unreleased)
+1.6 (2009-1-28)
 
 - Merging of colliding datagridwidget.css and datagridwidget.css.dtml files.
   Fixes issue #30: http://plone.org/products/datagridfield/issues/30.  Which
