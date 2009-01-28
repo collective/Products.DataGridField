@@ -92,5 +92,24 @@ a.datagridwidget-add-button, a.datagridwidget-add-button:hover {
 }
 
 /* 
+    Merged from historical datagridwidget.css file 
+    as fix for: http://plone.org/products/datagridfield/issues/30
+*/
+
+/*  styling for the datagridfield */
+
+div.ArchetypesDataGridWidget table td img {
+    display: block;
+    cursor: pointer;
+}
+
+div.ArchetypesDataGridWidget table td input, 
+div.ArchetypesDataGridWidget table td select {
+    width:100%;
+}
+
+
+
+/* 
   </dtml-with>  (end of loaded base_properties variables)
 */

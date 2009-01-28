@@ -10,6 +10,17 @@ From 1.7 (svn/unreleased)
 - Move installation back to GenericSetup, end of Plone 2.5.x support
   [andrewb, but real thanks goes to wichert]
 
+1.6 (2009-1-28)
+
+- Merging of colliding datagridwidget.css and datagridwidget.css.dtml files.
+  Fixes issue #30: http://plone.org/products/datagridfield/issues/30.  Which
+  file was ultimately selected appears to be inconsistent.  If you're
+  depending upon an overridden version of either and notice bugs with regards
+  to hidden columns and/or rows appearing or the promise of adding additional
+  DGF rows when using the FixedColumn, you'd be well suited to reconcile your
+  customizations with the merged files from r10445 at:
+  http://dev.plone.org/archetypes/changeset/10445
+  [andrewb]
 
 From 1.6rc1
 
