@@ -8,8 +8,8 @@ From 1.6rc2 (svn/unreleased)
   depending upon an overridden version of either and notice bugs with regards
   to hidden columns and/or rows appearing or the promise of adding additional
   DGF rows when using the FixedColumn, you'd be well suited to reconcile your
-  customizations with the merged files from rXXXX at:
-  
+  customizations with the merged files from r10445 at:
+  http://dev.plone.org/archetypes/changeset/10445
   [andrewb]
 
 
