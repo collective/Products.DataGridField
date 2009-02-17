@@ -11,6 +11,7 @@ __author__  = 'Mikko Ohtamaa <mikko@redinnovation.com>'
 
 import StringIO
 import logging
+from types import ListType
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import DisplayList
 from Products.Archetypes.Field import ObjectField

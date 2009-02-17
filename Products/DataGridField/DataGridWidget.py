@@ -8,6 +8,7 @@
 __author__  = 'Mikko Ohtamaa <mikko@redinnovation.com>'
 __docformat__ = 'epytext'
 
+from types import ListType
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.Widget import TypesWidget
 from Products.Archetypes.Registry import registerWidget
