@@ -155,7 +155,11 @@ class DataGridField(ObjectField):
                     
                     val = {}
                     for col in self.getColumnIds():
-                        val[col] = (row.get(col,'')).strip()
+                        col_val = row.get(col, '')
+                        if type(col_val) is ListType:
+                            val[col] = col_val
+                        else:
+                            val[col] = col_val.strip()
                         
                         if val[col] != '':
                             empty = False
