@@ -43,7 +43,10 @@
                 <thead tal:condition="python: widget.hasHeader(context, field)">
                     <tr>
 						<tal:block tal:repeat="c columns"
-                         ><th tal:attributes="class python:not c['visible'] and 'dgw-hidden-column discreet' or 'discreet';"  style="text-align: left" 
+                         ><th style="text-align: left" 
+                              tal:attributes="class python:'%s datagridwidget-column-%s discreet' % (
+                                                           not c['visible'] and 'dgw-hidden-column' or '',
+                                                           repeat['c'].number());"  
                             tal:content="c/label" 
                             i18n:translate="">Column name</th
 						 ></tal:block>

@@ -26,7 +26,9 @@
          	
             <tal:vars define="fieldId string:${fieldName}_${repeat/rows/number};">
               <tal:block tal:repeat="columnd columns">
-	            <td tal:attributes="class python:not columnd['visible'] and 'dgw-hidden-column datagridwidget-cell' or 'datagridwidget-cell';"> 
+	            <td tal:attributes="class python:'%s datagridwidget-column-%s datagridwidget-cell' % (
+                                                 not columnd['visible'] and 'dgw-hidden-column' or '',
+                                                 repeat['columnd'].number());"> 
 		             <tal:cell tal:define="
 					       column columnd/id; 
 		                   column_definition python: widget.getColumnDefinition(field, column);
