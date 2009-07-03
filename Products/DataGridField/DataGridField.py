@@ -86,9 +86,16 @@ class DataGridField(ObjectField):
         # call super constructor
         ObjectField.__init__(self, name, **kwargs)
 
-    def getColumnIds(self):
+    def getColumnIds(self, instance):
         """ Return list of column ids """
-        return self.columns
+        columns = getattr(self, 'columns', None)
+        if isinstance(columns, basestring):
+            fct = getattr(instance, columns, None)
+            if fct: 
+                return fct()
+            else:
+                return list()
+        return columns or list()
     
     security.declarePrivate('set')
     def set(self, instance, value, **kwargs):
@@ -154,7 +161,7 @@ class DataGridField(ObjectField):
                     # input data                     
                     
                     val = {}
-                    for col in self.getColumnIds():
+                    for col in self.getColumnIds(instance):
                         val[col] = (row.get(col,'')).strip()
                         
                         if val[col] != '':
@@ -203,7 +210,7 @@ class DataGridField(ObjectField):
             value = self.resetFixedRows(instance, value)
             
             for row in value:
-                for col in self.getColumnIds():
+                for col in self.getColumnIds(instance):
                     buffer.write(row.get(col,''))
                     # separate the last word of a cell
                     # and the first of the next cell
@@ -237,7 +244,7 @@ class DataGridField(ObjectField):
 
     security.declarePublic('getColumns')
     def getColumns(self, instance):
-        return self.columns
+        return self.getColumnIds(instance)
 
     security.declarePublic('getRowCount')
     def getRowCount(self, instance):
@@ -271,7 +278,7 @@ class DataGridField(ObjectField):
         """
         data = self.get(instance)
         if key is not None:
-            kwargs[self.getColumnIds()[0]] = key
+            kwargs[self.getColumnIds(instance)[0]] = key
         matches = []
         for r in data:
             match = True
@@ -293,7 +300,7 @@ class DataGridField(ObjectField):
         """
         data = self.get(instance)
         if lookupColumn is None:
-            lookupColumn = self.columns[0]
+            lookupColumn = self.getColumnIds(instance)[0]
         for r in data:
             if r[lookupColumn] == key:
                 return r[column]
@@ -308,9 +315,9 @@ class DataGridField(ObjectField):
         data = self.get(instance)
 
         if keyCol is None:
-            keyCol = self.getColumnIds()[0]
+            keyCol = self.getColumnIds(instance)[0]
         if valueCol is None:
-            valueCol = self.getColumnIds()[1]
+            valueCol = self.getColumnIds(instance)[1]
 
         lst = DisplayList()
         for r in data:
@@ -326,7 +333,7 @@ class DataGridField(ObjectField):
         data = self.get(instance)
         rows = []
         for r in data:
-            rows.append(tuple([r[c] for c in self.getColumnIds()]))
+            rows.append(tuple([r[c] for c in self.getColumnIds(instance)]))
         return tuple(rows)
     
     def resetFixedRows(self, instance, data):

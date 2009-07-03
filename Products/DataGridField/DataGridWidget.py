@@ -39,7 +39,7 @@ class DataGridWidget(TypesWidget):
         'helper_js': ('datagridwidget.js',),
         'show_header' : True,
         'auto_insert': False,
-        'columns' : {}, # Sequence of Column instances                           
+        'columns' : {}, # Sequence of Column instances
         })
 
 
@@ -57,34 +57,45 @@ class DataGridWidget(TypesWidget):
             if columnNames:
                 return columnNames
             else:
-                return field.getColumnIds()
+                return field.getColumnIds(context)
 
 
         names = []
 
-        for id in field.getColumnIds():
+        for id in field.getColumnIds(context):
             # Warn AT developer about his/her mistake
             if not id in columnDefinitions:
                 raise AttributeError, "DataGridWidget missing column definition for " + id + " in field " + field.getName()
 
-            col = self.columns[id]
+            col = self.getColumnsConfig(context)[id]
             names.append(col.getLabel(self, context))
 
         return names
 
+    security.declarePrivate('getColumnsConfig')
+    def getColumnsConfig(self, instance):
+        columns = getattr(self, 'columns', None)
+        if isinstance(columns, basestring):
+            fct = getattr(instance, columns, None)
+            if fct: 
+                return fct()
+            else:
+                return dict()
+        return columns or dict()
+
     security.declarePublic('getColumnDefinition')
-    def getColumnDefinition(self, field, id):
+    def getColumnDefinition(self, field, context, id):
         """ Return Column instance for column id """
 
-        if id in getattr(self, 'columns', {}).keys():
-            return self.columns[id]
+        if id in self.getColumnsConfig(context).keys():
+            return self.getColumnsConfig(context)[id]
 
         # Backwards compatability/shortcut
-        if id in field.columns:
+        if id in field.getColumnIds(context):
             label = id
             columnNames = getattr(self, 'column_names', None)
-            if columnNames and len(columnNames) == len(field.columns):
-                idx = list(field.columns).index(id)
+            if columnNames and len(columnNames) == len(field.getColumnIds(context)):
+                idx = list(field.getColumnIds(context)).index(id)
                 label = columnNames[idx]
                 
             return Column(label)
@@ -101,11 +112,11 @@ class DataGridWidget(TypesWidget):
             @return formatted column definitions as dict of { id, label, visible }
         """
         result = []
+
+        columns = self.getColumnsConfig(instance)
         
-        columns = getattr(self, 'columns', {})
-        
-        for id in field.columns:
-            c = self.getColumnDefinition(field, id)
+        for id in field.getColumnIds(instance):
+            c = self.getColumnDefinition(field, instance, id)
             if c is None:
                 raise KeyError, "Tried to look up missing column definition for: " + str(id)
             item = {'id':id, 'label':'', 'visible':True}
@@ -186,8 +197,8 @@ class DataGridWidget(TypesWidget):
         # Column code hook to form data and manipulate
         # it propeply where TypesWidget.process_form doesn't
         # have required functionality
-        for columnId in getattr(self, 'columns', {}).keys():
-            columnDefinition = self.getColumnDefinition(field, columnId)
+        for columnId in self.getColumnsConfig(instance).keys():
+            columnDefinition = self.getColumnDefinition(field, instance, columnId)
             newData = columnDefinition.processCellData(form, newData, instance, field, columnId)            
         
         # Clean up the last empty row (automatically inseted)
@@ -221,8 +232,8 @@ class DataGridWidget(TypesWidget):
         # Column code hook to form data and manipulate
         # it propeply where TypesWidget.process_form doesn't
         # have required functionality
-        for columnId in getattr(self, 'columns', {}).keys():
-            columnDefinition = self.getColumnDefinition(field, columnId)
+        for columnId in self.getColumnsConfig(context).keys():
+            columnDefinition = self.getColumnDefinition(field, context, columnId)
             formData = columnDefinition.processCellData(REQUEST, formData, context, field, columnId)
                     
 

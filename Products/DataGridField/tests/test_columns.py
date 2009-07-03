@@ -40,7 +40,7 @@ class TestColumns(DataGridTestCase):
         """
 
         field = self.demo2.getField("DemoField2")
-        col = field.widget.getColumnDefinition(field, "select_sample")
+        col = field.widget.getColumnDefinition(field, self.demo2, "select_sample")
         vocab = col.getVocabulary(self.demo2)
 
         self.assertEqual(vocab.keys()[0], 'sample')
@@ -67,12 +67,12 @@ class TestColumns(DataGridTestCase):
         """ Just get column definitions"""
 
         field = self.demo2.getField("DemoField2")
-        col = field.widget.getColumnDefinition(field, "select_sample")
+        col = field.widget.getColumnDefinition(field, self.demo2, "select_sample")
 
         # backward compatibility: no explict column defnition given
         # so it should have been constructed automatically
         field = self.demo2.getField("DemoField2")
-        col = field.widget.getColumnDefinition(field, "column1")
+        col = field.widget.getColumnDefinition(field, self.demo2, "column1")
 
     def testGetColumnNames(self):
         """ Get user friendly column names """        
