@@ -49,7 +49,7 @@ class DataGridWidget(TypesWidget):
     def getColumnLabels(self, field, context):
         """ Get user friendly names of all columns """
 
-        columnDefinitions = getattr(self, 'columns', {})
+        columnDefinitions = self.getColumnsConfig(context)
         
         if len(columnDefinitions) == 0:
             # old way of getting column names

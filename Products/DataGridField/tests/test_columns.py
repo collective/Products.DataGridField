@@ -71,6 +71,7 @@ class TestColumns(DataGridTestCase):
 
         # backward compatibility: no explict column defnition given
         # so it should have been constructed automatically
+        # XXX There is an explicit column definition, need to check if the test should be removed or updated
         field = self.demo2.getField("DemoField2")
         col = field.widget.getColumnDefinition(field, self.demo2, "column1")
 
@@ -80,6 +81,23 @@ class TestColumns(DataGridTestCase):
         names = field.widget.getColumnLabels(field, self)
         self.assertEqual(names, ["Toholampi city rox","My friendly name","Friendly name"])
 
+    def testGetColumnDefinitionByFunction(self):
+        """ Just get column definitions"""
+
+        field = self.demo2.getField("DemoField5")
+        col = field.widget.getColumnDefinition(field, self.demo2, "column1")
+        self.failUnless(col.getLabel(self.demo2, field.widget) == "First column")
+
+        field = self.demo2.getField("DemoField5")
+        col = field.widget.getColumnDefinition(field, self.demo2, "column2")
+        self.failUnless(col.getLabel(self.demo2, field.widget) == "Second column")
+
+    def testGetColumnNamesByFunction(self):
+        """ Get user friendly column names """        
+        field = self.demo2.getField("DemoField5")
+        names = field.widget.getColumnLabels(field, self.demo2)
+        self.assertEqual(names, ["First column","Second column"])
+        
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()

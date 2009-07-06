@@ -106,10 +106,26 @@ class DataGridDemoType2(BaseContent):
                  ),                 
          ),                                  
 
+        DataGridField('DemoField5',
+                columns = 'getColumnIdsForDemoField5',
+                widget = DataGridWidget(
+                    description="Uses functions to compute columns ids and definitions",
+                    columns = 'getColumnDefinitionsForDemoField5',
+                ),
+         ),                                  
                 
         ))
     
     meta_type = portal_type = archetype_name = 'DataGridDemoType2'
+    
+    def getColumnIdsForDemoField5(self):
+        return ['column1', 'column2']
+
+    def getColumnDefinitionsForDemoField5(self):
+        return {
+            'column1' : Column("First column"),
+            'column2' : Column("Second column"),
+        }
     
     def getSampleVocabulary(self):
         """Get a sample vocabulary
