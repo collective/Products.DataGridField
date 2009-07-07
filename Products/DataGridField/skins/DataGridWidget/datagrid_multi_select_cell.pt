@@ -19,7 +19,7 @@
                <select class="datagridwidget-select" name="myfield.name:list:records"
                        multiple="multiple" size="#"
                        tal:define="vocab python: column_definition.getVocabulary(context);
-                                   cell_value cell_value|python:[]"
+                                   cell_value python: cell_value or [];"
                        tal:attributes="name string:${fieldName}.${column}:list:records;
                                                        value python:rows.get(column);
                                                        id string:${column}_${fieldId};
