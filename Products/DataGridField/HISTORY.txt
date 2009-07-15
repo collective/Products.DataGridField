@@ -2,6 +2,9 @@
 
 From 1.7 (svn/unreleased)
 
+- added LinesColumn (used as custom vocabulary source in PFGDataGrid field)
+  [naro]
+
 - added unique column classnames for thead and tbody table section to identify 
   columns and modify it's properties through css (specially width for each 
   column seperatly). Now we can remove the style attributes and do some 

@@ -31,6 +31,7 @@ from Products.DataGridField.FixedColumn import FixedColumn
 from Products.DataGridField.LinkColumn import LinkColumn
 from Products.DataGridField.HelpColumn import HelpColumn
 from Products.DataGridField.CheckboxColumn import CheckboxColumn
+from Products.DataGridField.LinesColumn import LinesColumn
 from Products.DataGridField import validators
 
 from Products.DataGridField.config import PKG_NAME, GLOBALS
