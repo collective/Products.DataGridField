@@ -17,11 +17,6 @@ class LinesColumn(Column):
     """
     security = ClassSecurityInfo()
 
-    def __init__(self, label, default=None, default_method=None, label_msgid=None):
-        """ Create a column
-        """
-        Column.__init__(self, label, default, default_method, label_msgid)
-
     security.declarePublic('getMacro')
     def getMacro(self):
         """ Return macro used to render this column in view/edit """
