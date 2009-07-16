@@ -20,7 +20,7 @@
                  tal:attributes="name string:${fieldName}.${column}:records;
                                  id string:${column}_${fieldId};
                                  onchange eventHandler;"
-                 tal:content="python:'\n'.join(cell_value)"></textarea>
+                 tal:content="python:'\n'.join(cell_value or [])"></textarea>
     </metal:edit_cell_macro>
     
    <!-- EMPTY EDIT -->
