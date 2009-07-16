@@ -56,9 +56,15 @@
 	    	class="datagridwidget-empty-row"
 	    	tal:define="fieldId string:${fieldName}_new;">
            <tal:block tal:repeat="columnd columns">
-	         <td tal:attributes="class python:not columnd['visible'] and 'dgw-hidden-column datagridwidget-cell' or 'datagridwidget-cell';"> 	            <span tal:define="
-				   column columnd/id;	               column_definition python: widget.getColumnDefinition(field, context, column);                      	               cell_macro python: path('here/%s/macros' % column_definition.getMacro());	               edit_empty_macro cell_macro/edit_empty_cell;">		               <span metal:use-macro="edit_empty_macro"/>	               
-	             </span>	         </td>
+	         <td tal:attributes="class python:not columnd['visible'] and 'dgw-hidden-column datagridwidget-cell' or 'datagridwidget-cell';"> 
+	            <span tal:define="
+				   column columnd/id;
+	               column_definition python: widget.getColumnDefinition(field, context, column);                      
+	               cell_macro python: path('here/%s/macros' % column_definition.getMacro());
+	               edit_empty_macro cell_macro/edit_empty_cell;">
+		               <span metal:use-macro="edit_empty_macro"/>	               
+	             </span>
+	         </td>
            </tal:block>
 	         
 	         <tal:comment replace="nothing">
@@ -66,7 +72,8 @@
 	         </tal:comment>
 	         
            	 <tal:call metal:use-macro="here/datagridwidget_manipulators/macros/edit_manipulators"/>	      
-           	 	     </tr>
+           	 
+	     </tr>
 	</metal:define>
 </body>
 
