@@ -122,7 +122,7 @@ class DataGridWidget(TypesWidget):
         """
         if item == None or item == '':
             return ""
-        return context.translate(vocab.getMsgId(item), default=vocab.getValue(item))
+        return vocab.getValue(item)
  
  
     security.declarePublic('isAutoInsertEnabled')

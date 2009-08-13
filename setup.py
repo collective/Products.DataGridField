@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.7 (svn/unreleased)'
+version = '1.8dev'
 
 setup(name='Products.DataGridField',
       version=version,

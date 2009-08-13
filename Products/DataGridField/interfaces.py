@@ -1,11 +1,8 @@
-from zope.interface import Interface as Z3Interface
+from zope.interface import Interface
 
-class DemoProfile(Z3Interface):
+class DemoProfile(Interface):
     """Marker interface for our demo GS profile."""
 
-
-# Zope imports
-from Interface import Interface
 
 # DataGrid interfaces
 class IDataGridField(Interface):

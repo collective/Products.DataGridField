@@ -18,6 +18,7 @@ from Products.Archetypes.Field import encode
 from Products.Archetypes.Field import registerField
 from Products.DataGridField import DataGridWidget
 from Products.DataGridField.interfaces import IDataGridField
+from zope.interface import implements
 
 # Our logger object
 logger = logging.getLogger('DataGridField')
@@ -34,7 +35,7 @@ class DataGridField(ObjectField):
         - Each list item represents a row
         - Each row is a dictionary using column names as a key
     """
-    __implements__ = (ObjectField.__implements__, IDataGridField,)
+    implements(IDataGridField)
 
     _properties = ObjectField._properties.copy()
     _properties.update({

@@ -18,6 +18,7 @@ from Products.DataGridField.CheckboxColumn import CheckboxColumn
 from Products.DataGridField.FixedColumn import FixedColumn
 from Products.DataGridField.DataGridField import FixedRow
 from Products.DataGridField.HelpColumn import HelpColumn
+from Products.DataGridField.config import PKG_NAME
 
 class DataGridDemoType(BaseContent):
     """ Very simple DataGridField demo.
@@ -43,7 +44,7 @@ class DataGridDemoType(BaseContent):
                                                                       
     meta_type = portal_type = archetype_name = 'DataGridDemoType'
     
-registerType(DataGridDemoType)    
+registerType(DataGridDemoType, PKG_NAME)
 
 class DataGridDemoType2(BaseContent):
     """ Demo for different DataGridWidget columns
@@ -119,7 +120,7 @@ class DataGridDemoType2(BaseContent):
             (("sample", "Sample value 1",),
             ("sample2", "Sample value 2",),))
 
-registerType(DataGridDemoType2)
+registerType(DataGridDemoType2, PKG_NAME)
 
 class InvalidDataGridDemoType(BaseContent):
     """ DataGridField declaration with errors
@@ -145,7 +146,7 @@ class InvalidDataGridDemoType(BaseContent):
     
     meta_type = portal_type = archetype_name = 'InvalidDataGridDemoType'        
     
-registerType(InvalidDataGridDemoType)
+registerType(InvalidDataGridDemoType, PKG_NAME)
     
     
 class FixedRowsDemoType(BaseContent):
@@ -210,7 +211,7 @@ class FixedRowsDemoType(BaseContent):
         return rows
     
     
-registerType(FixedRowsDemoType)    
+registerType(FixedRowsDemoType, PKG_NAME)
     
 
 

@@ -7,13 +7,13 @@ and one hidden entry, so more than 1 entry in total.
 
 from Products.validation import validation
 from Products.validation.interfaces.IValidator import IValidator
-
+from zope.interface import implements
 
 class DataGridValidator:
     """Validate as True when having at least one DataGrid item.
     """
 
-    __implements__ = IValidator
+    implements(IValidator)
 
     def __init__(self, name, title='', description=''):
         self.name = name
