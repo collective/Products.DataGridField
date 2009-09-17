@@ -129,7 +129,11 @@ class DataGridField(ObjectField):
             
             records = []
             dict = {}
-            rows = value.strip("{}").split(',')
+            print "*"*10, value
+            if value=='()': # If DGF widget was hidden on creation form
+                rows = list()
+            else:
+                rows = value.strip("{}").split(',')
             for atuple in rows:
                 key, val = atuple.split(":", 1)
                 key, val = key.strip(), val.strip()
