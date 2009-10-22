@@ -11,6 +11,11 @@ Changelog
 1.7 (unreleased)
 ----------------
 
+- When there is an empty row with the template_row_marker and
+  validation fails (for any field), make sure we do not end up with
+  *two* empty rows.
+  [maurits+vpretre]
+
 - added LinesColumn (used as custom vocabulary source in PFGDataGrid field)
   [naro]
 
@@ -68,7 +73,7 @@ Changelog
 - Made all tests pass in Plone 2.5.x, 3.0.x, and 3.1.x [andrewb]
 
 - Made explicit names for the different GS profiles that one might choose 
- to install within portal_setup [andrewb]
+  to install within portal_setup [andrewb]
 
 1.6 beta 3
 ----------
