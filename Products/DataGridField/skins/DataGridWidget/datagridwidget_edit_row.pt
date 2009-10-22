@@ -22,6 +22,7 @@
             
          <tr id="datagridwidget-row" class="datagridwidget-row"
 		     tal:define="oddrow repeat/rows/odd"
+             tal:condition="python: rows.get('orderindex_') != 'template_row_marker'"
 		     tal:attributes="class python:field.allow_oddeven and (oddrow and 'odd' or 'even') or nothing;">
          	
             <tal:vars define="fieldId string:${fieldName}_${repeat/rows/number};">

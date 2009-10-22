@@ -2,6 +2,11 @@
 
 From 1.7 (svn/unreleased)
 
+- When there is an empty row with the template_row_marker and
+  validation fails (for any field), make sure we do not end up with
+  *two* empty rows.
+  [maurits+vpretre]
+
 - added LinesColumn (used as custom vocabulary source in PFGDataGrid field)
   [naro]
 
