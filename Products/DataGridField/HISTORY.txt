@@ -1,7 +1,10 @@
 1.6.1 (svn/unreleased)
 
-- Information about update
-  [Developer name in brackets]
+- When there is an empty row with the template_row_marker and
+  validation fails (for any field), make sure we do not end up with
+  *two* empty rows.
+  [maurits+vpretre]
+
 
 1.6 (2009-1-28)
 
@@ -43,7 +46,7 @@ From 1.6rc1
 - Made all tests pass in Plone 2.5.x, 3.0.x, and 3.1.x [andrewb]
 
 - Made explicit names for the different GS profiles that one might choose 
- to install within portal_setup [andrewb]
+  to install within portal_setup [andrewb]
 
 From 1.6 beta 3 (unreleased)
 
