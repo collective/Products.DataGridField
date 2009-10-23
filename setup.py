@@ -3,7 +3,7 @@ import os
 
 readme = open(os.path.join("Products", "DataGridField", "README.txt")).read()
 history = open(os.path.join("Products", "DataGridField", "HISTORY.txt")).read()
-version = open(os.path.join("Products", "DataGridField", "version.txt")).read()
+version = open(os.path.join("Products", "DataGridField", "version.txt")).read().strip()
 long_description = readme + "\n" + history
 
 
