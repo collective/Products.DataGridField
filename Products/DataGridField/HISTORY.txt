@@ -1,4 +1,4 @@
-1.6.1 (svn/unreleased)
+1.6.1 (2009-10-23)
 
 - When there is an empty row with the template_row_marker and
   validation fails (for any field), make sure we do not end up with
