@@ -1,12 +1,14 @@
 Changelog
 =========
 
+
 1.8 (unreleased)
 ----------------
 
 - Adaptation to work on Plone 4/Zope 2.12.
   For Plone 3, please use the 1.7 or 1.6 branches.
   [vincentfretin]
+
 
 1.7 (unreleased)
 ----------------
@@ -32,6 +34,7 @@ Changelog
 - Move installation back to GenericSetup, end of Plone 2.5.x support
   [andrewb, but real thanks goes to wichert]
 
+
 1.6 (2009-01-28)
 ----------------
 
@@ -44,6 +47,7 @@ Changelog
   customizations with the merged files from r10445 at:
   http://dev.plone.org/archetypes/changeset/10445
   [andrewb]
+
 
 1.6rc1
 ------
@@ -75,6 +79,7 @@ Changelog
 - Made explicit names for the different GS profiles that one might choose 
   to install within portal_setup [andrewb]
 
+
 1.6 beta 3
 ----------
 
@@ -99,11 +104,13 @@ Changelog
   See http://plone.org/products/poi/issues/139 and 160.
   [maurits]
 
+
 1.6 beta 2
 ----------
 
 - Disabled INSTALL_DEMO_TYPES from config.py.  Repeat after me: "enable INSTALL_DEMO_TYPES; 
   make changes; run tests; disable INSTALL_DEMO_TYPES; commit" :) [andrewburkhalter]
+
 
 1.5
 ---
@@ -122,6 +129,7 @@ Changelog
 - FixedColumn has optional parameter "visible" (default True). Setting this to False 
   will hide (using css) column from both - view and edit forms.
 
+
 1.5rc3
 ------
 
@@ -130,6 +138,7 @@ Changelog
   Be aware of that, better does not use CheckboxColumn in forms with required fields
   or fields with validators.
   [Contributor: naro, radim novotny]
+
 
 1.5rc2
 ------
@@ -143,11 +152,13 @@ Changelog
   The code is almost there. If someone wants to make it complete, it shouldn't
   take too much time.
 
+
 1.5rc1
 ------
 
 - Added workaround for bad DGF initializing which caused empty rows when DGF was created
   programmatically
+
 
 1.0 to 1.5
 ----------
