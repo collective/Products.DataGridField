@@ -1,13 +1,16 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.7 (svn/unreleased)'
+readme = open(os.path.join("Products", "DataGridField", "README.txt")).read()
+history = open(os.path.join("Products", "DataGridField", "HISTORY.txt")).read()
+version = open(os.path.join("Products", "DataGridField", "version.txt")).read()
+long_description = readme + "\n" + history
+
 
 setup(name='Products.DataGridField',
       version=version,
       description="A table input component for Plone.",
-      long_description=open(os.path.join("Products", "DataGridField", "README.txt")).read() + "\n" +
-                       open(os.path.join("Products", "DataGridField", "HISTORY.txt")).read(),
+      long_description=long_description,
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Programming Language :: Python",
