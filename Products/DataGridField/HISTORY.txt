@@ -1,4 +1,9 @@
+History
+=======
+
+
 1.6.1 (2009-10-23)
+------------------
 
 - When there is an empty row with the template_row_marker and
   validation fails (for any field), make sure we do not end up with
@@ -6,7 +11,8 @@
   [maurits+vpretre]
 
 
-1.6 (2009-1-28)
+1.6 (2009-01-28)
+----------------
 
 - Merging of colliding datagridwidget.css and datagridwidget.css.dtml files.
   Fixes issue #30: http://plone.org/products/datagridfield/issues/30.  Which
@@ -20,6 +26,7 @@
 
 
 From 1.6rc1
+-----------
 
 - Adding Plone 2.5.x DataGridField profile "default_25x" to overcome difference in 
   GS namespace for the registration of our skin directory.  Without this, one needed
@@ -48,7 +55,9 @@ From 1.6rc1
 - Made explicit names for the different GS profiles that one might choose 
   to install within portal_setup [andrewb]
 
+
 From 1.6 beta 3 (unreleased)
+----------------------------
 
 - Eggified in Products.AddRemoveWidget
   [SteveM]
@@ -71,7 +80,9 @@ From 1.6 beta 3 (unreleased)
   See http://plone.org/products/poi/issues/139 and 160.
   [maurits]
 
+
 From 1.6 beta 2
+---------------
 
 - Disabled INSTALL_DEMO_TYPES from config.py.  Repeat after me: "enable INSTALL_DEMO_TYPES; 
   make changes; run tests; disable INSTALL_DEMO_TYPES; commit" :) [andrewburkhalter]
@@ -92,7 +103,9 @@ From 1.5
 - FixedColumn has optional parameter "visible" (default True). Setting this to False 
   will hide (using css) column from both - view and edit forms.
 
+
 From 1.5 RC 3
+-------------
 
 - Added CheckboxColumn. Implementation based on RadioColumn, so there are same bugs.
   CheckboxColumn lose values if any field on the form raises validation error.
@@ -100,7 +113,9 @@ From 1.5 RC 3
   or fields with validators.
   [Contributor: naro, radim novotny]
 
+
 From 1.5 RC 2
+-------------
 
 - Fixed row adding in IE. This was one of the most horrible debugging session
   I have had. There was some obscure IE bug which prevented making a DOM
@@ -111,12 +126,16 @@ From 1.5 RC 2
   The code is almost there. If someone wants to make it complete, it shouldn't
   take too much time.
 
+
 From 1.5 RC 1
+-------------
 
 - Added workaround for bad DGF initializing which caused empty rows when DGF was created
   programmatically
 
+
 From 1.0 to 1.5
+---------------
 
 - Plone 2.5 compatibility guaranteed
 
