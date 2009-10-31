@@ -13,7 +13,7 @@ __docformat__ = 'epytext'
 
 
 from AccessControl import ClassSecurityInfo
-from Globals import InitializeClass
+from App.class_init import InitializeClass
 from Products.Archetypes.interfaces import IVocabulary
 from Products.DataGridField.Column import Column
 

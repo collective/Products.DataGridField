@@ -13,7 +13,7 @@ __author__ = "Mikko Ohtamaa <mikko@redinnovation.com>"
 __docformat__ = 'reStructuredText'
 
 from AccessControl import ClassSecurityInfo
-from Globals import InitializeClass
+from App.class_init import InitializeClass
 from Products.DataGridField.SelectColumn import SelectColumn
 
 

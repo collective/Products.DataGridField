@@ -11,7 +11,7 @@ __docformat__ = 'epytext'
 __author__ = "Juan Grigera <juan@grigera.com.ar>"
 
 from AccessControl import ClassSecurityInfo
-from Globals import InitializeClass
+from App.class_init import InitializeClass
 from Products.CMFCore.permissions import View
 from Products.DataGridField.Column import Column
 

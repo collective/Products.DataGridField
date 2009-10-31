@@ -13,7 +13,7 @@ __author__ = "Radim Novotny"
 __docformat__ = 'epytext'
 
 from AccessControl import ClassSecurityInfo
-from Globals import InitializeClass
+from App.class_init import InitializeClass
 from Products.DataGridField.Column import Column
 
 class CheckboxColumn(Column):
