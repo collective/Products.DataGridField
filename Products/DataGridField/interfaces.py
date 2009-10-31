@@ -1,5 +1,6 @@
 from zope.interface import Interface
 
+
 class DemoProfile(Interface):
     """Marker interface for our demo GS profile."""
 
@@ -40,9 +41,11 @@ class IDataGridField(Interface):
 
     def lookup(instance, key, column, lookupColumn=None):
         """Look for the given key in the column specified by lookupColumn.
-        If no lookupColumn is given, look in the first column. For the first row
-        found, return the value stored in the corresponding column as given by
-        the 'column' parameter. Returns None if the key could not be found.
+
+        If no lookupColumn is given, look in the first column. For the
+        first row found, return the value stored in the corresponding
+        column as given by the 'column' parameter. Returns None if the
+        key could not be found.
 
         (if you've used Excel, this is similar to VLOOKUP)
         """

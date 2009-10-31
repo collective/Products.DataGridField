@@ -4,13 +4,14 @@
 
 """
 
-__author__  = 'Mikko Ohtamaa <mikko@redinnovation.com>'
+__author__ = 'Mikko Ohtamaa <mikko@redinnovation.com>'
 __docformat__ = 'restructuredtext'
 
 from AccessControl import ClassSecurityInfo
-from Globals import InitializeClass
+from App.class_init import InitializeClass
 from Products.DataGridField.Column import Column
 from Products.DataGridField.utils import makeAbsoluteLink, makeRelativeLink
+
 
 class LinkColumn(Column):
     """ Defines DataGridField column with link descriptions and targets
@@ -28,7 +29,6 @@ class LinkColumn(Column):
     """
 
     security = ClassSecurityInfo()
-
 
     def __init__(self, title, linkClass=""):
         """ Create a Links
@@ -117,7 +117,7 @@ class LinkColumn(Column):
             link = makeRelativeLink(link, context)
 
             if desc or link:
-                newRow[columnId] = "%s|%s" % (desc,link)
+                newRow[columnId] = "%s|%s" % (desc, link)
             else:
                 # don't add | character alone
                 # causes extra new row to appear
@@ -126,8 +126,6 @@ class LinkColumn(Column):
             newValue.append(newRow)
 
         return newValue
-
-
 
 # Initializes class security
 InitializeClass(LinkColumn)

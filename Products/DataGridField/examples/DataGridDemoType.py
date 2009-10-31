@@ -6,8 +6,7 @@
 from AccessControl import ClassSecurityInfo
 
 # Plone imports
-from Products.Archetypes.public import DisplayList
-from Products.Archetypes.public import *
+from Products.Archetypes import atapi
 
 # Local imports
 from Products.DataGridField import DataGridField, DataGridWidget
@@ -20,15 +19,17 @@ from Products.DataGridField.DataGridField import FixedRow
 from Products.DataGridField.HelpColumn import HelpColumn
 from Products.DataGridField.config import PKG_NAME
 
-class DataGridDemoType(BaseContent):
+
+class DataGridDemoType(atapi.BaseContent):
     """ Very simple DataGridField demo.
 
-    This class is used in unit testing, mainly to check old interface compatibility
-    (without widget column definitions). Please see the more complex examples below.
+    This class is used in unit testing, mainly to check old interface
+    compatibi lity (without widget column definitions). Please see the
+    more complex examples below.
     """
     security = ClassSecurityInfo()
 
-    schema = BaseSchema + Schema((
+    schema = atapi.BaseSchema + atapi.Schema((
 
         DataGridField('DemoField',
                 searchable=True, # One unit tests checks whether text search works
@@ -44,9 +45,10 @@ class DataGridDemoType(BaseContent):
 
     meta_type = portal_type = archetype_name = 'DataGridDemoType'
 
-registerType(DataGridDemoType, PKG_NAME)
+atapi.registerType(DataGridDemoType, PKG_NAME)
 
-class DataGridDemoType2(BaseContent):
+
+class DataGridDemoType2(atapi.BaseContent):
     """ Demo for different DataGridWidget columns
 
     This class is used in unit testing
@@ -57,7 +59,7 @@ class DataGridDemoType2(BaseContent):
     """
     security = ClassSecurityInfo()
 
-    schema = BaseSchema + Schema((
+    schema = atapi.BaseSchema + atapi.Schema((
 
         DataGridField('AutoInsertDemoField',
                 searchable=True, # One unit tests checks whether text search works
@@ -115,14 +117,15 @@ class DataGridDemoType2(BaseContent):
     def getSampleVocabulary(self):
         """Get a sample vocabulary
         """
-        return DisplayList(
+        return atapi.DisplayList(
 
             (("sample", "Sample value 1",),
             ("sample2", "Sample value 2",),))
 
-registerType(DataGridDemoType2, PKG_NAME)
+atapi.registerType(DataGridDemoType2, PKG_NAME)
 
-class InvalidDataGridDemoType(BaseContent):
+
+class InvalidDataGridDemoType(atapi.BaseContent):
     """ DataGridField declaration with errors
 
     Errors should be detected run-time, with helpful error messages.
@@ -131,7 +134,7 @@ class InvalidDataGridDemoType(BaseContent):
     """
     security = ClassSecurityInfo()
 
-    schema = BaseSchema + Schema((
+    schema = atapi.BaseSchema + atapi.Schema((
         DataGridField('DemoField',
                 searchable = True,
                 columns=("column1", "column2", "select_sample"),
@@ -146,17 +149,17 @@ class InvalidDataGridDemoType(BaseContent):
 
     meta_type = portal_type = archetype_name = 'InvalidDataGridDemoType'
 
-registerType(InvalidDataGridDemoType, PKG_NAME)
+atapi.registerType(InvalidDataGridDemoType, PKG_NAME)
 
 
-class FixedRowsDemoType(BaseContent):
+class FixedRowsDemoType(atapi.BaseContent):
     """ Demostrate fixed rows usage
 
     This class is used in unit testing
     """
     security = ClassSecurityInfo()
 
-    schema = BaseSchema + Schema((
+    schema = atapi.BaseSchema + atapi.Schema((
 
         DataGridField('DemoField',
                 widget = DataGridWidget(),
@@ -196,10 +199,10 @@ class FixedRowsDemoType(BaseContent):
     meta_type = portal_type = archetype_name = 'FixedRowsDemoType'
 
     def getSkillLevels(self):
-        return DisplayList(
-        (("bad", "Bad",),
-         ("good", "Good",),
-        ))
+        return atapi.DisplayList(
+            (("bad", "Bad",),
+             ("good", "Good",),
+             ))
 
     def getPredefinedSkillsData(self):
         """ Generate fixed row key information """
@@ -211,7 +214,7 @@ class FixedRowsDemoType(BaseContent):
         return rows
 
 
-registerType(FixedRowsDemoType, PKG_NAME)
+atapi.registerType(FixedRowsDemoType, PKG_NAME)
 
 
 

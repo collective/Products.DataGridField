@@ -16,6 +16,7 @@ from AccessControl import ClassSecurityInfo
 from Globals import InitializeClass
 from Products.DataGridField.SelectColumn import SelectColumn
 
+
 class RadioColumn(SelectColumn):
     """ Allow user select one from many options using radio buttons.
 
@@ -40,9 +41,9 @@ class RadioColumn(SelectColumn):
 
         name string:${fieldName}.${column}.${repeat/rows/number};
 
-    Column.processCellData parses form data and propeply combines field value
-    from radio buttons so that  Archetypes' field framework correctly understand
-    the set value.
+    Column.processCellData parses form data and propeply combines
+    field value from radio buttons so that Archetypes' field framework
+    correctly understand the set value.
 
     """
     security = ClassSecurityInfo()

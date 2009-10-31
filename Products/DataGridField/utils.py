@@ -6,7 +6,7 @@
 
 """
 
-__author__  = 'Mikko Ohtamaa <mikko@redinnovation.com>'
+__author__ = 'Mikko Ohtamaa <mikko@redinnovation.com>'
 __docformat__ = 'restructuredtext'
 
 from AccessControl import ModuleSecurityInfo, allow_module
@@ -35,7 +35,7 @@ def makeAbsoluteLink(link, context):
         return link
     else:
         portal_url = getToolByName(context, "portal_url")
-        if link[:1]  == "/":
+        if link[:1] == "/":
             return portal_url() + link
         else:
             # if first character is / don't add it twice
@@ -59,4 +59,3 @@ def makeRelativeLink(link, context):
 
     # if first character is / don't add it twice
     return link
-

@@ -7,8 +7,9 @@
 """
 
 from AccessControl import ClassSecurityInfo
-from Globals import InitializeClass
+from App.class_init import InitializeClass
 from Products.DataGridField.Column import Column
+
 
 class LinesColumn(Column):
     """ Textarea which returns list of lines
@@ -48,9 +49,10 @@ class LinesColumn(Column):
                 newRow[key] = row[key]
 
             # make list of values splited by \n with each item stripped
-            newRow[columnId] = [v.strip() for v in newRow[columnId].split('\n')]
+            newRow[columnId] = [
+                v.strip() for v in newRow[columnId].split('\n')]
             # last item should not be empty
-            if newRow[columnId] and newRow[columnId][-1]=='':
+            if newRow[columnId] and newRow[columnId][-1] == '':
                 newRow[columnId] = newRow[columnId][:-1]
             newValue.append(newRow)
 

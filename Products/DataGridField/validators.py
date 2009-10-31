@@ -9,6 +9,7 @@ from Products.validation import validation
 from Products.validation.interfaces.IValidator import IValidator
 from zope.interface import implements
 
+
 class DataGridValidator:
     """Validate as True when having at least one DataGrid item.
     """
