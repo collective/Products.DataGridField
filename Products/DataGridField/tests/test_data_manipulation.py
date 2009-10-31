@@ -27,8 +27,7 @@ class TestInstallation(DataGridTestCase):
 
     def afterSetUp(self):
         types = self.portal.portal_types.objectIds()        
-        self.failUnless('DataGridDemoType' in types, "Set INSTALL_DEMO_TYPES=True in config.py")        
-        pass
+        self.failUnless('DataGridDemoType' in types)
 
     def testPortalTypes(self):
         types = self.portal.portal_types.objectIds()

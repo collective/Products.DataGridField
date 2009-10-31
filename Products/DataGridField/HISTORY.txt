@@ -108,8 +108,8 @@ Changelog
 1.6 beta 2
 ----------
 
-- Disabled INSTALL_DEMO_TYPES from config.py.  Repeat after me: "enable INSTALL_DEMO_TYPES; 
-  make changes; run tests; disable INSTALL_DEMO_TYPES; commit" :) [andrewburkhalter]
+- Disabled INSTALL_DEMO_TYPES from config.py.
+  [andrewburkhalter]
 
 
 1.5
