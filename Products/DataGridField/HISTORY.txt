@@ -5,6 +5,9 @@ Changelog
 1.8 (unreleased)
 ----------------
 
+- Fixed tests for Plone 4, including a good cleanup.
+  [maurits]
+
 - Adaptation to work on Plone 4/Zope 2.12.
   For Plone 3, please use the 1.7 or 1.6 branches.
   [vincentfretin]
