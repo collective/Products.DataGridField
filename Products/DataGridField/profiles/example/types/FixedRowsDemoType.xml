@@ -3,7 +3,7 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">FixedRowsDemoType</property>
  <property name="description"> Demostrate fixed rows usage
-      
+
       This class is used in unit testing
       </property>
  <property name="content_icon">document_icon.gif</property>

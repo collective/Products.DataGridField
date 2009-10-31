@@ -1,7 +1,7 @@
 """
 
     Lines column - used for list of values
-    
+
     Licensed under GPL.
 
 """
@@ -12,7 +12,7 @@ from Products.DataGridField.Column import Column
 
 class LinesColumn(Column):
     """ Textarea which returns list of lines
-    
+
     Used eg. as vocabulary definition in PFGDataGrid
     """
     security = ClassSecurityInfo()
@@ -25,22 +25,22 @@ class LinesColumn(Column):
     security.declarePublic('processCellData')
     def processCellData(self, form, value, context, field, columnId):
         """ Read cell values from raw form data
-        
+
         Column processing in forms may need special preparations for data if
         widgets use other than <input value> for storing their
         values in fields.
-        
+
         @param form Submitted form, contains HTML fields
         @param context Archetypes item instance for the submitted form
         @param field Assigned field for this widget
         @param columnId Column what we are operating
-        
+
         @return new values which are constructed by processing data
         """
         # scan all rows and build list of lines for fields
         newValue = []
         for row in value:
-            
+
             # we must clone row since
             # row is readonly ZPublished.HTTPRequest.record object
             newRow = {}
@@ -53,8 +53,8 @@ class LinesColumn(Column):
             if newRow[columnId] and newRow[columnId][-1]=='':
                 newRow[columnId] = newRow[columnId][:-1]
             newValue.append(newRow)
-            
+
         return newValue
-                        
+
 # Initializes class security
 InitializeClass(LinesColumn)

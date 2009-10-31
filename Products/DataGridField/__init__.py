@@ -3,7 +3,7 @@
     DataGridField initialzer.
 
     Copyright 2006-2007 DataGridField authors.
-    
+
     Load all submodules and perform Zope security initialize for them.
 
 """

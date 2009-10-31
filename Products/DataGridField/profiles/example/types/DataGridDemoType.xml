@@ -3,8 +3,8 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">DataGridDemoType</property>
  <property name="description"> Very simple DataGridField demo.
-      
-      This class is used in unit testing, mainly to check old interface compatibility 
+
+      This class is used in unit testing, mainly to check old interface compatibility
       (without widget column definitions). Please see the more complex examples below.
       </property>
  <property name="content_icon">document_icon.gif</property>

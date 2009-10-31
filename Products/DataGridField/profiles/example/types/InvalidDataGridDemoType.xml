@@ -4,10 +4,10 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">InvalidDataGridDemoType</property>
  <property name="description"> DataGridField declaration with errors
-      
+
       Errors should be detected run-time, with helpful error messages.
-      
-      This class is missing column definition select_sample in DataGridWidget        
+
+      This class is missing column definition select_sample in DataGridWidget
       </property>
  <property name="content_icon">document_icon.gif</property>
  <property name="content_meta_type">InvalidDataGridDemoType</property>
