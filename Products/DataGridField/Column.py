@@ -14,7 +14,7 @@ __docformat__ = 'epytext'
 
 # Zope imports
 from AccessControl import ClassSecurityInfo
-from Globals import InitializeClass
+from App.class_init import InitializeClass
 
 
 class Column(object):
