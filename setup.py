@@ -11,12 +11,13 @@ setup(name='Products.DataGridField',
       version=version,
       description="A table input component for Plone.",
       long_description=long_description,
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
+      # Get more strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Framework :: Plone",
         "Framework :: Zope2",
+        "Development Status :: 5 - Production/Stable",
         ],
       keywords='Plone DataGridField Archetypes',
       author='Jarn',
@@ -32,6 +33,7 @@ setup(name='Products.DataGridField',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+          'Plone>=4.0dev',
       ],
       entry_points="""
       # -*- Entry points: -*-
