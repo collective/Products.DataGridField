@@ -178,7 +178,7 @@ class DataGridWidget(TypesWidget):
         value = TypesWidget.process_form(self, instance,
             field, form, empty_marker, emptyReturnsMarker)
 
-        if value == None or len(value) == 0:
+        if value == None or value == empty_marker or len(value) == 0:
             return value
 
         newData = value[0]

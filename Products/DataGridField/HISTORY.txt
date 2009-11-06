@@ -5,6 +5,9 @@ Changelog
 1.8 (unreleased)
 ----------------
 
+- Fixed possible TypeError when submitting the base_metadata form.
+  [maurits]
+
 - In the view macro use the supplied accessor instead of thinking we
   know how to get the accessor ourselves as that gives wrong results
   with LinguaPlone.
