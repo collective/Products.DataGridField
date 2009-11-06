@@ -5,6 +5,12 @@ Changelog
 1.8 (unreleased)
 ----------------
 
+- In the view macro use the supplied accessor instead of thinking we
+  know how to get the accessor ourselves as that gives wrong results
+  with LinguaPlone.
+  Fixes http://plone.org/products/datagridfield/issues/14
+  [maurits]
+
 - Fixed tests for Plone 4, including a good cleanup.
   [maurits]
 

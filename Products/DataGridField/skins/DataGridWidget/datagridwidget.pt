@@ -9,8 +9,7 @@
     <metal:define define-macro="view">
 
         <table class="datagridwidget-table-view listing"
-               tal:define="columns python:widget.getColumnDefs(field, context);
-                           fielddata python:field.getAccessor(context)()">
+               tal:define="columns python:widget.getColumnDefs(field, context)">
             <thead tal:condition="python: widget.hasHeader(context, field)">
                 <tr>
 				    <tal:block tal:repeat="c columns"
@@ -20,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tal:row-loop tal:repeat="rows fielddata">
+                <tal:row-loop tal:repeat="rows accessor">
                     <tal:view_row metal:use-macro="here/datagridwidget_view_row/macros/view_row"/>
                 </tal:row-loop>
             </tbody>
