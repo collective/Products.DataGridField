@@ -14,7 +14,7 @@ logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 logging.getLogger("DataGridField").setLevel(logging.DEBUG)
 
 from Products.DataGridField.tests.DataGridTestCase import DataGridTestCase
-from Products.Archetypes.public import DisplayList
+from Products.Archetypes.atapi import DisplayList
 
 from Products.DataGridField.utils import makeAbsoluteLink, makeRelativeLink
 
