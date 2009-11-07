@@ -1,0 +1,8 @@
+Warning: this Products.DataGridField branch is hardly used.  Branch
+1.6 is fine for both Plone 2.5 and 3.x.  Current trunk (1.8) is for
+Plone 4.  Theoretically this branch 1.7 could be used for changes that
+are for Plone 3 only or that are too invasive for the stable 1.6
+branch, but in practice that has not happened yet.
+
+Bug fixes from 1.6 might not end up here; neither might new stuff from
+trunk.
