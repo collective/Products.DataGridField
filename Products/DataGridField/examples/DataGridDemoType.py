@@ -9,6 +9,7 @@ from AccessControl import ClassSecurityInfo
 from Products.Archetypes import atapi
 
 # Local imports
+from Products.DataGridField import DGFMessageFactory as _
 from Products.DataGridField import DataGridField, DataGridWidget
 from Products.DataGridField.Column import Column
 from Products.DataGridField.SelectColumn import SelectColumn
@@ -68,6 +69,8 @@ class DataGridDemoType2(atapi.BaseContent):
                 widget = DataGridWidget(
                     auto_insert = True,
                     description="Automatically insert new rows when the last row is being filled. When you edit the last row, a new row is created automatically.",
+                    description_msgid='DataGridDemoType_help_AutoInsertRows',
+                    i18n_domain='datagridfield',
                     columns={
                     },
                  ),
@@ -78,10 +81,12 @@ class DataGridDemoType2(atapi.BaseContent):
                 columns=("column1", "column2", "select_sample"),
                 widget = DataGridWidget(
                     description="Set default values for created rows. Choose SelectColumn value from the default dictionary",
+                    description_msgid='DataGridDemoType_help_DemoField2',
+                    i18n_domain='datagridfield',
                     columns={
-                        'column1' : Column("Toholampi city rox"),
-                        'column2' : Column("My friendly name", default="Some default text"),
-                        'select_sample' : SelectColumn("Friendly name", vocabulary="getSampleVocabulary", default="sample2")
+                        'column1' : Column(_(u"Toholampi city rox")),
+                        'column2' : Column(_(u"My friendly name"), default=_(u"Some default text")),
+                        'select_sample' : SelectColumn(_(u"Friendly name"), vocabulary="getSampleVocabulary", default="sample2")
                     },
                  ),
          ),
@@ -90,6 +95,8 @@ class DataGridDemoType2(atapi.BaseContent):
                 columns=("column1", "column2"),
                 widget = DataGridWidget(
                     description="Test radio and checkbox columns",
+                    description_msgid='DataGridDemoType_help_DemoField3',
+                    i18n_domain='datagridfield',
                     columns={
                         'column1' : RadioColumn("Radio column", vocabulary="getSampleVocabulary"),
                         'column2' : CheckboxColumn("Checkbox column")
@@ -101,10 +108,12 @@ class DataGridDemoType2(atapi.BaseContent):
                 columns=("text_column", "help_column"),
                 widget = DataGridWidget(
                     description="Help column test",
+                    description_msgid='DataGridDemoType_help_DemoField4',
+                    i18n_domain='datagridfield',
                     columns={
                         'text_column' : Column("Text column"),
                         # Help is help.pt
-                        'help_column' : HelpColumn("Help", "See help here", "help", "info.gif")
+                        'help_column' : HelpColumn("Help", _(u"See help here"), "help", "info.gif")
                     },
                  ),
          ),
@@ -119,8 +128,8 @@ class DataGridDemoType2(atapi.BaseContent):
         """
         return atapi.DisplayList(
 
-            (("sample", "Sample value 1",),
-            ("sample2", "Sample value 2",),))
+            (("sample", _(u"Sample value 1"),),
+            ("sample2", _(u"Sample value 2"),),))
 
 atapi.registerType(DataGridDemoType2, PKG_NAME)
 
@@ -140,8 +149,8 @@ class InvalidDataGridDemoType(atapi.BaseContent):
                 columns=("column1", "column2", "select_sample"),
                 widget = DataGridWidget(
                     columns={
-                        'column1' : Column("Toholampi city rox"),
-                        'column2' : Column("My friendly name"),
+                        'column1' : Column(_(u"Toholampi city rox")),
+                        'column2' : Column(_(u"My friendly name")),
                     },
           ),),
 
@@ -187,10 +196,13 @@ class FixedRowsDemoType(atapi.BaseContent):
             allow_reorder = False,
             widget = DataGridWidget(
                 label="Skills",
+                label_msgid='DataGridDemoType_label_Skills',
                 description="Language/technology/tool/method for which employer has special interest",
+                description_msgid='DataGridDemoType_help_Skills',
+                i18n_domain='datagridfield',
                 columns= {
-                    "skill" : FixedColumn("Skill"),
-                    "level" : RadioColumn("Level", vocabulary="getSkillLevels")
+                    "skill" : FixedColumn(_(u"Skill")),
+                    "level" : RadioColumn(_(u"Level"), vocabulary="getSkillLevels")
                 }
             ),
             ),
@@ -200,8 +212,8 @@ class FixedRowsDemoType(atapi.BaseContent):
 
     def getSkillLevels(self):
         return atapi.DisplayList(
-            (("bad", "Bad",),
-             ("good", "Good",),
+            (("bad", _(u"Bad"),),
+             ("good", _(u"Good"),),
              ))
 
     def getPredefinedSkillsData(self):

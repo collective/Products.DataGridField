@@ -2,7 +2,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="plone">
+      i18n:domain="datagridfield">
 
 
 <!-- View/edit link cells -->
@@ -35,7 +35,8 @@
     		  <table class="link-cell" style="width: 100%">
     		  	<tr>
     		  	  <td>
-			    	  <span class="discreet">Text:</span>
+			    	  <span class="discreet"
+					i18n:translate="label_datagridwidget_text">Text:</span>
 			   	  </td>
 			   	  <td tal:define="name string:${fieldName}.${column}_desc:records;">
 			    	  <input class="link-cell-desc" tal:attributes="
@@ -47,7 +48,8 @@
                 </tr>
                 <tr>
                 	<td>                	
-			    	  <span class="discreet">Link:</span>
+			    	  <span class="discreet"
+					i18n:translate="label_datagridwidget_link">Link:</span>
 			    	</td>
 			    	<td tal:define="name string:${fieldName}.${column}_link:records;">
 			    	  <input class="link-cell-link" tal:attributes="
@@ -70,7 +72,8 @@
     		  <table class="link-cell" style="width: 100%">
     		  	<tr>
     		  	  <td>
-			    	  <span class="discreet">Text:</span>
+			    	  <span class="discreet"
+					i18n:translate="label_datagridwidget_text">Text:</span>
 			   	  </td>
 			   	  <td>
 			    	  <input class="link-cell-desc" tal:attributes="name string:${fieldName}.${column}_desc:records;
@@ -80,7 +83,8 @@
                 </tr>
                 <tr>
                 	<td>                	
-			    	  <span class="discreet">Link:</span>
+			    	  <span class="discreet"
+					i18n:translate="label_datagridwidget_link">Link:</span>
 			    	</td>
 			    	<td>
 			    	  <input class="link-cell-link" tal:attributes="name string:${fieldName}.${column}_link:records;

@@ -1,0 +1,49 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2009-11-08 18:25+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: datagridfield\n"
+
+#. Default: "Automatically insert new rows when the last row is being filled. When you edit the last row, a new row is created automatically."
+#: ../examples/DataGridDemoType.py:70
+msgid "DataGridDemoType_help_AutoInsertRows"
+msgstr ""
+
+#. Default: "Set default values for created rows. Choose SelectColumn value from the default dictionary""
+#: ../examples/DataGridDemoType.py:82
+msgid "DataGridDemoType_help_DemoField2"
+msgstr ""
+
+#. Default: "Test radio and checkbox columns"
+#: ../examples/DataGridDemoType.py:95
+msgid "DataGridDemoType_help_DemoField3"
+msgstr ""
+
+#. Default: "Help column test"
+#: ../examples/DataGridDemoType.py:108
+msgid "DataGridDemoType_help_DemoField4"
+msgstr ""
+
+#. Default: "Skills"
+#: ../examples/DataGridDemoType.py:197
+msgid "DataGridDemoType_label_Skills"
+msgstr ""
+
+#. Default: "Language/technology/tool/method for which employer has special interest"
+#: ../examples/DataGridDemoType.py:199
+msgid "DataGridDemoType_help_Skills"
+msgstr ""
+

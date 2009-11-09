@@ -2,7 +2,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="plone">
+      i18n:domain="datagridfield">
 <body>
 
     <!-- VIEW -->
@@ -76,9 +76,9 @@
             </table>
 
             <a class="datagridwidget-add-button" id="datagridwidget-add-button"
-			   tal:condition="field/allow_insert"
-               tal:attributes='onclick python: "dataGridFieldFunctions.addRow(\"" + field.getName() + "\")"'
-               i18n:translate="">Add new row</a>
+                   i18n:translate="label_datagridwidget_add_new_row"
+                   tal:condition="field/allow_insert"
+               tal:attributes='onclick python: "dataGridFieldFunctions.addRow(\"" + field.getName() + "\")"'>Add new row</a>
 
 			<tal:comment replace="nothing">
 				<!-- Button that allows creation of the initial row when DGF is empty -->

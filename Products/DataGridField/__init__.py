@@ -13,6 +13,9 @@ __author__ = "Mikko Ohtamaa <mikko@redinnovation.com>"
 __docformat__ = 'epytext'
 
 
+# Zope imports
+from zope.i18nmessageid import MessageFactory
+
 # Plone imports
 from Products.CMFCore.DirectoryView import registerDirectory
 from Products.CMFCore.permissions import AddPortalContent
@@ -35,6 +38,11 @@ from Products.DataGridField.LinesColumn import LinesColumn
 from Products.DataGridField import validators
 
 from Products.DataGridField.config import PKG_NAME, GLOBALS
+
+# Import "MessageFactory" to create messages in the DataGridField domain
+DGFMessageFactory = MessageFactory('datagridfield')
+# Import "MessageFactory" to create messages in the plone domain
+PloneMessageFactory = MessageFactory('plone')
 
 registerDirectory('skins', GLOBALS)
 

@@ -2,7 +2,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="plone">
+      i18n:domain="datagridfield">
 
 <!-- DataGridWidget row manipulators renderer
 
@@ -39,6 +39,7 @@
 	                  	src string:${portal_url}/add_row_icon.gif;
 	                  	"
 	                  alt="Add row"
+                          i18n:attributes="alt label_datagridwidget_manipulators_addrow"  
 	                  onclick="dataGridFieldFunctions.addRowAfter(this); return false"/>
 	         </td>          	
 
@@ -51,6 +52,7 @@
 	                  	src string:${portal_url}/delete_row_icon.gif;
 	                  	"
 	                  alt="Delete row"
+                          i18n:attributes="alt label_datagridwidget_manipulators_deleterow"
 	                  onclick="dataGridFieldFunctions.removeFieldRow(this);return false"/>
 	         </td>
 		
@@ -63,6 +65,7 @@
 		             	src string:${portal_url}/move_row_up_icon.gif;
 		             	"
 		             alt="Move row up"
+                             i18n:attributes="alt label_datagridwidget_manipulators_moverowup"
 		             tal:condition="python: widget.isReorderEnabled(context, field)"
 		             onclick="dataGridFieldFunctions.moveRowUp(this);return false"/>
 		
@@ -77,6 +80,7 @@
 		             	src string:${portal_url}/move_row_down_icon.gif;
 		             	"
 		             alt="Move row down"
+                             i18n:attributes="alt label_datagridwidget_manipulators_moverowdown"
 		             tal:condition="python: widget.isReorderEnabled(context, field)"
 		             onclick="dataGridFieldFunctions.moveRowDown(this);return false"/>
 		

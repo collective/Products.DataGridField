@@ -5,7 +5,11 @@ Changelog
 1.8a2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added support for Spanish localization 
+  [macagua]
+
+- Added support for i18n 
+  [macagua]
 
 
 1.8a1 (2009-11-07)

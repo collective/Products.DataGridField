@@ -1,14 +1,16 @@
 <?xml version="1.0"?>
 <object name="InvalidDataGridDemoType"
-   meta_type="Factory-based Type Information"
-   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">InvalidDataGridDemoType</property>
- <property name="description"> DataGridField declaration with errors
+        meta_type="Factory-based Type Information"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        i18n:domain="plone">
+     
+ <property name="title" i18n:translate="">InvalidDataGridDemoType</property>
+ <property name="description" i18n:translate=""> DataGridField declaration with errors
 
       Errors should be detected run-time, with helpful error messages.
 
       This class is missing column definition select_sample in DataGridWidget
-      </property>
+ </property>
  <property name="content_icon">document_icon.gif</property>
  <property name="content_meta_type">InvalidDataGridDemoType</property>
  <property name="product">DataGridField</property>
