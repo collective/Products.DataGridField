@@ -11,6 +11,10 @@ Changelog
 - Added support for i18n 
   [macagua]
 
+- the TD cells of a rendered DGF field now contain an additional
+  CSS class 'col-$colnumber'
+  [ajung]
+
 
 1.8a1 (2009-11-07)
 ------------------
