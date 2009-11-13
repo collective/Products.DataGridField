@@ -5,6 +5,11 @@ History
 From 1.7 (svn/unreleased)
 -------------------------
 
+- the TD cells of a rendered DGF field now contain an additional
+  CSS class 'col-$colnumber'
+  [ajung]
+
+
 - When there is an empty row with the template_row_marker and
   validation fails (for any field), make sure we do not end up with
   *two* empty rows.
