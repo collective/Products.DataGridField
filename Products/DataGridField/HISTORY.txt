@@ -5,7 +5,9 @@ History
 1.6.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- the TD cells of a rendered DGF field now contain an additional
+  CSS class 'col-$colnumber'
+  [ajung]
 
 
 1.6.1 (2009-10-23)
