@@ -126,29 +126,7 @@ class DataGridField(ObjectField):
             # In fact the RFC822Marshaller passes a string. 
             
             logging.debug("Doing string marshalling")
-            
-            records = []
-            dict = {}
-            if value=='()': # If DGF widget was hidden on creation form
-                rows = list()
-            else:
-                rows = value.strip("{}(),").split(',')
-            for atuple in rows:
-                if not atuple:
-                    continue
-                key, val = atuple.split(":", 1)
-                key, val = key.strip(), val.strip()
-                try:
-                    dict[key].append(val)
-                except AttributeError:
-                    dict[key] = [dict[key], val]
-                except KeyError:
-                    dict[key] = val
-
-            if len(dict) > 0:
-                records.append(dict)
-
-            value = records         
+            value = eval(value)        
         else:
             
             # Passed in value is a HTML form data
