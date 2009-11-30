@@ -20,7 +20,7 @@
 	  	   		  type="checkbox"
 				  value="1"
 		   		  tal:attributes="checked python:rows.get(column) == '1';
- 		   		  				 name string:${fieldName}.${column}.${repeat/rows/number};
+ 		   		  				 name string:${fieldName}.${column}:records;
 		   		  				 id string:${column}_${fieldId};			   		  				 
 	   		  				 "/>
     </metal:edit_cell_macro>
@@ -32,7 +32,7 @@
 		   <input class="noborder"
 		   		  type="checkbox"
 				  value="1"
-		   		  tal:attributes="name string:${fieldName}.${column}.999999;"
+		   		  tal:attributes="name string:${fieldName}.${column}:records;"
 				/>
 		</tal:block>
     </metal:edit_cell_macro>
