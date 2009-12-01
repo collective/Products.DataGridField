@@ -285,7 +285,7 @@ dataGridFieldFunctions.updateRadioButtonGroupName = function (row, newIndex) {
 
    var cell;
    var xre = new RegExp(/^radio/)
-   var xre2 = new RegExp(/^checkbox/)
+   //var xre2 = new RegExp(/^checkbox/)
    
     for (var c = 0; (cell = row.getElementsByTagName('INPUT').item(c)); c++) {
    	    	    
