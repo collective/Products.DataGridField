@@ -32,12 +32,11 @@
     <metal:define define-macro="edit">
       <metal:use use-macro="field_macro | here/widgets/field/macros/edit">
         <metal:body metal:fill-slot="widget_body">
-            
             <table class="datagridwidget-table-edit"
 		       	tal:attributes="id python: 'datagridwidget-table-' + field.getName()"
             	style="width: 100%"
                 tal:define="columns python:widget.getColumnDefs(field, context);
-                            fielddata python: value or field.getEditAccessor(context)();                           
+                            fielddata python: [x for x in value or field.getEditAccessor(context)() if x.get('orderindex_', None) != 'template_row_marker'];
                             eventHandler python: test(widget.isAutoInsertEnabled(), 'dataGridFieldFunctions.autoInsertRow(event)', '')
                            ">
                 <thead tal:condition="python: widget.hasHeader(context, field)">
