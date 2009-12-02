@@ -291,7 +291,7 @@ dataGridFieldFunctions.updateRadioButtonGroupName = function (row, newIndex) {
    	    	    
    	   	if(cell.getAttribute('type')) {
    	   		var type = cell.getAttribute('type');
-             if (xre.exec(type) || xre2.exec(type)) {          
+             if (xre.exec(type) /*|| xre2.exec(type)*/) {          
             	
 				var name = cell.getAttribute("NAME")
 				if(name == null) continue;
