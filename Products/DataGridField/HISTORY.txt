@@ -15,6 +15,9 @@ Changelog
   CSS class 'col-$colnumber'
   [ajung]
 
+- removed pointless Plone==4 pinning in setup.py causing more
+  problems than it actually solves
+
 
 1.8a1 (2009-11-07)
 ------------------

@@ -33,7 +33,6 @@ setup(name='Products.DataGridField',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
-          'Plone>=4.0a1',
       ],
       entry_points="""
       # -*- Entry points: -*-
