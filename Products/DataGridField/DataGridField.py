@@ -1,6 +1,6 @@
 """
     DataGridField field class
-    
+
     Copyright 2006 DataGridField authors, see documentation for details
 
 """
@@ -42,36 +42,36 @@ class DataGridField(ObjectField):
         'mode' : 'rw',
         # inital data of the field in form sequence of dicts
         'default' : ({},),
-        
+
         'widget' : DataGridWidget,
-        
+
         # Column id list (sequence of strings)
         'columns' : ('default',),
 
         # sequence of FixedRow instances.
-        # See FixedRow class documentation   
+        # See FixedRow class documentation
         'fixed_rows' : [],
-    
-        # User can append new rows. Currently UI feature. This is not yet checked 
-        # at application level in set().        
+
+        # User can append new rows. Currently UI feature. This is not yet checked
+        # at application level in set().
         'allow_insert' : True,
-        
+
         # User can delete rows. This is currently UI feature (red delete button).
         # This is not yet checked at application level in set().
         'allow_delete' : True,
-        
+
         # User can reorder rows. This is currently UI feature (ordering buttons).
-        # This is not yet checked at application level in set().      
+        # This is not yet checked at application level in set().
         'allow_reorder' : True,
-         
+
          # If true all the contents of the DataGridField is concatenated
          # to searchable text and given to text indexer
         'searchable' : False,
-        
+
         # Set to false to allow empty rows in the data.
         # Needed for auto insert feature
         'allow_empty_rows' : True,
-        
+
         # Set to true to hifhligh odd/even rows in edit/view form
         'allow_oddeven' : False,
         })
@@ -91,66 +91,66 @@ class DataGridField(ObjectField):
         columns = getattr(self, 'columns', None)
         if isinstance(columns, basestring):
             fct = getattr(instance, columns, None)
-            if fct: 
+            if fct:
                 return fct()
             else:
                 return list()
         return columns or list()
-    
+
     security.declarePrivate('set')
     def set(self, instance, value, **kwargs):
         """
         The passed in object should be a records object, or a sequence of dictionaries
         """
-        
+
         # Help to localize problems in Zope trace back
         __traceback_info__ = value, type(value)
 
         # we sanitize the values
         cleaned = []
         doSort = False
-        
+
         logging.debug("Setting DGF value to " + str(value))
-        
+
         if value == ({},):
             # With some Plone versions, it looks like that AT init
             # causes DGF to get one empty dictionary as the base value
-            # and later, it will be appended as a cleaned row below if 
-            # we don't filter out it here. 
+            # and later, it will be appended as a cleaned row below if
+            # we don't filter out it here.
             value = []
-            
-        
+
+
         if isinstance(value, basestring):
             # In the field mutator (set) the
             # passed value is not always a record, but sometimes a string.
-            # In fact the RFC822Marshaller passes a string. 
-            
+            # In fact the RFC822Marshaller passes a string.
+
             logging.debug("Doing string marshalling")
-            value = eval(value)        
+            value = eval(value)
         else:
-            
+
             # Passed in value is a HTML form data
             # from DataGridWidget. Value is Python array,
             # each item being a dictionary with column_name : value mappins
             # + orderinder which is used in JS reordering
-            
+
             for row in value:
                 order = row.get('orderindex_', None)
-                
+
                 empty = True
-                                
+
                 if order != "template_row_marker":
                     # don't process hidden template row as
-                    # input data                     
-                    
+                    # input data
+
                     val = {}
                     for col in self.getColumnIds(instance):
                         val[col] = (row.get(col,'')).strip()
-                        
+
                         if val[col] != '':
                             empty = False
-                                                                        
-                    if order is not None:                        
+
+                    if order is not None:
                         try:
                             order = int(order)
                             doSort = True
@@ -191,7 +191,7 @@ class DataGridField(ObjectField):
 
             value = ObjectField.get(self, instance, **kwargs) or ()
             value = self.resetFixedRows(instance, value)
-            
+
             for row in value:
                 for col in self.getColumnIds(instance):
                     buffer.write(row.get(col,''))
@@ -205,9 +205,9 @@ class DataGridField(ObjectField):
             # Return list containing all encoded rows
             value = ObjectField.get(self, instance, **kwargs) or ()
             value = self.resetFixedRows(instance, value)
-            
+
             data = [encode(v, instance, **kwargs) for v in value]
-            
+
             return tuple(data)
 
     security.declarePrivate('getRaw')
@@ -318,82 +318,82 @@ class DataGridField(ObjectField):
         for r in data:
             rows.append(tuple([r[c] for c in self.getColumnIds(instance)]))
         return tuple(rows)
-    
+
     def resetFixedRows(self, instance, data):
         """ See that fixed rows exists.
-        
+
         Go through data (list of rows/dict) and add fixed rows if they are missing.
-        
+
         1. Go through all fixed rows
-        2. See if the key column of the fixed row has value in user data 
+        2. See if the key column of the fixed row has value in user data
         3. If the row is missing, (re)append it
-        
+
         @param data user set data
         @return modified data w/fixed rows present
         """
-        
+
         # is fixed row property used
         if hasattr(self, "fixed_rows") and self.fixed_rows != None:
-                                                                  
+
             if isinstance(self.fixed_rows, basestring):
                 # fixed rows is a name of a member function
-                
+
                 try:
                     func = getattr(instance, self.fixed_rows)
                 except AttributeError:
                     raise AttributeError, "Class %s is missing fixed row data function %s" % (str(instance), self.fixed_rows)
-                                
+
                 fixedRowsData = func()
-                
-            else:                                       
+
+            else:
                 # fixed rows is a direct value
-                
+
                 fixedRowsData = self.fixed_rows
-                
+
             newRows = list(data[:])
-                                            
-            for fixedRow in fixedRowsData:                    
+
+            for fixedRow in fixedRowsData:
                 # go through data set and see if the fixed key value exists
                 keyValue = fixedRow.initialData[fixedRow.keyColumn]
-                                                                        
+
                 exist = False
-                    
+
                 for row in data:
                     if row.has_key(fixedRow.keyColumn):
                         if row[fixedRow.keyColumn] == keyValue:
                             # row exists and has user set value
                             exist = True
                             break
-                            
+
                 if not exist:
                     # initialize fixed data
                     newRows.append(fixedRow.initialData)
-                                                              
+
             return tuple(newRows)
         else:
             # fixed rows behavior is disabled
             return data
-    
-        
-class FixedRow:    
+
+
+class FixedRow:
     """ Row which is always present at DataGridField data.
-    
+
     This is a useful use case for situations where user must be
-    forced to fill in some rows containing pre-set data. An example could 
+    forced to fill in some rows containing pre-set data. An example could
     be the filling of programming language knowledge in CV. Languages are preset
-    and user fills in his/her experience. User can also add some weird languages outside 
+    and user fills in his/her experience. User can also add some weird languages outside
     pre-set languages.
-    
+
     Instead of going with normal field.default behavior, fixed rows allow some flexibility
     when changing the fixed data set after item initialization. For example,
     the set of programming languages can be updated and user refills missing values
     to his/her CV.
     """
-        
+
     def __init__(self, keyColumn, initialData):
         """
         @param initialData Dictionary for the row when user has deleted the fiexd row/item is initialized
-        @param keyColumn Column which existence of value determines the need for a fixed row 
+        @param keyColumn Column which existence of value determines the need for a fixed row
         """
         self.keyColumn = keyColumn
         self.initialData = initialData
