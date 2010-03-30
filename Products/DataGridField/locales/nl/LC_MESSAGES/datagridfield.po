@@ -1,0 +1,125 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.1\n"
+"POT-Creation-Date: 2009-10-13 15:00+0000\n"
+"PO-Revision-Date: 2010-03-17 14:51+0100\n"
+"Last-Translator: Martijn Schenk <martijn.schenk@fourdigits.nl>\n"
+"Language-Team: Rob Gietema <rob@fourdigits.nl>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: nl\n"
+"Language-Name: Dutch\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: datagridfield\n"
+
+#: ../examples/DataGridDemoType.py:215
+msgid "Bad"
+msgstr "Incorrect"
+
+#. Default: "Automatically insert new rows when the last row is being filled. When you edit the last row, a new row is created automatically."
+#: ../examples/DataGridDemoType.py:70
+msgid "DataGridDemoType_help_AutoInsertRows"
+msgstr "Automatisch invoegen van nieuwe regels indien de laaste regel is gevuld. Als u de laatste regel bewerkt, zal er automatisch een nieuwe regel gecreëerd worden"
+
+#. Default: "Set default values for created rows. Choose SelectColumn value from the default dictionary""
+#: ../examples/DataGridDemoType.py:82
+msgid "DataGridDemoType_help_DemoField2"
+msgstr "Stel standaard waarden in voor geselecteerde regels. Kies SelectColumn waarde vanuit het standaard woordenboek"
+
+#. Default: "Test radio and checkbox columns"
+#: ../examples/DataGridDemoType.py:95
+msgid "DataGridDemoType_help_DemoField3"
+msgstr "Test radio en checkbox kolommen"
+
+#. Default: "Help column test"
+#: ../examples/DataGridDemoType.py:108
+msgid "DataGridDemoType_help_DemoField4"
+msgstr "Help kolom test"
+
+#. Default: "Language/technology/tool/method for which employer has special interest"
+#: ../examples/DataGridDemoType.py:199
+msgid "DataGridDemoType_help_Skills"
+msgstr "Taal/technologie/gereedschap/methode voor medewerkers met speciale interesses"
+
+#. Default: "Skills"
+#: ../examples/DataGridDemoType.py:197
+msgid "DataGridDemoType_label_Skills"
+msgstr "Stel standaard waardes in voor de gemaakte regels. Kies SelectColumn waardes vanuit het standaard woordenboek"
+
+#: ../examples/DataGridDemoType.py:89
+msgid "Friendly name"
+msgstr "Weergave naam"
+
+#: ../examples/DataGridDemoType.py:216
+msgid "Good"
+msgstr "Goed"
+
+#: ../examples/DataGridDemoType.py:205
+msgid "Level"
+msgstr "Niveau"
+
+#: ../examples/DataGridDemoType.py:88
+msgid "My friendly name"
+msgstr "Mijn weergave naam"
+
+#: ../examples/DataGridDemoType.py:131
+msgid "Sample value 1"
+msgstr "Voorbeeld 1"
+
+#: ../examples/DataGridDemoType.py:132
+msgid "Sample value 2"
+msgstr "Voorbeeld 2"
+
+#: ../examples/DataGridDemoType.py:116
+msgid "See help here"
+msgstr "Help"
+
+#: ../examples/DataGridDemoType.py:204
+msgid "Skill"
+msgstr "Behendigheid"
+
+#: ../examples/DataGridDemoType.py:88
+msgid "Some default text"
+msgstr "Standaart tekst"
+
+#: ../examples/DataGridDemoType.py:87
+msgid "Toholampi city rox"
+msgstr "Toholampi city rox"
+
+#. Default: "Add new row"
+#: ../skins/DataGridWidget/datagridwidget.pt:78
+msgid "label_datagridwidget_add_new_row"
+msgstr "Voeg regel toe"
+
+#. Default: "Link:"
+#: ../skins/DataGridWidget/datagrid_link_cell.pt:51
+msgid "label_datagridwidget_link"
+msgstr "Link"
+
+#. Default: "Add row"
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:38
+msgid "label_datagridwidget_manipulators_addrow"
+msgstr "Voeg regel toe"
+
+#. Default: "Delete row"
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:51
+msgid "label_datagridwidget_manipulators_deleterow"
+msgstr "Verwijder regel"
+
+#. Default: "Move row down"
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:79
+msgid "label_datagridwidget_manipulators_moverowdown"
+msgstr "Verplaats regel naar beneden"
+
+#. Default: "Move row up"
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:64
+msgid "label_datagridwidget_manipulators_moverowup"
+msgstr "Verplaats regel naar boven"
+
+#. Default: "Text:"
+#: ../skins/DataGridWidget/datagrid_link_cell.pt:38
+msgid "label_datagridwidget_text"
+msgstr "Tekst"
+

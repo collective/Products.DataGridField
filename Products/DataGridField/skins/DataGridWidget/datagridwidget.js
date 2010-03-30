@@ -188,7 +188,7 @@ dataGridFieldFunctions.moveRowDown = function(currnode){
     // If this was the last row (before the blank row at the end used to create
     // new rows), move to the top, else move down one.
     if(idx + 2 == rows.length) {
-        var nextRow = rows.item[0]
+        var nextRow = rows[0]
         this.shiftRow(row, nextRow)
     } else {
         var nextRow = rows[idx+1]

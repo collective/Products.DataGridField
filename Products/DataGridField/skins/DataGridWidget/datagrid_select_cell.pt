@@ -3,14 +3,14 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="plone">
-      
-      
+
+
 <!-- View/edit drop down select menu cells -->
 
 <body>
     <!-- VIEW -->
     <metal:view_cell_macro define-macro="view_cell"
-      tal:define="vocab python: column_definition.getVocabulary(context)">                
+      tal:define="vocab python: column_definition.getVocabulary(context)">
       <div tal:content="python:widget.getUserFriendlySelectionItem(here, cell_value, vocab)" />
     </metal:view_cell_macro>
 
@@ -37,7 +37,7 @@
                 tal:attributes="name string:${fieldName}.${column}:records;
                                 id string:${column}_${fieldId};
                                 ">
-                
+
                <option tal:repeat="item vocab"
                   tal:attributes="value item;
                                   selected python:item==column_definition.getDefault(context) and 'selected' or None;"

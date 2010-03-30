@@ -2,12 +2,12 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="plone">
+      i18n:domain="datagridfield">
 
-<!-- DataGridWidget row manipulators renderer  
+<!-- DataGridWidget row manipulators renderer
 
 	Render delete and reorder buttons for DataGridWidget
-	in edit mode. They are rendered as two table cell where 
+	in edit mode. They are rendered as two table cell where
 	images with Javascript code are placed.		
 	
 	Uses variable newRow define if the row is the automatically
@@ -16,12 +16,12 @@
 	Also, include the hidden orderindex field here.
 	
 	Author: Mikko Ohtamaa, Red Innovation, 2006 <http://www.redinnovation.com>
--->   
-         
+-->
+
 <body>
 
-    <metal:define define-macro="edit_manipulators">   
-    
+    <metal:define define-macro="edit_manipulators">
+
      	 <tal:manipulator-cells>
      	 	
      	 	<tal:comment replace="nothing">
@@ -30,7 +30,7 @@
           	</tal:comment>
           	                  	
           	<tal:comment replace="nothing">
-          		<!-- Insert -->	        
+          		<!-- Insert -->	
           	</tal:comment>
           	
 	         <td  class="datagridwidget-manipulator"
@@ -38,54 +38,64 @@
 	             <img tal:attributes="
 	                  	src string:${portal_url}/add_row_icon.gif;
 	                  	"
-	                  alt="Add row"  
+	                  alt="Add row"
+	                  title="Add row"
+                          i18n:attributes="alt label_datagridwidget_manipulators_addrow;
+                                           title label_datagridwidget_manipulators_addrow"  
 	                  onclick="dataGridFieldFunctions.addRowAfter(this); return false"/>
 	         </td>          	
 
           	<tal:comment replace="nothing">
-          		<!-- Delete -->	        
-          	</tal:comment>    
+          		<!-- Delete -->	
+          	</tal:comment>
 	         <td  class="datagridwidget-manipulator"
 	         	tal:condition="python: widget.isDeleteEnabled(context, field)">
 	             <img tal:attributes="
 	                  	src string:${portal_url}/delete_row_icon.gif;
 	                  	"
-	                  alt="Delete row"  
+	                  alt="Delete row"
+	                  title="Delete row"
+                          i18n:attributes="alt label_datagridwidget_manipulators_deleterow;
+                                           title label_datagridwidget_manipulators_deleterow"
 	                  onclick="dataGridFieldFunctions.removeFieldRow(this);return false"/>
 	         </td>
-		    
+		
           	<tal:comment replace="nothing">
-          		<!-- Move up -->	        
-          	</tal:comment>    	    
+          		<!-- Move up -->	
+          	</tal:comment>    	
 		    <td class="datagridwidget-manipulator">
 	
 		       <img tal:attributes="
 		             	src string:${portal_url}/move_row_up_icon.gif;
-		             	" 
-		             alt="Move row up"  
+		             	"
+		             alt="Move row up"
+		             title="Move row up"
+                             i18n:attributes="alt label_datagridwidget_manipulators_moverowup;
+                                              title label_datagridwidget_manipulators_moverowup"
 		             tal:condition="python: widget.isReorderEnabled(context, field)"
 		             onclick="dataGridFieldFunctions.moveRowUp(this);return false"/>
-		                                                    
+		
 		    </td>
-		    
+		
           	<tal:comment replace="nothing">
-          		<!-- Move down -->	        
-          	</tal:comment>    	    		    
+          		<!-- Move down -->	
+          	</tal:comment>    	    		
 		    <td class="datagridwidget-manipulator">
-		    
+		
 		    	<img tal:attributes="
 		             	src string:${portal_url}/move_row_down_icon.gif;
-		             	" 
-		             alt="Move row down"  
+		             	"
+		             alt="Move row down"		             title="Move row down"                             i18n:attributes="alt label_datagridwidget_manipulators_moverowdown;
+                                              title label_datagridwidget_manipulators_moverowdown"
 		             tal:condition="python: widget.isReorderEnabled(context, field)"
 		             onclick="dataGridFieldFunctions.moveRowDown(this);return false"/>
-		             
+		
 		    </td>
-		    
+		
 
           	<tal:comment replace="nothing">
-          		<!-- The index field of this row -->	        
-          	</tal:comment>    	    		    
+          		<!-- The index field of this row -->	
+          	</tal:comment>    	    		
 		    <td class="datagridwidget-hidden-data">
 
 			   <tal:ordering-field tal:condition="newRow">
@@ -93,18 +103,18 @@
 	                       value="template_row_marker"
 	                       tal:attributes="name string:${fieldName}.orderindex_:records;
 	                                       id string:orderindex__${fieldId};" />
-				</tal:ordering-field>	  		    
+				</tal:ordering-field>	  		
 				
 			   <tal:ordering-field tal:condition="not: newRow">
 			       <input type="hidden"
 			               tal:attributes="name string:${fieldName}.orderindex_:records;
 			                               id string:orderindex__${fieldId};
-			                               value repeat/rows/number;" />    
-			   </tal:ordering-field>                                    							    
+			                               value repeat/rows/number;" />
+			   </tal:ordering-field>                                    							
 		    </td>
-		        
+		
 		</tal:manipulator-cells>
     </metal:define>
 </body>
 
-</html>   
+</html>

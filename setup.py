@@ -1,19 +1,23 @@
 from setuptools import setup, find_packages
 import os
 
-version = '2.0rc1'
+version = '1.7_quadra_1.0'
+readme = open(os.path.join("Products", "DataGridField", "README.txt")).read()
+history = open(os.path.join("Products", "DataGridField", "HISTORY.txt")).read()
+long_description = readme + "\n" + history
+
 
 setup(name='Products.DataGridField',
       version=version,
       description="A table input component for Plone.",
-      long_description=open(os.path.join("Products", "DataGridField", "README.txt")).read() + "\n" +
-                       open(os.path.join("Products", "DataGridField", "HISTORY.txt")).read(),
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
+      long_description=long_description,
+      # Get more strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Framework :: Plone",
         "Framework :: Zope2",
+        "Development Status :: 5 - Production/Stable",
         ],
       keywords='Plone DataGridField Archetypes',
       author='Jarn',

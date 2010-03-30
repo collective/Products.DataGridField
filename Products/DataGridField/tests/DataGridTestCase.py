@@ -14,6 +14,7 @@ else:
 class DataGridTestCase(PloneTestCase.PloneTestCase):
 
     class Session(dict):
+
         def set(self, key, value):
             self[key] = value
 

@@ -3,8 +3,8 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="plone">
-      
-      
+
+
 <!-- View/edit radio button choice cells -->
 
 <body>
@@ -15,13 +15,13 @@
     </metal:view_cell_macro>
 
     <!-- EDIT -->
-    <metal:edit_cell_macro define-macro="edit_cell">       
+    <metal:edit_cell_macro define-macro="edit_cell">
 		   <input class="noborder"
 	  	   		  type="checkbox"
 				  value="1"
 		   		  tal:attributes="checked python:rows.get(column) == '1';
  		   		  				 name string:${fieldName}.${column}:records;
-		   		  				 id string:${column}_${fieldId};			   		  				 
+		   		  				 id string:${column}_${fieldId};			   		  				
 	   		  				 "/>
     </metal:edit_cell_macro>
 
@@ -36,7 +36,7 @@
 				/>
 		</tal:block>
     </metal:edit_cell_macro>
-    
+
 </body>
 
 </html>

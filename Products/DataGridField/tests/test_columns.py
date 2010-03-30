@@ -27,13 +27,12 @@ class TestColumns(DataGridTestCase):
         self.folder.invokeFactory('InvalidDataGridDemoType', 'invalid_demo')
         self.invalid_demo = self.folder.invalid_demo
 
-
     def testFill(self):
         """ Test that it is possible to enter data """
-        self.demo.setDemoField([{'column1':'a', 'column2':'b', 'The third':'c'},
-                                {'column1':'d', 'column2':'e', 'The third':'f'}])
+        self.demo.setDemoField([
+                {'column1':'a', 'column2':'b', 'The third':'c'},
+                {'column1':'d', 'column2':'e', 'The third':'f'}])
         self.field = self.demo.getField('DemoField')
-
 
     def testGetVocabulary(self):
         """ Test if vocabulary is received correctly for a select column
@@ -50,7 +49,9 @@ class TestColumns(DataGridTestCase):
         self.assertEqual(vocab.values()[1], 'Sample value 2')
 
     def testInvalidWidgetColumnDefinition(self):
-        """ Try to get column definitions when there is field<->widget mismatch"""
+        """Try to get column definitions when there is field<->widget
+        mismatch.
+        """
 
         try:
             self.invalid_demo.getColumnLabels(self.invalid_demo, self)
@@ -61,7 +62,6 @@ class TestColumns(DataGridTestCase):
             pass
 
         self.failUnless(passed, "Missing widget column ids were not catched")
-
 
     def testGetColumnDefinition(self):
         """ Just get column definitions"""
@@ -76,10 +76,12 @@ class TestColumns(DataGridTestCase):
         col = field.widget.getColumnDefinition(field, self.demo2, "column1")
 
     def testGetColumnNames(self):
-        """ Get user friendly column names """        
+        """ Get user friendly column names """
         field = self.demo2.getField("DemoField2")
         names = field.widget.getColumnLabels(field, self)
-        self.assertEqual(names, ["Toholampi city rox","My friendly name","Friendly name"])
+        self.assertEqual(
+            names,
+            ["Toholampi city rox", "My friendly name", "Friendly name"])
 
     def testGetColumnDefinitionByFunction(self):
         """ Just get column definitions"""
@@ -103,6 +105,3 @@ def test_suite():
     suite = TestSuite()
     suite.addTest(makeSuite(TestColumns))
     return suite
-
-if __name__ == '__main__':
-    framework()

@@ -3,23 +3,23 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="plone">
-      
-      
+
+
 <!-- View/edit radio button choice cells -->
 
 <body>
     <!-- VIEW -->
     <metal:view_cell_macro define-macro="view_cell"
-      tal:define="vocab python: column_definition.getVocabulary(context)">                
+      tal:define="vocab python: column_definition.getVocabulary(context)">
       <div tal:content="python:widget.getUserFriendlySelectionItem(here, cell_value, vocab)" />
     </metal:view_cell_macro>
 
     <!-- EDIT -->
-    <metal:edit_cell_macro define-macro="edit_cell">       
+    <metal:edit_cell_macro define-macro="edit_cell">
     	<table style="width: 100%"
 	       	   	tal:define="vocab python: column_definition.getVocabulary(context)">
 			<tr>       	 		
-		       <td class ="datagridwidget-radio" tal:repeat="item vocab" style="text-align: center">      
+		       <td class ="datagridwidget-radio" tal:repeat="item vocab" style="text-align: center">
 		       	   <span tal:content="python: widget.getUserFriendlySelectionItem(here, item, vocab)"/>
 		       	   <br/>
 				   <input class="noborder"
@@ -27,7 +27,7 @@
 			   		  tal:attributes="checked python:rows.get(column) == item;
 			   		  				 name string:${fieldName}.${column}.${repeat/rows/number};
 			   		  				 value string:${item};
-			   		  				 id string:${column}_${fieldId};			   		  				 
+			   		  				 id string:${column}_${fieldId};			   		  				
 			   		  				 "/>
 
 			  	</td>
@@ -40,23 +40,23 @@
     <metal:edit_cell_macro define-macro="edit_empty_cell">
 		<table style="width: 100%"
 	       	   	tal:define="vocab python: column_definition.getVocabulary(context)">
-    
+
 			<tr>       	 		
-		       <td class="radio" tal:repeat="item vocab" style="text-align: center">      
+		       <td class="radio" tal:repeat="item vocab" style="text-align: center">
 		       	   <span tal:content="python: widget.getUserFriendlySelectionItem(here, item, vocab)"/>
 		       	   <br/>
 				   <input class="noborder"
 				   		  type="radio"
 				   		  tal:attributes="name string:${fieldName}.${column}.999999;
 				   		  				  value string:${item};
-	  			   		  				 
+	  			   		  				
 				   		  				  "/>
 		
 			  	</td>
 			</tr>
 		</table>       	
     </metal:edit_cell_macro>
-    
+
 </body>
 
 </html>

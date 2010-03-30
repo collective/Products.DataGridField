@@ -1,6 +1,22 @@
-(svn/unreleased)
+History
+=======
+
 
 From 1.7 (svn/unreleased)
+-------------------------
+
+- the TD cells of a rendered DGF field now contain an additional
+  CSS class 'col-$colnumber'
+  [ajung]
+
+
+- When there is an empty row with the template_row_marker and
+  validation fails (for any field), make sure we do not end up with
+  *two* empty rows.
+  [maurits+vpretre]
+
+- added LinesColumn (used as custom vocabulary source in PFGDataGrid field)
+  [naro]
 
 - added unique column classnames for thead and tbody table section to identify 
   columns and modify it's properties through css (specially width for each 
@@ -15,7 +31,9 @@ From 1.7 (svn/unreleased)
 - Move installation back to GenericSetup, end of Plone 2.5.x support
   [andrewb, but real thanks goes to wichert]
 
-1.6 (2009-1-28)
+
+1.6 (2009-01-28)
+----------------
 
 - Merging of colliding datagridwidget.css and datagridwidget.css.dtml files.
   Fixes issue #30: http://plone.org/products/datagridfield/issues/30.  Which
@@ -27,7 +45,9 @@ From 1.7 (svn/unreleased)
   http://dev.plone.org/archetypes/changeset/10445
   [andrewb]
 
-From 1.6rc1
+
+1.6rc1
+------
 
 - Adding Plone 2.5.x DataGridField profile "default_25x" to overcome difference in 
   GS namespace for the registration of our skin directory.  Without this, one needed
@@ -54,9 +74,11 @@ From 1.6rc1
 - Made all tests pass in Plone 2.5.x, 3.0.x, and 3.1.x [andrewb]
 
 - Made explicit names for the different GS profiles that one might choose 
- to install within portal_setup [andrewb]
+  to install within portal_setup [andrewb]
 
-From 1.6 beta 3 (unreleased)
+
+1.6 beta 3
+----------
 
 - Eggified in Products.AddRemoveWidget
   [SteveM]
@@ -79,12 +101,16 @@ From 1.6 beta 3 (unreleased)
   See http://plone.org/products/poi/issues/139 and 160.
   [maurits]
 
-From 1.6 beta 2
 
-- Disabled INSTALL_DEMO_TYPES from config.py.  Repeat after me: "enable INSTALL_DEMO_TYPES; 
-  make changes; run tests; disable INSTALL_DEMO_TYPES; commit" :) [andrewburkhalter]
+1.6 beta 2
+----------
 
-From 1.5
+- Disabled INSTALL_DEMO_TYPES from config.py.
+  [andrewburkhalter]
+
+
+1.5
+---
 
 - Pop-up help column by Juan Grigera
 
@@ -100,7 +126,9 @@ From 1.5
 - FixedColumn has optional parameter "visible" (default True). Setting this to False 
   will hide (using css) column from both - view and edit forms.
 
-From 1.5 RC 3
+
+1.5rc3
+------
 
 - Added CheckboxColumn. Implementation based on RadioColumn, so there are same bugs.
   CheckboxColumn lose values if any field on the form raises validation error.
@@ -108,7 +136,9 @@ From 1.5 RC 3
   or fields with validators.
   [Contributor: naro, radim novotny]
 
-From 1.5 RC 2
+
+1.5rc2
+------
 
 - Fixed row adding in IE. This was one of the most horrible debugging session
   I have had. There was some obscure IE bug which prevented making a DOM
@@ -119,12 +149,16 @@ From 1.5 RC 2
   The code is almost there. If someone wants to make it complete, it shouldn't
   take too much time.
 
-From 1.5 RC 1
+
+1.5rc1
+------
 
 - Added workaround for bad DGF initializing which caused empty rows when DGF was created
   programmatically
 
-From 1.0 to 1.5
+
+1.0 to 1.5
+----------
 
 - Plone 2.5 compatibility guaranteed
 
@@ -140,22 +174,22 @@ From 1.0 to 1.5
 
 - (Wolfram Fenske) I18N patch
 
-	Archetypes widgets have an attribute i18n_domain, which is used to
-	determine which message catalog to use for translation. In
-	DataGridField, this attribute is ignored.
-	
-	I have attached a small patch (in fact, smaller than this bug report)
-	which fixes these problems. I didn't want to introduce a lot of new
-	code, so I did the translation of the labels in the Column class, not
-	in the page template, which might also have been a good way to do it.
-	Since the functions "getLabel()" and "getColumnLabels()" are only
-	called by the page template anyway, I believe this is not an issue.
-	But if you'd rather translate the labels in the page template, please
-	let me know and I'll write a different patch.
+  Archetypes widgets have an attribute i18n_domain, which is used to
+  determine which message catalog to use for translation. In
+  DataGridField, this attribute is ignored.
+  
+  I have attached a small patch (in fact, smaller than this bug report)
+  which fixes these problems. I didn't want to introduce a lot of new
+  code, so I did the translation of the labels in the Column class, not
+  in the page template, which might also have been a good way to do it.
+  Since the functions "getLabel()" and "getColumnLabels()" are only
+  called by the page template anyway, I believe this is not an issue.
+  But if you'd rather translate the labels in the page template, please
+  let me know and I'll write a different patch.
 
 - (Juan Grigera) Marshaller patch
 
-	I enjoyed your DataGriedField/Widget product for Plone, and would like
-	to contributea small patch/bugfix. In the field mutator (set) the
-	passed value is not always a record, but sometimes a string.
-	In fact the RFC822Marshaller passes a string. 
+  I enjoyed your DataGriedField/Widget product for Plone, and would like
+  to contributea small patch/bugfix. In the field mutator (set) the
+  passed value is not always a record, but sometimes a string.
+  In fact the RFC822Marshaller passes a string. 

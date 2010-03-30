@@ -2,19 +2,19 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="plone">
-      
-      
+      i18n:domain="datagridfield">
+
+
 <!-- View/edit link cells -->
 
 <body>
     <!-- VIEW -->
     <metal:view_cell_macro define-macro="view_cell"
       tal:define="desc python: column_definition.getDescription(cell_value);
-      			  link python: column_definition.getLink(here, cell_value)"> 
-      			  
-      
-      <a 
+      			  link python: column_definition.getLink(here, cell_value)">
+      			
+
+      <a
       	tal:condition="python: link != ''"
       	tal:attributes="href link;
       					class python:column_definition.getLinkClass()"	
@@ -22,20 +22,21 @@
       	
       <span tal:condition="python: link == ''"
           	tal:content="desc" />
-    
+
     </metal:view_cell_macro>
-    
+
 
     <!-- EDIT -->
-    <metal:edit_cell_macro define-macro="edit_cell">       
-       
+    <metal:edit_cell_macro define-macro="edit_cell">
+
     	  <tal:block  tal:define="desc python: column_definition.getDescription(cell_value);
-      			  link python: column_definition.getRelativeLink(here, cell_value)"> 
-    
+      			  link python: column_definition.getRelativeLink(here, cell_value)">
+
     		  <table class="link-cell" style="width: 100%">
     		  	<tr>
     		  	  <td>
-			    	  <span class="discreet">Text:</span>
+			    	  <span class="discreet"
+					i18n:translate="label_datagridwidget_text">Text:</span>
 			   	  </td>
 			   	  <td tal:define="name string:${fieldName}.${column}_desc:records;">
 			    	  <input class="link-cell-desc" tal:attributes="
@@ -47,7 +48,8 @@
                 </tr>
                 <tr>
                 	<td>                	
-			    	  <span class="discreet">Link:</span>                                       
+			    	  <span class="discreet"
+					i18n:translate="label_datagridwidget_link">Link:</span>
 			    	</td>
 			    	<td tal:define="name string:${fieldName}.${column}_link:records;">
 			    	  <input class="link-cell-link" tal:attributes="
@@ -57,20 +59,21 @@
 	                         "/>
                     </td>
                 </tr>
-              </table>                                                       
+              </table>
           </tal:block>
-                                       
+
     </metal:edit_cell_macro>
 
 
    <!-- EMPTY EDIT -->
     <metal:edit_cell_macro define-macro="edit_empty_cell">
-    	  <tal:block> 
-    
+    	  <tal:block>
+
     		  <table class="link-cell" style="width: 100%">
     		  	<tr>
     		  	  <td>
-			    	  <span class="discreet">Text:</span>
+			    	  <span class="discreet"
+					i18n:translate="label_datagridwidget_text">Text:</span>
 			   	  </td>
 			   	  <td>
 			    	  <input class="link-cell-desc" tal:attributes="name string:${fieldName}.${column}_desc:records;
@@ -80,7 +83,8 @@
                 </tr>
                 <tr>
                 	<td>                	
-			    	  <span class="discreet">Link:</span>                                       
+			    	  <span class="discreet"
+					i18n:translate="label_datagridwidget_link">Link:</span>
 			    	</td>
 			    	<td>
 			    	  <input class="link-cell-link" tal:attributes="name string:${fieldName}.${column}_link:records;
@@ -88,10 +92,10 @@
 	                         "/>
                     </td>
                 </tr>
-              </table>                                                       
+              </table>
           </tal:block>
     </metal:edit_cell_macro>
-    
+
 </body>
 
 </html>

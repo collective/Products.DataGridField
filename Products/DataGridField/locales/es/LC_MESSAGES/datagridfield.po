@@ -1,0 +1,131 @@
+# translation of PloneNetTheme-es.po to Spanish
+# Leonardo Caballero <leonardocaballero@gmail.com>, 2008, 2009.
+# Spanish translation team <plone-conosur@lists.plone.org>
+msgid ""
+msgstr ""
+"Project-Id-Version: DataGridField\n"
+"POT-Creation-Date: 2009-11-09 17:19+0000\n"
+"PO-Revision-Date: 2009-11-08 17:34-0400\n"
+"Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
+"Language-Team: Spanish <plone-conosur@lists.plone.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1\n"
+"Language-Code: es\n"
+"Language-Name: Spanish\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: datagridfield\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+
+#: ../examples/DataGridDemoType.py:215
+msgid "Bad"
+msgstr "Malo"
+
+#. Default: "Automatically insert new rows when the last row is being filled. When you edit the last row, a new row is created automatically."
+#: ../examples/DataGridDemoType.py:70
+#, fuzzy
+msgid "DataGridDemoType_help_AutoInsertRows"
+msgstr "Inserción automática de nuevas filas cuando la ultima fila ha sido is being filled. Cuando usted edita la ultima fila, una nueva fila es creada automáticamente."
+
+#. Default: "Set default values for created rows. Choose SelectColumn value from the default dictionary""
+#: ../examples/DataGridDemoType.py:82
+msgid "DataGridDemoType_help_DemoField2"
+msgstr "Definir valores por defecto para filas creadas. Elija el valor SelectColumn desde la diccionario por defecto"
+
+#. Default: "Test radio and checkbox columns"
+#: ../examples/DataGridDemoType.py:95
+msgid "DataGridDemoType_help_DemoField3"
+msgstr "Prueba de columnas de opción y casilla de comprobación"
+
+#. Default: "Help column test"
+#: ../examples/DataGridDemoType.py:108
+msgid "DataGridDemoType_help_DemoField4"
+msgstr "Prueba de columna de ayuda"
+
+#. Default: "Language/technology/tool/method for which employer has special interest"
+#: ../examples/DataGridDemoType.py:199
+msgid "DataGridDemoType_help_Skills"
+msgstr "Lenguaje/tecnología/herramienta/método para cada empleador tiene especial interés"
+
+#. Default: "Skills"
+#: ../examples/DataGridDemoType.py:197
+msgid "DataGridDemoType_label_Skills"
+msgstr "Habilidades"
+
+#: ../examples/DataGridDemoType.py:89
+msgid "Friendly name"
+msgstr "Nombre amigable"
+
+#: ../examples/DataGridDemoType.py:216
+msgid "Good"
+msgstr "Bueno"
+
+#: ../examples/DataGridDemoType.py:205
+msgid "Level"
+msgstr "Nivel"
+
+#: ../examples/DataGridDemoType.py:88
+msgid "My friendly name"
+msgstr "Mi nombre amigable"
+
+#: ../examples/DataGridDemoType.py:131
+msgid "Sample value 1"
+msgstr "Ejemplo de valor 1"
+
+#: ../examples/DataGridDemoType.py:132
+msgid "Sample value 2"
+msgstr "Ejemplo de valor 2"
+
+#: ../examples/DataGridDemoType.py:116
+msgid "See help here"
+msgstr "Ver la ayuda aquí"
+
+#: ../examples/DataGridDemoType.py:204
+msgid "Skill"
+msgstr "Habilidad"
+
+#: ../examples/DataGridDemoType.py:88
+msgid "Some default text"
+msgstr "Algún texto por defecto"
+
+#: ../examples/DataGridDemoType.py:87
+#, fuzzy
+msgid "Toholampi city rox"
+msgstr "Rox ciudad Toholampi"
+
+#. Default: "Add new row"
+#: ../skins/DataGridWidget/datagridwidget.pt:78
+msgid "label_datagridwidget_add_new_row"
+msgstr "Agregar nueva fila"
+
+#. Default: "Link:"
+#: ../skins/DataGridWidget/datagrid_link_cell.pt:51
+msgid "label_datagridwidget_link"
+msgstr "Enlace:"
+
+#. Default: "Add row"
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:38
+msgid "label_datagridwidget_manipulators_addrow"
+msgstr "Agregar fila"
+
+#. Default: "Delete row"
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:51
+msgid "label_datagridwidget_manipulators_deleterow"
+msgstr "Borrar fila"
+
+#. Default: "Move row down"
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:79
+msgid "label_datagridwidget_manipulators_moverowdown"
+msgstr "Mover fila abajo"
+
+#. Default: "Move row up"
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:64
+msgid "label_datagridwidget_manipulators_moverowup"
+msgstr "Mover fila arriba"
+
+#. Default: "Text:"
+#: ../skins/DataGridWidget/datagrid_link_cell.pt:38
+msgid "label_datagridwidget_text"
+msgstr "Texto:"
+
