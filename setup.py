@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.8a2'
+version = '1.8a3dev'
 readme = open(os.path.join("Products", "DataGridField", "README.txt")).read()
 history = open(os.path.join("Products", "DataGridField", "HISTORY.txt")).read()
 long_description = readme + "\n" + history
