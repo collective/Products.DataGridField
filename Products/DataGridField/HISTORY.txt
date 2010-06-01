@@ -5,6 +5,11 @@ Changelog
 1.8a2 (unreleased)
 ------------------
 
+- Fixed Unauthorized error in queryDataGrid when the aq_parent of an
+  object is private, even when we do not actually need any info from
+  that parent.  (Change ported from 1.6.2.)
+  [maurits]
+
 - Added support for Spanish localization 
   [macagua]
 

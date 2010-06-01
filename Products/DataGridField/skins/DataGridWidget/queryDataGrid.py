@@ -16,7 +16,7 @@ from Products.CMFPlone.utils import safe_hasattr
 
 
 obj = context
-while obj.aq_parent is not None:
+while obj is not None:
     if safe_hasattr(obj, 'Schema') and obj.Schema().has_key(fieldName):
         break
     else:
