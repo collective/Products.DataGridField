@@ -2,7 +2,7 @@ History
 =======
 
 
-1.6.2 (unreleased)
+1.6.2 (2010-06-02)
 ------------------
 
 - Fixed Unauthorized error in queryDataGrid when the aq_parent of an
