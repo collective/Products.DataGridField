@@ -5,6 +5,11 @@ History
 1.6.2 (unreleased)
 ------------------
 
+- Fixed Unauthorized error in queryDataGrid when the aq_parent of an
+  object is private, even when we do not actually need any info from
+  that parent.
+  [maurits]
+
 - the TD cells of a rendered DGF field now contain an additional
   CSS class 'col-$colnumber'
   [ajung]
