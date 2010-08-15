@@ -5,7 +5,8 @@ Changelog
 1.8a3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Register locales directory in zcml.
+  [buchi]
 
 
 1.8a2 (2010-06-02)
