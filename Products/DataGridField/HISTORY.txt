@@ -8,6 +8,9 @@ Changelog
 - Register locales directory in zcml.
   [buchi]
 
+- Added German translations.
+  [buchi]
+
 
 1.8a2 (2010-06-02)
 ------------------
