@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.8a3 (unreleased)
+1.8b1 (2010-08-16)
 ------------------
 
 - Register locales directory in zcml.
