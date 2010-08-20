@@ -153,10 +153,14 @@ class DataGridField(ObjectField):
                 if order != "template_row_marker":
                     # don't process hidden template row as
                     # input data
-
                     val = {}
                     for col in self.getColumnIds():
-                        val[col] = (row.get(col,'')).strip()
+                        row_value = row.get(col,'')
+                        # LinesColumn provides list, not string.
+                        if isinstance(row_value, basestring):
+                            val[col] = row_value.strip()
+                        else:
+                            val[col] = row_value
 
                         if val[col] != '':
                             empty = False
