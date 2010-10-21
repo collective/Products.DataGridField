@@ -20,7 +20,10 @@
             </thead>
             <tbody>
                 <tal:row-loop tal:repeat="rows accessor">
+                  <tal:XXX define="row_number repeat/rows/number;
+                                   oddrow repeat/rows/odd;">
                     <tal:view_row metal:use-macro="here/datagridwidget_view_row/macros/view_row"/>
+                  </tal:XXX>
                 </tal:row-loop>
             </tbody>
         </table>
@@ -62,7 +65,10 @@
                 	</tal:comment>
 
                     <tal:row-loop tal:repeat="rows fielddata" tal:define="newRow python: False">
+                      <tal:XXX define="row_number repeat/rows/number;
+                                       oddrow repeat/rows/odd;">
                     	<tal:row metal:use-macro="here/datagridwidget_edit_row/macros/edit_row"/>
+                      </tal:XXX>
                     </tal:row-loop>
 
                 	<tal:comment replace="nothing">

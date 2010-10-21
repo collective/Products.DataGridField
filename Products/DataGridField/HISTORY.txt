@@ -5,7 +5,10 @@ Changelog
 1.8b2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Workaround a Chameleon tal:repeat and metal:use-macro "repeat"
+  variable scope bug:
+  https://bugs.launchpad.net/chameleon.core/+bug/664761
+  [rossp]
 
 
 1.8b1 (2010-08-16)

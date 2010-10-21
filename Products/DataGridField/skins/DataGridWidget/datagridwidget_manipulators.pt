@@ -103,7 +103,7 @@
 			       <input type="hidden"
 			               tal:attributes="name string:${fieldName}.orderindex_:records;
 			                               id string:orderindex__${fieldId};
-			                               value repeat/rows/number;" />
+			                               value row_number;" />
 			   </tal:ordering-field>                                    							
 		    </td>
 		

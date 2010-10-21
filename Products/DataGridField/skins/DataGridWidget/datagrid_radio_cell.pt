@@ -25,7 +25,7 @@
 				   <input class="noborder"
 			   		  type="radio"
 			   		  tal:attributes="checked python:rows.get(column) == item;
-			   		  				 name string:${fieldName}.${column}.${repeat/rows/number};
+			   		  				 name string:${fieldName}.${column}.${row_number};
 			   		  				 value string:${item};
 			   		  				 id string:${column}_${fieldId};			   		  				
 			   		  				 "/>
