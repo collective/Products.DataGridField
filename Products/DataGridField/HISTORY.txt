@@ -5,6 +5,9 @@ Changelog
 1.8b2 (unreleased)
 ------------------
 
+- Added titles on row manipulators images.
+  [thomasdesvenain]
+
 - Fixed setting a field value using a base string, using json decoder.
   Added tests.
   [thomasdesvenain]
