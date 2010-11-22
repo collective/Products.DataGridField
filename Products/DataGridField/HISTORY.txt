@@ -5,7 +5,9 @@ Changelog
 1.8b2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed setting a field value using a base string, using json decoder.
+  Added tests.
+  [thomasdesvenain]
 
 
 1.8b1 (2010-08-16)
@@ -26,10 +28,10 @@ Changelog
   that parent.  (Change ported from 1.6.2.)
   [maurits]
 
-- Added support for Spanish localization 
+- Added support for Spanish localization
   [macagua]
 
-- Added support for i18n 
+- Added support for i18n
   [macagua]
 
 - the TD cells of a rendered DGF field now contain an additional
@@ -71,12 +73,12 @@ Changelog
 - added LinesColumn (used as custom vocabulary source in PFGDataGrid field)
   [naro]
 
-- added unique column classnames for thead and tbody table section to identify 
-  columns and modify it's properties through css (specially width for each 
-  column seperatly). Now we can remove the style attributes and do some 
+- added unique column classnames for thead and tbody table section to identify
+  columns and modify it's properties through css (specially width for each
+  column seperatly). Now we can remove the style attributes and do some
   template code cleanup.  [saily]
 
-- allow Products.Archetypes.interfaces.IVocabulary providing objects as 
+- allow Products.Archetypes.interfaces.IVocabulary providing objects as
   Vocabularies. This makes SelectColumn usable in archetypes.schemaextender
   w/o having to patch the extended class.
   [jensens]
@@ -102,31 +104,31 @@ Changelog
 1.6rc1
 ------
 
-- Adding Plone 2.5.x DataGridField profile "default_25x" to overcome difference in 
+- Adding Plone 2.5.x DataGridField profile "default_25x" to overcome difference in
   GS namespace for the registration of our skin directory.  Without this, one needed
-  to manually add the correct FSDV within the portal_skins tool for .pt, .dtml, 
-  images, etc. to exist with the DataGridWidget's skins directory. [andrewb] 
+  to manually add the correct FSDV within the portal_skins tool for .pt, .dtml,
+  images, etc. to exist with the DataGridWidget's skins directory. [andrewb]
 
-- Adding back Extensions and Install.py with install() function for consistent 
-  Add/Remove Products experience back to Plone 2.5.x, which did not handle 
+- Adding back Extensions and Install.py with install() function for consistent
+  Add/Remove Products experience back to Plone 2.5.x, which did not handle
   GenericSetup profile-based installation.  The install code delegates to Generic
   Setup for maximal code reuse. The justification is that to completely remove
   a Add/Remove Product support in Plone 2.5.x between a beta 2 and beta 3 release
   is overly extreme.  This will workaround will be rectified in a future release. [andrewb]
-  
-  Note: This was added manually without history because the the eggified version 
+
+  Note: This was added manually without history because the the eggified version
   of DataGridField was moved, rather than copied, thus no history at:
   http://dev.plone.org/archetypes/log/Products.DataGridField?action=follow_copy&rev=&stop_rev=&mode=follow_copy
 
-- Updated installation instructions, info about example types, and added note about ceasing 
+- Updated installation instructions, info about example types, and added note about ceasing
   Plone 2.5.x support [andrewb]
 
-- Removed check of "@@plone_lock_info" within example types' GS declarations, 
+- Removed check of "@@plone_lock_info" within example types' GS declarations,
   so actions render in pre-Plone locking era [andrewb]
 
 - Made all tests pass in Plone 2.5.x, 3.0.x, and 3.1.x [andrewb]
 
-- Made explicit names for the different GS profiles that one might choose 
+- Made explicit names for the different GS profiles that one might choose
   to install within portal_setup [andrewb]
 
 
@@ -142,7 +144,7 @@ Changelog
 - Move installation to GenericSetup.
   [wichert]
 
-- Removed lots and lots of unneeded import. Pyflakes found that Plone 2.1 
+- Removed lots and lots of unneeded import. Pyflakes found that Plone 2.1
   support has been broken for a while, so stop claiming it's still supported.
   [wichert]
 
@@ -176,7 +178,7 @@ Changelog
 - DataGridField has new property allow_oddeven. Setting this to True will highlight
   odd end even rows in the view/edit tables. Default: False
 
-- FixedColumn has optional parameter "visible" (default True). Setting this to False 
+- FixedColumn has optional parameter "visible" (default True). Setting this to False
   will hide (using css) column from both - view and edit forms.
 
 
@@ -196,8 +198,8 @@ Changelog
 - Fixed row adding in IE. This was one of the most horrible debugging session
   I have had. There was some obscure IE bug which prevented making a DOM
   node orignally hidden to visible. I created "hacky" workaround for this.
-  Tested in IE 6.0 and FF 1.5. 
-  
+  Tested in IE 6.0 and FF 1.5.
+
 - Wolfram Fenske's I18N patch is disabled, since it doesn't work in Plone 2.5.
   The code is almost there. If someone wants to make it complete, it shouldn't
   take too much time.
@@ -219,18 +221,18 @@ Changelog
   now optional, thus making it possible for columns to have prefilled
   default values without creating a mess. Disabling auto insert is necessary
   for columns like SelectWidget which don't have empty default values.
-  
+
 - Refactored page template code to be more easily extendable. Now CSS file
   is used for styling DataGridWidgets.
 
-- New column type: Link column 
+- New column type: Link column
 
 - (Wolfram Fenske) I18N patch
 
   Archetypes widgets have an attribute i18n_domain, which is used to
   determine which message catalog to use for translation. In
   DataGridField, this attribute is ignored.
-  
+
   I have attached a small patch (in fact, smaller than this bug report)
   which fixes these problems. I didn't want to introduce a lot of new
   code, so I did the translation of the labels in the Column class, not
@@ -245,4 +247,4 @@ Changelog
   I enjoyed your DataGriedField/Widget product for Plone, and would like
   to contributea small patch/bugfix. In the field mutator (set) the
   passed value is not always a record, but sometimes a string.
-  In fact the RFC822Marshaller passes a string. 
+  In fact the RFC822Marshaller passes a string.

@@ -241,6 +241,35 @@ class TestSpecialRowsBehavior(DataGridTestCase):
         self.assertEqual(self.restrictedField.widget.isReorderEnabled(
                 self.demo, self.restrictedField), False)
 
+    def testSetStringValue(self):
+        self.demo.setDemoField('({"column1":"must-exist-1","column2":"testvalue"})')
+        data = self.field.get(self.demo)
+        self.checkForCellValue(data, "column1", "must-exist-1")
+        self.checkForCellValue(data, "column2", "testvalue")
+
+        self.demo.setDemoField("[{'column1': 'must-exist-1', 'column2': 'testvalue'}]")
+        data = self.field.get(self.demo)
+        self.checkForCellValue(data, "column1", "must-exist-1")
+        self.checkForCellValue(data, "column2", "testvalue")
+
+        self.demo.setDemoField('[{"column1": "must-exist-1", "column2": "testvalue"}]')
+        data = self.field.get(self.demo)
+        self.checkForCellValue(data, "column1", "must-exist-1")
+        self.checkForCellValue(data, "column2", "testvalue")
+
+        self.demo.setDemoField('({"column1": "must-exist-1", "column2": "testvalue"})')
+        data = self.field.get(self.demo)
+        self.checkForCellValue(data, "column1", "must-exist-1")
+        self.checkForCellValue(data, "column2", "testvalue")
+
+        # test with many lines
+
+        self.demo.setDemoField('({"column1":"must-exist-1","column2":"testvalue"}, {"column1":"must-exist-2","column2":"testvalue2"})')
+        value = self.demo.getDemoField()
+        self.assertEqual(value[0]['column1'], "must-exist-1")
+        self.assertEqual(value[0]['column2'], "testvalue")
+        self.assertEqual(value[1]['column1'], "must-exist-2")
+        self.assertEqual(value[1]['column2'], "testvalue2")
 
 class TestLinkUtils(DataGridTestCase):
     """ Test LinkColumn link transforms """

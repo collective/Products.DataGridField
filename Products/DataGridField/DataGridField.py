@@ -5,6 +5,7 @@
 
 """
 from __future__ import nested_scopes
+import json
 
 __docformat__ = 'epytext'
 __author__  = 'Mikko Ohtamaa <mikko@redinnovation.com>'
@@ -113,31 +114,17 @@ class DataGridField(ObjectField):
             # we don't filter out it here.
             value = []
 
-
         if isinstance(value, basestring):
-            # In the field mutator (set) the
-            # passed value is not always a record, but sometimes a string.
-            # In fact the RFC822Marshaller passes a string.
+            # replace () by []
+            value = value.strip()
+            if value.startswith('('):
+                value = "[%s]" % value[1:-1]
 
-            logging.debug("Doing string marshalling")
+            # if simple quotes are used as separators, replace them by '"'
+            if value.replace(' ', '')[2] == "'":
+                value = value.replace("'",'"')
 
-            records = []
-            dict = {}
-            rows = value.strip("{}").split(',')
-            for atuple in rows:
-                key, val = atuple.split(":", 1)
-                key, val = key.strip(), val.strip()
-                try:
-                    dict[key].append(val)
-                except AttributeError:
-                    dict[key] = [dict[key], val]
-                except KeyError:
-                    dict[key] = val
-
-            if len(dict) > 0:
-                records.append(dict)
-
-            value = records
+            value = json.loads(value)
         else:
 
             # Passed in value is a HTML form data
