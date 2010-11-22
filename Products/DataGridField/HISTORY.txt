@@ -5,6 +5,9 @@ Changelog
 1.8b2 (unreleased)
 ------------------
 
+- French translation.
+  [thomasdesvenain]
+
 - Added titles on row manipulators images.
   [thomasdesvenain]
 
