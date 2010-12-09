@@ -63,13 +63,24 @@ dataGridFieldFunctions.autoInsertRow = function(e) {
     if(rows.length-1 ==(thisRow.rowIndex)) {
 	    // Create a new row
 	    var newtr = this.createNewRow(lastRow);
-	                                                        
-	    // Put new row to DOM tree before template row        
+
+	    // Put new row to DOM tree before template row
 		lastRow.parentNode.insertBefore(newtr, lastRow);
-		
+
 		// update orderindex hidden fields
-		this.updateOrderIndex(tbody);	        	    
-    }    
+		this.updateOrderIndex(tbody);
+
+        // register KSS events
+        if (kukit) {
+            var node = newtr;
+            var insertedNodes = [];
+            for (var i=0; i<node.childNodes.length; i++) {
+                insertedNodes.push(node.childNodes[i]);
+            }
+            kukit.engine.setupEvents(insertedNodes);
+            kukit.logDebug(insertedNodes.length + ' nodes events updated.');
+        }
+    }
 }
 
 dataGridFieldFunctions.addRowAfter = function(currnode) {
@@ -87,7 +98,17 @@ dataGridFieldFunctions.addRowAfter = function(currnode) {
 	
 	// update orderindex hidden fields
 	this.updateOrderIndex(tbody);	
-  
+
+    // register KSS events
+    if (kukit) {
+        var node = newtr;
+        var insertedNodes = [];
+        for (var i=0; i<node.childNodes.length; i++) {
+            insertedNodes.push(node.childNodes[i]);
+        }
+        kukit.engine.setupEvents(insertedNodes);
+        kukit.logDebug(insertedNodes.length + ' nodes events updated.');
+    }
 }
 
 dataGridFieldFunctions.addRow = function(id) {
@@ -112,6 +133,16 @@ dataGridFieldFunctions.addRow = function(id) {
 	// update orderindex hidden fields
 	this.updateOrderIndex(tbody);		
       
+    // register KSS events
+    if (kukit) {
+        var node = newtr;
+        var insertedNodes = [];
+        for (var i=0; i<node.childNodes.length; i++) {
+            insertedNodes.push(node.childNodes[i]);
+        }
+        kukit.engine.setupEvents(insertedNodes);
+        kukit.logDebug(insertedNodes.length + ' nodes events updated.');
+    }
 }
 
 dataGridFieldFunctions.createNewRow = function(tr) { 
