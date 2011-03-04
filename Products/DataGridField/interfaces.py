@@ -5,7 +5,7 @@ class DemoProfile(Z3Interface):
 
 
 # Zope imports
-from Interface import Interface
+from zope.interface import Interface
 
 # DataGrid interfaces
 class IDataGridField(Interface):

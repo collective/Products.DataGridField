@@ -200,6 +200,7 @@ class DataGridWidget(TypesWidget):
         for columnId in self.getColumnsConfig(instance).keys():
             columnDefinition = self.getColumnDefinition(field, instance, columnId)
             newData = columnDefinition.processCellData(form, newData, instance, field, columnId)
+                
 
         # Clean up the last empty row (automatically inseted)
         # if auto_insert is enabled

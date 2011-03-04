@@ -4,7 +4,7 @@ For the DataGridFields, making them required is not enough as there is
 always a hidden entry.  So we check if there is least one normal entry
 and one hidden entry, so more than 1 entry in total.
 """
-
+from zope.interface import implements
 from Products.validation import validation
 from Products.validation.interfaces.IValidator import IValidator
 
@@ -13,7 +13,7 @@ class DataGridValidator:
     """Validate as True when having at least one DataGrid item.
     """
 
-    __implements__ = IValidator
+    implements(IValidator)
 
     def __init__(self, name, title='', description=''):
         self.name = name
