@@ -172,6 +172,9 @@ People who have been making this true:
 
 	o Maurits van Rees
 
+	o Andreas Jung
+
+
 Original concept and prototype:
 
 	o Geir Baekholt, Plone Solutions <info@plonesolutions.com>
