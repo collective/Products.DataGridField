@@ -149,7 +149,7 @@ class DataGridField(ObjectField):
                         else:
                             val[col] = row_value
 
-                        if val[col] != '':
+                        if val[col]:
                             empty = False
 
                     if order is not None:
