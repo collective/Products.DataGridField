@@ -161,14 +161,18 @@ class TestGridAPI(DataGridTestCase):
         self.folder.invokeFactory('DataGridDemoType2', 'searchme')
         self.folder.searchme.setDemoField2([
                 {'column1': 'randomSearchableWord', 'column2': 'b',
-                 'select_sample': 'sample'},
-                {'column1': 'd', 'column2': 'e', 'select_sample': 'sample'}])
+                 'select_sample': 'sample', 'multiselect_sample': 'sample'},
+                {'column1': 'd', 'column2': 'e', 'select_sample': 'sample', 'multiselect_sample': 'sample2'}])
         self.folder.searchme.reindexObject()
         self.failUnless(
             'randomSearchableWord' in self.folder.searchme.SearchableText())
-        brains = catalog_tool(SearchableText='randomSearchableWord')
-        self.failUnless(len(brains) > 0)
-
+        #search in 'column1'
+        self.failUnless(len(catalog_tool(SearchableText='randomSearchableWord')) > 0)
+        #search in 'select_sample'
+        self.failUnless(len(catalog_tool(SearchableText='sample')) > 0)
+        #search in 'multiselect_sample'
+        self.failUnless(len(catalog_tool(SearchableText='sample2')) > 0)
+        
 
 class TestSpecialRowsBehavior(DataGridTestCase):
     """ Test fixed rows property, deletion locking, etc. """

@@ -8,6 +8,7 @@
 __author__  = 'Mikko Ohtamaa <mikko@redinnovation.com>'
 __docformat__ = 'epytext'
 
+from types import ListType
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.Widget import TypesWidget
 from Products.Archetypes.Registry import registerWidget
@@ -124,6 +125,17 @@ class DataGridWidget(TypesWidget):
             return ""
         return vocab.getValue(item)
 
+    def getUserFriendlyMultiSelectionItems(self, context, items, vocab): 
+ 	"""Look up the given items in the vocab and return the values, translated 
+ 	   if necessary and joined to strings separated by ', '. Return an empty string 
+ 	   if item is empty, None or not ListType. 
+ 	""" 
+ 	if items == None or items == '' or type(items) != ListType: 
+            return "" 
+ 	result = [] 
+ 	for item in items:
+            result.append(context.translate(vocab._i18n_msgids.get(item, vocab.getValue(item)))) 
+ 	return ', '.join(result)
 
     security.declarePublic('isAutoInsertEnabled')
     def isAutoInsertEnabled(self):

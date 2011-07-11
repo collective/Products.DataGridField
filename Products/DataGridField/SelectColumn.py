@@ -23,15 +23,16 @@ class SelectColumn(Column):
 
     security = ClassSecurityInfo()
 
-    def __init__(self, title, vocabulary, default=None):
+    def __init__(self, title, vocabulary, default=None, size=1):
         """ Create a SelectColumn
-
         @param vocabulary Vocabulary method name. This method is called
                from Archetypes instance to get values for dropdown list.
+        @param size SelectionWidget size. If size > 1 the SelectionColumn
+               turns itself to MultiSelectionColumn 
         """
         Column.__init__(self, title, default=default)
         self.vocabulary = vocabulary
-
+        self.size = size
 
     security.declarePublic('getVocabulary')
     def getVocabulary(self, instance):
@@ -43,14 +44,19 @@ class SelectColumn(Column):
             func = getattr(instance, self.vocabulary)
         except AttributeError:
             raise AttributeError, "Class %s is missing vocabulary function %s" % (str(instance), self.vocabulary)
-
         return func()
-
 
     security.declarePublic('getMacro')
     def getMacro(self):
         """ Return macro used to render this column in view/edit """
+        if self.size > 1:
+            return 'datagrid_multi_select_cell'
         return "datagrid_select_cell"
+
+    security.declarePublic('getWidgetSize') 
+    def getWidgetSize(self): 
+        """ Return size of MultiSelectionWidget in view/edit macro """
+        return self.size
 
 
 # Initializes class security

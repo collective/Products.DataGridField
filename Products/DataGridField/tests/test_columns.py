@@ -64,7 +64,7 @@ class TestColumns(DataGridTestCase):
         field = self.demo2.getField("DemoField2")
         col = field.widget.getColumnDefinition(field, "select_sample")
 
-        # backward compatibility: no explict column defnition given
+        # backward compatibility: no explict column definition given
         # so it should have been constructed automatically
         field = self.demo2.getField("DemoField2")
         col = field.widget.getColumnDefinition(field, "column1")
@@ -75,7 +75,7 @@ class TestColumns(DataGridTestCase):
         names = field.widget.getColumnLabels(field, self)
         self.assertEqual(
             names,
-            ["Toholampi city rox", "My friendly name", "Friendly name"])
+            ["Toholampi city rox", "My friendly name", "Friendly name", "Friendly Multiselect name"])
 
 
 def test_suite():

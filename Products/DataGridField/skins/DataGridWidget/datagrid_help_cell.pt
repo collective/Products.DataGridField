@@ -22,7 +22,6 @@
 	                    onkeypress="handleKeyPress(event);"
 	                    tal:attributes="name string:${fieldName}.${column}:records;
 	                    				value cell_value;
-	                    				tabindex tabindex/next;
 	                    				"
 	                    type="text" />
     </metal:edit_cell_macro>
@@ -33,7 +32,6 @@
 	                    onkeypress="handleKeyPress(event);"
 	                    tal:attributes="
 	                    	name string:${fieldName}.${column}:records;
-	                    	tabindex tabindex/next;
 	                    	"
 	                    type="text" />
 
