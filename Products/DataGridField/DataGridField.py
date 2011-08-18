@@ -106,7 +106,6 @@ class DataGridField(ObjectField):
         doSort = False
 
         logging.debug("Setting DGF value to " + str(value))
-
         if value == ({},):
             # With some Plone versions, it looks like that AT init
             # causes DGF to get one empty dictionary as the base value

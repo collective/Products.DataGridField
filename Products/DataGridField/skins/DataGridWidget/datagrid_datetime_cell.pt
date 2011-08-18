@@ -1,0 +1,98 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+
+
+<!-- View/edit datetime cells -->
+
+<body>
+    <!-- VIEW -->
+    <metal:view_cell_macro define-macro="view_cell">
+        <span tal:define="d cell_value;
+                          d python:test(d and d=='None','',d);
+                          tlt nocall:context/toLocalizedTime|nothing;
+                          result python:(d and tlt and tlt(d, long_format=1)) or None;"
+            tal:replace="result"/>
+    </metal:view_cell_macro>
+
+    
+
+    <!-- EDIT -->
+    <metal:edit_cell_macro define-macro="edit_cell"
+        tal:define="wholeDay          context/getWholeDay|nothing;
+                    datestr_method    nocall: column_definition/datestr;
+                    hm_method         nocall: column_definition/hours_minutes;
+                    hours_minutes     python: hm_method(cell_value);
+                    hours             python: hours_minutes[0];
+                    minutes           python: hours_minutes[1];">
+        <input tal:define="date_str request/?fieldName | nothing;
+                           date_str python: date_str or datestr_method(context,cell_value)"
+               style="width: 100%"
+               class="calendarInput" 
+               type="text"
+               value="" 
+               tal:attributes="name string:${fieldName}.${column}:records; 
+                               id string:${column}_${fieldId};
+                               value date_str" /> 
+        
+            <tal:if condition="column_definition/getWith_time|nothing">
+              &nbsp;
+              <span class="calendarwidget-time" 
+                    tal:attributes="style python: test(wholeDay, 'display: none', '')">
+                  <select class="calendarInput" tal:attributes="name string:${fieldName}_hour;
+                                                                id   string:${fieldName}_hour; ">
+                    <option tal:repeat="hour python: range(24)"
+                            tal:attributes="value hour;
+                                            selected python: str(hour)==str(hours)"
+                            tal:content="python: '%02d' % hour" />
+                  </select> :
+                  <select class="calendarInput" tal:attributes="name string:${fieldName}_minute;
+                                                                id   string:${fieldName}_minute">
+                    <option tal:repeat="minute python: range(0, 60)"
+                            tal:attributes="value minute;
+                                            selected python: str(minute)==str(minutes)"
+                            tal:content="python: '%02d' % minute" />
+                  </select> 
+              </span>
+            </tal:if>
+    </metal:edit_cell_macro>
+
+
+   <!-- EMPTY EDIT -->
+    <metal:edit_cell_macro define-macro="edit_empty_cell"
+        tal:define="wholeDay context/getWholeDay|nothing;">
+        <input tal:define="date_str request/?fieldName | nothing;"
+               style="width: 100%"
+               class="calendarInput"
+               type="text"
+               value=""
+               tal:attributes="name string:${fieldName}.${column}:records; 
+                               id string:${column}_${fieldId};" /> 
+            <tal:if condition="column_definition/getWith_time|nothing">
+              &nbsp;
+              <span class="calendarwidget-time" 
+                    tal:attributes="style python: test(wholeDay, 'display: none', '')">
+                  <select class="calendarInput" tal:attributes="name string:${fieldName}_hour;
+                                                                id   string:${fieldName}_hour; ">
+                    <option tal:repeat="hour python: range(24)"
+                            tal:attributes="value hour;
+                                            selected python: str(hour)==str(hours)"
+                            tal:content="python: '%02d' % hour" />
+                  </select> :
+                  <select class="calendarInput" tal:attributes="name string:${fieldName}_minute;
+                                                                id   string:${fieldName}_minute">
+                    <option tal:repeat="minute python: range(0, 60)"
+                            tal:attributes="value minute;
+                                            selected python: str(minute)==str(minutes)"
+                            tal:content="python: '%02d' % minute" />
+                  </select> 
+              </span>
+            </tal:if>
+    </metal:edit_cell_macro>
+
+</body>
+
+</html>
+
