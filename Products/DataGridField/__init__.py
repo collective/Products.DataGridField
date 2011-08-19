@@ -28,6 +28,7 @@ from Products.DataGridField.DataGridWidget  import DataGridWidget
 from Products.DataGridField.DataGridField  import DataGridField
 from Products.DataGridField.DataGridField  import FixedRow
 from Products.DataGridField.Column import Column
+from Products.DataGridField.DateTimeColumn import DateTimeColumn
 from Products.DataGridField.SelectColumn import SelectColumn
 from Products.DataGridField.RadioColumn import RadioColumn
 from Products.DataGridField.FixedColumn import FixedColumn
