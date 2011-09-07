@@ -21,9 +21,7 @@
 	    <input style="width: 100%" name="myfield.name:records"
 	                    onkeypress="handleKeyPress(event);"
 	                    tal:attributes="name string:${fieldName}.${column}:records;
-	                    				value cell_value;
-	                    				tabindex tabindex/next;
-	                    				"
+	                    				value cell_value;"
 	                    type="text" />
     </metal:edit_cell_macro>
 
@@ -32,9 +30,7 @@
 	    <input style="width: 100%" name="myfield.name:records"
 	                    onkeypress="handleKeyPress(event);"
 	                    tal:attributes="
-	                    	name string:${fieldName}.${column}:records;
-	                    	tabindex tabindex/next;
-	                    	"
+	                    	name string:${fieldName}.${column}:records;"
 	                    type="text" />
 
 		<tal:popup tal:define="startup_url python:'/'.join(here.getPhysicalPath());

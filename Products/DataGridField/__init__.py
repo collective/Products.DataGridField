@@ -29,6 +29,7 @@ from Products.DataGridField.DataGridField  import DataGridField
 from Products.DataGridField.DataGridField  import FixedRow
 from Products.DataGridField.Column import Column
 from Products.DataGridField.SelectColumn import SelectColumn
+from Products.DataGridField.AutocompleteColumn import AutocompleteColumn
 from Products.DataGridField.RadioColumn import RadioColumn
 from Products.DataGridField.FixedColumn import FixedColumn
 from Products.DataGridField.LinkColumn import LinkColumn

@@ -13,6 +13,7 @@ from Products.DataGridField import DGFMessageFactory as _
 from Products.DataGridField import DataGridField, DataGridWidget
 from Products.DataGridField.Column import Column
 from Products.DataGridField.SelectColumn import SelectColumn
+from Products.DataGridField.AutocompleteColumn import AutocompleteColumn
 from Products.DataGridField.RadioColumn import RadioColumn
 from Products.DataGridField.CheckboxColumn import CheckboxColumn
 from Products.DataGridField.FixedColumn import FixedColumn
@@ -78,7 +79,7 @@ class DataGridDemoType2(atapi.BaseContent):
 
         DataGridField('DemoField2',
                 searchable=True, # One unit tests checks whether text search works
-                columns=("column1", "column2", "select_sample"),
+                columns=("column1", "column2", "select_sample", "autocomplete"),
                 widget = DataGridWidget(
                     description="Set default values for created rows. Choose SelectColumn value from the default dictionary",
                     description_msgid='DataGridDemoType_help_DemoField2',
@@ -86,7 +87,8 @@ class DataGridDemoType2(atapi.BaseContent):
                     columns={
                         'column1' : Column(_(u"Toholampi city rox")),
                         'column2' : Column(_(u"My friendly name"), default=_(u"Some default text")),
-                        'select_sample' : SelectColumn(_(u"Friendly name"), vocabulary="getSampleVocabulary", default="sample2")
+                        'select_sample' : SelectColumn(_(u"Friendly name"), vocabulary="getSampleVocabulary", default="sample2"),
+                        'autocomplete' : AutocompleteColumn(_(u"Autocomplete"), json_view_params={'portal_type': 'Document', 'review_state': 'published'}, json_view_name="jsonsearchview")
                     },
                  ),
          ),
