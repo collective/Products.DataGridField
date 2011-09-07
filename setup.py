@@ -32,6 +32,7 @@ setup(name='Products.DataGridField',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'collective.js.jqueryui',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
