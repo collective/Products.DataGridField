@@ -22,7 +22,7 @@ class AutocompleteColumn(Column):
 
     security = ClassSecurityInfo()
 
-    def __init__(self, title, json_view_params={}, json_view_name="jsonsearchview"):
+    def __init__(self, title, json_view_params={}, json_view_name="jsonsearchview", json_view_termfield="SearchableText"):
         """ Create an AutocompleteColumn
         @param json_view_params parameters. The default jsonsearchview will use
                these parameters to query the portal_catalog
@@ -32,6 +32,7 @@ class AutocompleteColumn(Column):
         Column.__init__(self, title)
         self.json_view_params = json_view_params
         self.json_view_name = json_view_name
+        self.json_view_termfield = json_view_termfield
 
     security.declarePublic('getMacro')
     def getMacro(self):
@@ -44,10 +45,11 @@ class AutocompleteColumn(Column):
 <script type="text/javascript">jQuery(function(){
      // Autocomplete
      jq(".DemoField2_autocomplete").autocomplete({
-        source: "@@""" + self.json_view_name + "?json_view_params=" + str(self.json_view_params) + """"     });
+        source: "@@%s?json_view_params=%s&json_view_termfield=%s"
+        });
      });
 </script>
-"""
+""" % (self.json_view_name, str(self.json_view_params), self.json_view_termfield)
 
 # Initializes class security
 InitializeClass(AutocompleteColumn)

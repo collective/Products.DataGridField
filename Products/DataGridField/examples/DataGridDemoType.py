@@ -88,7 +88,7 @@ class DataGridDemoType2(atapi.BaseContent):
                         'column1' : Column(_(u"Toholampi city rox")),
                         'column2' : Column(_(u"My friendly name"), default=_(u"Some default text")),
                         'select_sample' : SelectColumn(_(u"Friendly name"), vocabulary="getSampleVocabulary", default="sample2"),
-                        'autocomplete' : AutocompleteColumn(_(u"Autocomplete"), json_view_params={'portal_type': 'Document', 'review_state': 'published'}, json_view_name="jsonsearchview")
+                        'autocomplete' : AutocompleteColumn(_(u"Autocomplete"), json_view_params={'portal_type': 'Document', 'review_state': 'published'}, json_view_name="jsonsearchview", json_view_termfield="SearchableText")
                     },
                  ),
          ),
