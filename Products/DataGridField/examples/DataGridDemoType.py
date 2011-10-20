@@ -44,6 +44,7 @@ class DataGridDemoDateTime(atapi.BaseContent):
                         'datetime' : DateTimeColumn(_(u"Dates")),
                     },
                 ),
+                validators = ('isValidDate',),
             ),
 ),)
 
