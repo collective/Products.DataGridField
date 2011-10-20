@@ -27,8 +27,7 @@
                     hours_minutes     python: hm_method(cell_value);
                     hours             python: hours_minutes[0];
                     minutes           python: hours_minutes[1];">
-        <input tal:define="date_str request/?fieldName | nothing;
-                           date_str python: date_str or datestr_method(context,cell_value)"
+        <input tal:define="date_str python: datestr_method(context,cell_value) or cell_value"
                style="width: 100%"
                class="calendarInput" 
                type="text"
