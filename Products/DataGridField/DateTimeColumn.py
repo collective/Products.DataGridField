@@ -1,6 +1,4 @@
-"""
-"""
-
+# -*- coding:utf-8 -*-
 __author__ = 'Gustavo Lepri <lepri@simplesconsultoria.com.br>'
 __docformat__ = 'restructuredtext'
 
@@ -12,6 +10,7 @@ from App.class_init import InitializeClass
 from Products.DataGridField.Column import Column
 
 from collective.js.jqueryui.utils import get_python_date_format
+
 
 class DateTimeColumn(Column):
     """ Defines DataGridField column with DateTime
@@ -28,16 +27,13 @@ class DateTimeColumn(Column):
         Column.__init__(self, title)
         self.with_time = with_time
 
-    security.declarePublic('getShow_hm')
     def getWith_time(self):
         return self.with_time
 
-    security.declarePublic('getMacro')
     def getMacro(self):
         """ Return macro used to render this column in view/edit """
         return "datagrid_datetime_cell"
 
-    security.declarePublic('hours_minutes')
     def hours_minutes(self, date):
         """Return (hour, date) from a given DateTime instance.
         """
@@ -45,16 +41,18 @@ class DateTimeColumn(Column):
             return date.hour(), date.minute()
         return '', ''
 
-    security.declarePublic('datestr')
     def datestr(self, context, date):
         """Return formated date string from a given DateTime instance.
         """
-        if date:
+        if date and hasattr(date, 'strftime'):
             format = get_python_date_format(context.REQUEST)
             return date.strftime(format)
-        return ''
+        elif date:
+            # Maybe a string or other bad value
+            return date
+        else:
+            return ''
 
-    security.declarePublic('processCellData')
     def processCellData(self, form, value, context, field, columnId):
         """ Read cell values from raw form data
         """
@@ -70,8 +68,12 @@ class DateTimeColumn(Column):
                     minutes = int(form.get(fieldname + '_minute', 0))
                     datestr = '%s %s:%s:00' % (datestr, hours, minutes)
                     date_format = get_python_date_format(context.REQUEST)
-                    tp = time.strptime(datestr, date_format + ' %H:%M:%S')
-                    newRow[columnId] = DateTime(time.mktime(tp))
+                    try:
+                        tp = time.strptime(datestr, date_format + ' %H:%M:%S')
+                    except ValueError:
+                        tp = ''
+                    newRow[columnId] = ((tp and DateTime(time.mktime(tp)))
+                                        or row[columnId])
             newValue.append(newRow)
         return newValue
 
