@@ -41,7 +41,7 @@ class DateTimeColumn(Column):
     def hours_minutes(self, date):
         """Return (hour, date) from a given DateTime instance.
         """
-        if date:
+        if type(date) != str:
             return date.hour(), date.minute()
         return '', ''
 
@@ -73,7 +73,6 @@ class DateTimeColumn(Column):
                     tp = time.strptime(datestr, date_format + ' %H:%M:%S')
                     newRow[columnId] = DateTime(time.mktime(tp))
             newValue.append(newRow)
-
         return newValue
 
 # Initializes class security
