@@ -42,6 +42,7 @@ class DateValidator:
         return columns
 
     def __call__(self, value, *args, **kwargs):
+        value.pop()
         request = kwargs.get('REQUEST',None)
         field = kwargs.get('field', None)
         date_columns = self.date_columns(field)
