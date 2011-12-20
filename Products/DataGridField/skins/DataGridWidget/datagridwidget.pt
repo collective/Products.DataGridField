@@ -49,9 +49,12 @@
                             tal:content="c/label"
                             i18n:translate="">Column name</th
 						 ></tal:block>
-                        <th />
-                        <th />
-                        <th />
+			<th tal:condition="python: widget.isInsertEnabled(context, field)" />
+                        <th tal:condition="python: widget.isDeleteEnabled(context, field)" />
+                        <tal:reorder condition="python: widget.isReorderEnabled(context, field)">
+			  <th />
+			  <th />
+			</tal:reorder>
                     </tr>
                 </thead>
 
