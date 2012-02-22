@@ -147,7 +147,7 @@ class DataGridField(ObjectField):
                         if isinstance(row_value, basestring):
                             val[col] = row_value.strip()
                         else:
-                            val[col] = row_value
+                            val[col] = [value.strip() for value in row_value]
 
                         if val[col]:
                             empty = False
