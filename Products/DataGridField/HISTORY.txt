@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.8 (Unreleased)
+----------------
+
+- Strip empty spaces in a list of values.
+  [WouterVH]
+
 
 1.8b2 (2011-05-08)
 ------------------
