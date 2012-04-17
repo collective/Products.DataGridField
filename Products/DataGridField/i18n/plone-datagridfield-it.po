@@ -1,0 +1,20 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Products.DataGridField\n"
+"POT-Creation-Date: 2011-11-30 11:14+0000\n"
+"PO-Revision-Date: 2011-11-30 11:31+0000\n"
+"Last-Translator: Luca Fabbri <keul@redturtle.it>\n"
+"Language-Team: RedTurtle Technology <sviluppoplone@redturtle.it>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: it\n"
+"Language-Name: Italian\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+#: ../skins/DataGridWidget/datagridwidget.pt:76
+msgid "Add new row"
+msgstr "Aggiungi nuova riga"
+

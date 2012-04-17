@@ -1,11 +1,20 @@
 History
 =======
 
-
-1.6.3 (unreleased)
+1.6.4 (Unreleased)
 ------------------
 
-- Nothing changed yet.
+- Nothing yet
+
+
+1.6.3 (2011-11-30)
+------------------
+
+- Added i18n folder for translations and automatic .po build script
+  [keul]
+
+- The "*Add new row*" label is now translated
+  [keul]
 
 
 1.6.2 (2010-06-02)
