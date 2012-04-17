@@ -36,7 +36,7 @@ class DataGridWidget(TypesWidget):
     _properties.update({
         'macro' : "datagridwidget",
         'helper_css': ('datagridwidget.css',),
-        'helper_js': ('datagridwidget.js',),
+        'helper_js': ('datagridwidget.js', 'check_requiredcolumn.js'),
         'show_header' : True,
         'auto_insert': False,
         'columns' : {}, # Sequence of Column instances                           
@@ -112,6 +112,7 @@ class DataGridWidget(TypesWidget):
             visible = getattr(c, 'visible', True)
             item['visible'] = visible
             item['label'] = c.getLabel(instance, self)
+            item['required'] = getattr(c, 'required', False)
             result.append(item)
         
         return result

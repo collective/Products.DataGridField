@@ -17,14 +17,6 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-#: ../skins/DataGridWidget/datagridwidget.pt:83
-msgid "Add new row"
-msgstr ""
-
-#: ../skins/DataGridWidget/datagridwidget.pt:35
-msgid "This column is required"
-msgstr ""
-
 #. Default: "(Required)"
 #: ../skins/DataGridWidget/datagridwidget.pt:48
 msgid "label_required"

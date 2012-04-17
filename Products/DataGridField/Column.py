@@ -22,16 +22,18 @@ class Column:
 
     security = ClassSecurityInfo()
 
-    def __init__(self, label, default=None, default_method=None, label_msgid=None):
+    def __init__(self, label, default=None, default_method=None, label_msgid=None, required=False):
         """ Create a column
         
             @param label User visible name
             @param default Default value for new rows
             @param default_value Default function to generate the default value for new rows
+            @param required Every cell of this column will be required
         """
         self.label = label
         self.default = default
         self.default_method = default_method
+        self.required = required
         
         if label_msgid is None:
             label_msgid = label

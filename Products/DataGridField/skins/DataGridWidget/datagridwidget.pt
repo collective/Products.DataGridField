@@ -32,7 +32,7 @@
     <metal:define define-macro="edit">
       <metal:use use-macro="field_macro | here/widgets/field/macros/edit">
         <metal:body metal:fill-slot="widget_body">
-            
+            <span style="display:none" class="dataGridRequiredFieldMessage" i18n:translate="">This column is required</span>
             <table class="datagridwidget-table-edit"
 		       	tal:attributes="id python: 'datagridwidget-table-' + field.getName()"
             	style="width: 100%"
@@ -44,8 +44,15 @@
                     <tr>
 						<tal:block tal:repeat="c columns"
                          ><th tal:attributes="class python:not c['visible'] and 'dgw-hidden-column discreet' or 'discreet';"  style="text-align: left" 
-                            tal:content="c/label" 
-                            i18n:translate="">Column name</th
+                            ><span i18n:translate="" tal:replace="c/label" />
+							<span class="fieldRequired"
+                                  tal:condition="c/required|nothing"
+                                  title="Required"
+                                  i18n:translate="label_required"
+                                  i18n:attributes="title title_required;">
+                                       (Required)
+                                  </span>
+						</th
 						 ></tal:block>
                         <th /> 
                         <th />
@@ -75,8 +82,8 @@
 
             <a class="datagridwidget-add-button" id="datagridwidget-add-button"
 			   tal:condition="field/allow_insert"
-+                   tal:attributes='onclick python: "dataGridFieldFunctions.addRow(\"" + field.getName() + "\")"'
-+                   i18n:translate="">Add new row</a>
+               tal:attributes='onclick python: "dataGridFieldFunctions.addRow(\"" + field.getName() + "\")"'
+               i18n:translate="">Add new row</a>
 			<tal:comment replace="nothing">
 				<!-- Button that allowes creation of the initial row when DGF is empty -->
 			</tal:comment>
