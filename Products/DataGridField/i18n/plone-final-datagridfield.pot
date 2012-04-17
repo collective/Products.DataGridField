@@ -25,13 +25,3 @@ msgstr ""
 msgid "This column is required"
 msgstr ""
 
-#. Default: "(Required)"
-#: ../skins/DataGridWidget/datagridwidget.pt:48
-msgid "label_required"
-msgstr ""
-
-#. Default: "Required"
-#: ../skins/DataGridWidget/datagridwidget.pt:48
-msgid "title_required"
-msgstr ""
-

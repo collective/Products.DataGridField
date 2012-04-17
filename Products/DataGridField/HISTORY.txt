@@ -1,11 +1,10 @@
 History
 =======
 
-1.6.4 (Unreleased)
-------------------
+1.6.4-RT1 (2012-04-17)
+----------------------
 
-- Nothing yet
-
+- Added a JavaScript feature for columns, supporting the ``required`` parameter [keul]
 
 1.6.3 (2011-11-30)
 ------------------

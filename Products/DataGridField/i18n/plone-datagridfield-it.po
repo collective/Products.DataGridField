@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.DataGridField\n"
-"POT-Creation-Date: 2012-04-17 14:37+0000\n"
+"POT-Creation-Date: 2012-04-17 14:52+0000\n"
 "PO-Revision-Date: 2011-11-30 11:31+0000\n"
 "Last-Translator: Luca Fabbri <keul@redturtle.it>\n"
 "Language-Team: RedTurtle Technology <sviluppoplone@redturtle.it>\n"
@@ -21,14 +21,4 @@ msgstr "Aggiungi nuova riga"
 #: ../skins/DataGridWidget/datagridwidget.pt:35
 msgid "This column is required"
 msgstr "Questa colonna è obbligatoria"
-
-#. Default: "(Required)"
-#: ../skins/DataGridWidget/datagridwidget.pt:48
-msgid "label_required"
-msgstr ""
-
-#. Default: "Required"
-#: ../skins/DataGridWidget/datagridwidget.pt:48
-msgid "title_required"
-msgstr ""
 

@@ -108,7 +108,11 @@ div.ArchetypesDataGridWidget table td select {
     width:100%;
 }
 
-
+input.dataGridError {
+    background-color: #FFDDCC;
+    border: 1px solid #DD0000;
+	font-weight: bold;
+}
 
 /* 
   </dtml-with>  (end of loaded base_properties variables)

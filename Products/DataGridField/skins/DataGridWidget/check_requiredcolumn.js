@@ -5,11 +5,10 @@
 
 if (!jQuery.DataGridField) {
 	jQuery.DataGridField = {};
-	
 	(function($) {
 		$(document).ready(function() {
 			$('form[name=edit_form]').submit(function(event) {
-				$("div.dataGridError").remove();
+				$('.dataGridError').removeClass('dataGridError');
 				var $form = $(this);
 				var firstEmpyField = null;
 				$('td[data-required]', $form).each(function() {
@@ -18,7 +17,9 @@ if (!jQuery.DataGridField) {
 					if (!$input.val() && !firstEmpyField) {
 						firstEmpyField = $input
 						event.preventDefault();
-						$('<div tabindex="-1" class="dataGridError error">ABCD</div>').prependTo($cell).focus();
+						$input.addClass('dataGridError')
+							.val($('.dataGridRequiredFieldMessage:first').text()).focus();
+						$('input[type="submit"]', $form).addClass('allowMultiSubmit');
 					}
 				});
 			});

@@ -17,13 +17,9 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-#. Default: "(Required)"
-#: ../skins/DataGridWidget/datagridwidget.pt:48
 msgid "label_required"
 msgstr ""
 
-#. Default: "Required"
-#: ../skins/DataGridWidget/datagridwidget.pt:48
 msgid "title_required"
 msgstr ""
 
