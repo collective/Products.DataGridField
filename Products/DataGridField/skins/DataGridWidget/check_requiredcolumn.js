@@ -14,7 +14,8 @@ if (!jQuery.DataGridField) {
 				$('td[data-required]', $form).each(function() {
 					var $cell = $(this);
 					var $input = $(':input', $cell);
-					if (!$input.val() && !firstEmpyField) {
+					// only with empty value, only one time and not inside the model hidden row
+					if (!$input.val() && !firstEmpyField && $cell.closest('.datagridwidget-empty-row').length==0) {
 						firstEmpyField = $input
 						event.preventDefault();
 						$input.addClass('dataGridError')
