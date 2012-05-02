@@ -1,6 +1,13 @@
 History
 =======
 
+1.6.4-RT2 (2012-05-02)
+----------------------
+
+- added new property for DataGridField: show_plus_button that allows to choose if show or not plus button [cekk]
+- added new property for DataGridField: show_default_add that allows to choose if show default add button or plus button [andrea]
+- added title to row buttons [cekk]
+
 1.6.4-RT1 (2012-04-17)
 ----------------------
 

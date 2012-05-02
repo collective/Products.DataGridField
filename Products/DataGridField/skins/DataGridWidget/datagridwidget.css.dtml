@@ -114,6 +114,14 @@ input.dataGridError {
 	font-weight: bold;
 }
 
+img.newRowButtonPlus{
+    float:right;
+    border: 1px dotted #DDDD00;
+    margin-right: 2px;
+    padding: 1px;
+}
+
+
 /* 
   </dtml-with>  (end of loaded base_properties variables)
 */

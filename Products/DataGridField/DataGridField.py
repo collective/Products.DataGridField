@@ -74,6 +74,12 @@ class DataGridField(ObjectField):
         
         # Set to true to hifhligh odd/even rows in edit/view form
         'allow_oddeven' : False,
+
+        # Select to show "plus" button in datagrid widget manipulators
+        'show_plus_manipulator' : True,
+
+        # Select to show default button to add a row, or the smaller "plus" button 
+        'show_default_add' : True,
         })
 
     security = ClassSecurityInfo()

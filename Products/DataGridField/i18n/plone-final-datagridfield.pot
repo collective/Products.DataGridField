@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-04-17 14:52+0000\n"
+"POT-Creation-Date: 2012-05-02 15:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,22 @@ msgstr ""
 
 #: ../skins/DataGridWidget/datagridwidget.pt:83
 msgid "Add new row"
+msgstr ""
+
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:38
+msgid "Add row"
+msgstr ""
+
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:52
+msgid "Delete row"
+msgstr ""
+
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:82
+msgid "Move row down"
+msgstr ""
+
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:66
+msgid "Move row up"
 msgstr ""
 
 #: ../skins/DataGridWidget/datagridwidget.pt:35

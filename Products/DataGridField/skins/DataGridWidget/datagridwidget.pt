@@ -79,11 +79,22 @@
 	                </tal:empty-row>	                	
                  </tbody>
             </table>
-
-            <a class="datagridwidget-add-button" id="datagridwidget-add-button"
-			   tal:condition="field/allow_insert"
-               tal:attributes='onclick python: "dataGridFieldFunctions.addRow(\"" + field.getName() + "\")"'
-               i18n:translate="">Add new row</a>
+            <tal:add_button define="default_button python:field.show_default_add;
+                                    allow_insert python:field.allow_insert;
+                                    field_name python:field.getName()"
+                            condition="allow_insert">
+                <img class="newRowButtonPlus"
+                     tal:condition="not:default_button"
+                     tal:attributes='src string:${portal_url}/add_row_icon.gif;
+                                     onclick python: "dataGridFieldFunctions.addRow(\"" + field_name + "\")"'
+                     alt="Add row"
+                     i18n:attributes="title; alt"
+                     title="Add row"/>
+                <a class="datagridwidget-add-button" id="datagridwidget-add-button"
+    			         tal:condition="default_button"
+                   tal:attributes='onclick python: "dataGridFieldFunctions.addRow(\"" + field.getName() + "\")"'
+                   i18n:translate="">Add new row</a>
+            </tal:add_button>
 			<tal:comment replace="nothing">
 				<!-- Button that allowes creation of the initial row when DGF is empty -->
 			</tal:comment>

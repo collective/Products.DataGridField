@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.DataGridField\n"
-"POT-Creation-Date: 2012-04-17 14:52+0000\n"
+"POT-Creation-Date: 2012-05-02 15:02+0000\n"
 "PO-Revision-Date: 2011-11-30 11:31+0000\n"
 "Last-Translator: Luca Fabbri <keul@redturtle.it>\n"
 "Language-Team: RedTurtle Technology <sviluppoplone@redturtle.it>\n"
@@ -17,6 +17,22 @@ msgstr ""
 #: ../skins/DataGridWidget/datagridwidget.pt:83
 msgid "Add new row"
 msgstr "Aggiungi nuova riga"
+
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:38
+msgid "Add row"
+msgstr "Aggiungi nuova riga"
+
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:52
+msgid "Delete row"
+msgstr "Cancella riga"
+
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:82
+msgid "Move row down"
+msgstr "Sposta la riga in basso"
+
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:66
+msgid "Move row up"
+msgstr "Sposta la riga in alto"
 
 #: ../skins/DataGridWidget/datagridwidget.pt:35
 msgid "This column is required"

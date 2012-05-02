@@ -146,6 +146,14 @@ class DataGridWidget(TypesWidget):
         """
         return field.allow_insert
 
+    security.declarePublic('isInsertVisible')
+    def isInsertVisible(self, context, field):
+        """ Can user insert new rows to DGW 
+        
+        Called by template
+        """
+        return field.show_plus_manipulator
+
     security.declarePublic('isReorderingEnabled')
     def isReorderEnabled(self, context, field):
         """ Can user reorder rows in DGW 
