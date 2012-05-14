@@ -1,6 +1,12 @@
 History
 =======
 
+1.6.4-RT3 (2012-05-14)
+----------------------
+
+- changed used delete row icon [keul]
+- images with alpha [keul]
+
 1.6.4-RT2 (2012-05-02)
 ----------------------
 

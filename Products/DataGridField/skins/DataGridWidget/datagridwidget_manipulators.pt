@@ -50,7 +50,7 @@
 	         <td  class="datagridwidget-manipulator"
 	         	tal:condition="python: widget.isDeleteEnabled(context, field)">
 	             <img tal:attributes="
-	                  	src string:${portal_url}/delete_row_icon.gif;
+	                  	src string:${portal_url}/delete_icon.gif;
 	                  	"
 	                  alt="Delete row"
                       i18n:attributes="title; alt"
