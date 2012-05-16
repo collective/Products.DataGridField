@@ -94,6 +94,7 @@
     			         tal:condition="default_button"
                    tal:attributes='onclick python: "dataGridFieldFunctions.addRow(\"" + field.getName() + "\")"'
                    i18n:translate="">Add new row</a>
+				<div class="visualClear"><!-- --></div>
             </tal:add_button>
 			<tal:comment replace="nothing">
 				<!-- Button that allowes creation of the initial row when DGF is empty -->

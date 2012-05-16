@@ -1,6 +1,11 @@
 History
 =======
 
+1.6.4-RT4 (Unreleased)
+----------------------
+
+- visual fix: added clear after "add new row" icon [keul] 
+
 1.6.4-RT3 (2012-05-14)
 ----------------------
 
