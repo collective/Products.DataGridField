@@ -1,7 +1,12 @@
 History
 =======
 
-1.6.4-RT4 (2011-05-16)
+1.6.4-RT5 (2012-05-31)
+----------------------
+
+- visual fix: added class to td element [cekk]
+
+1.6.4-RT4 (2012-05-16)
 ----------------------
 
 - visual fix: added clear after "add new row" icon [keul] 
@@ -16,7 +21,7 @@ History
 ----------------------
 
 - added new property for DataGridField: show_plus_button that allows to choose if show or not plus button [cekk]
-- added new property for DataGridField: show_default_add that allows to choose if show default add button or plus button [andrea]
+- added new property for DataGridField: show_default_add that allows to choose if show default add button or plus button [cekk]
 - added title to row buttons [cekk]
 
 1.6.4-RT1 (2012-04-17)

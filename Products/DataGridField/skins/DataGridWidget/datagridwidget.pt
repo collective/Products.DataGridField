@@ -43,7 +43,8 @@
                 <thead tal:condition="python: widget.hasHeader(context, field)">
                     <tr>
 						<tal:block tal:repeat="c columns"
-                         ><th tal:attributes="class python:not c['visible'] and 'dgw-hidden-column discreet' or 'discreet';"  style="text-align: left" 
+                         ><th tal:define="index repeat/c/number"
+                              tal:attributes="class python:not c['visible'] and 'dgw-hidden-column discreet fieldTitle%s' %index or 'discreet fieldTitle%s' %index;"  style="text-align: left" 
                             ><span i18n:translate="" tal:replace="c/label" />
 							<span class="fieldRequired"
                                   tal:condition="c/required|nothing"
