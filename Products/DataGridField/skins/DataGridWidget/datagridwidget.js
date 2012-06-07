@@ -108,7 +108,10 @@ dataGridFieldFunctions.addRow = function(id) {
     
     // Put new row to DOM tree before template row        
 	newNode = lastRow.parentNode.insertBefore(newtr, lastRow);
-	
+    //Set the focus on new row
+	focus_parent = jq(newNode).find('td.datagridwidget-cell span')[0];
+    focus_input = jq(focus_parent).children();
+    jq(focus_input).focus();
 	// update orderindex hidden fields
 	this.updateOrderIndex(tbody);		
       
