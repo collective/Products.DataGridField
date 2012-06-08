@@ -4,13 +4,13 @@ History
 1.6.4-RT7 (unreleased)
 ----------------------
 
-- Nothing changed yet.
+- added span tags in th elements [cekk]
 
 
 1.6.4-RT6 (2012-06-07)
 ----------------------
 
-- added focus to new created row [andrea]
+- added focus to new created row [cekk]
 
 
 1.6.4-RT5 (2012-05-31)

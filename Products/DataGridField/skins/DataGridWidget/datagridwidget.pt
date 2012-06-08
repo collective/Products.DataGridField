@@ -45,7 +45,7 @@
 						<tal:block tal:repeat="c columns"
                          ><th tal:define="index repeat/c/number"
                               tal:attributes="class python:not c['visible'] and 'dgw-hidden-column discreet fieldTitle%s' %index or 'discreet fieldTitle%s' %index;"  style="text-align: left" 
-                            ><span i18n:translate="" tal:replace="c/label" />
+                            ><span i18n:translate="" tal:content="c/label" />
 							<span class="fieldRequired"
                                   tal:condition="c/required|nothing"
                                   title="Required"
