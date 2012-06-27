@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DataGridField\n"
-"POT-Creation-Date: 2009-11-09 17:19+0000\n"
+"POT-Creation-Date: 2012-06-27 08:51+0000\n"
 "PO-Revision-Date: 2009-11-08 17:34-0400\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish <plone-conosur@lists.plone.org>\n"
@@ -95,7 +95,7 @@ msgid "Toholampi city rox"
 msgstr "Rox ciudad Toholampi"
 
 #. Default: "Add new row"
-#: ../skins/DataGridWidget/datagridwidget.pt:78
+#: ../skins/DataGridWidget/datagridwidget.pt:81
 msgid "label_datagridwidget_add_new_row"
 msgstr "Agregar nueva fila"
 
@@ -110,17 +110,17 @@ msgid "label_datagridwidget_manipulators_addrow"
 msgstr "Agregar fila"
 
 #. Default: "Delete row"
-#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:51
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:53
 msgid "label_datagridwidget_manipulators_deleterow"
 msgstr "Borrar fila"
 
 #. Default: "Move row down"
-#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:79
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:85
 msgid "label_datagridwidget_manipulators_moverowdown"
 msgstr "Mover fila abajo"
 
 #. Default: "Move row up"
-#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:64
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:68
 msgid "label_datagridwidget_manipulators_moverowup"
 msgstr "Mover fila arriba"
 

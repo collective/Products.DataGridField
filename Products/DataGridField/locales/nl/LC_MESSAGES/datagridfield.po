@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.1\n"
-"POT-Creation-Date: 2009-10-13 15:00+0000\n"
+"POT-Creation-Date: 2012-06-27 08:51+0000\n"
 "PO-Revision-Date: 2010-03-17 14:51+0100\n"
 "Last-Translator: Martijn Schenk <martijn.schenk@fourdigits.nl>\n"
 "Language-Team: Rob Gietema <rob@fourdigits.nl>\n"
@@ -89,7 +89,7 @@ msgid "Toholampi city rox"
 msgstr "Toholampi city rox"
 
 #. Default: "Add new row"
-#: ../skins/DataGridWidget/datagridwidget.pt:78
+#: ../skins/DataGridWidget/datagridwidget.pt:81
 msgid "label_datagridwidget_add_new_row"
 msgstr "Voeg regel toe"
 
@@ -104,17 +104,17 @@ msgid "label_datagridwidget_manipulators_addrow"
 msgstr "Voeg regel toe"
 
 #. Default: "Delete row"
-#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:51
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:53
 msgid "label_datagridwidget_manipulators_deleterow"
 msgstr "Verwijder regel"
 
 #. Default: "Move row down"
-#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:79
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:85
 msgid "label_datagridwidget_manipulators_moverowdown"
 msgstr "Verplaats regel naar beneden"
 
 #. Default: "Move row up"
-#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:64
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:68
 msgid "label_datagridwidget_manipulators_moverowup"
 msgstr "Verplaats regel naar boven"
 
