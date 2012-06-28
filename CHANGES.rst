@@ -4,7 +4,8 @@ Changelog
 1.8.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added English locale. Minor internal packaging improvements.
+  [maurits]
 
 
 1.8.0 (2012-05-29)
