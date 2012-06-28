@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.8.1 (unreleased)
+1.8.1 (2012-06-28)
 ------------------
 
 - Added English locale. Minor internal packaging improvements.
