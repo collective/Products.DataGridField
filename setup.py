@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '1.8.3dev'
+version = '1.8.3'
 readme = open("README.rst").read()
 history = open("CHANGES.rst").read()
 long_description = readme + "\n" + history

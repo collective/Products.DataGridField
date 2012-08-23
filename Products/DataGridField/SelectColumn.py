@@ -42,7 +42,9 @@ class SelectColumn(Column):
         try:
             func = getattr(instance, self.vocabulary)
         except AttributeError:
-            raise AttributeError, "Class %s is missing vocabulary function %s" % (str(instance), self.vocabulary)
+            func = instance.restrictedTraverse(self.vocabulary, None)
+            if func is None:
+                raise AttributeError, "Class %s is missing vocabulary function %s" % (str(instance), self.vocabulary)
 
         return func()
 

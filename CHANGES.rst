@@ -1,8 +1,10 @@
 Changelog
 =========
 
-1.8.3 (unreleased)
+1.8.3 (2012-08-23)
 ------------------
+- support for brower view names as 'vocabulary' parameter
+  for SelectColumn class
 
 1.8.2 (2012-08-23)
 ------------------
