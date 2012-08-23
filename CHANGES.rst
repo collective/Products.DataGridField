@@ -1,10 +1,12 @@
 Changelog
 =========
 
-1.8.2 (unreleased)
+1.8.2 (2012-08-23)
 ------------------
 
-- Nothing changed yet.
+- added new CSS classes to the manipulator table cells in order 
+  to be able to attach custom JS handlers
+  [ajung]
 
 
 1.8.1 (2012-06-28)

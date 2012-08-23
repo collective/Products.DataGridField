@@ -33,7 +33,7 @@
           		<!-- Insert -->
           	</tal:comment>
 
-	         <td  class="datagridwidget-manipulator"
+	         <td  class="datagridwidget-manipulator datagridwidget-add-row"
 	         	tal:condition="python: widget.isInsertEnabled(context, field)">
 	             <img tal:attributes="
 	                  	src string:${portal_url}/add_row_icon.gif;
@@ -48,7 +48,7 @@
           	<tal:comment replace="nothing">
           		<!-- Delete -->
           	</tal:comment>
-	         <td  class="datagridwidget-manipulator"
+	         <td  class="datagridwidget-manipulator datagridwidget-delete-row"
 	         	tal:condition="python: widget.isDeleteEnabled(context, field)">
 	             <img tal:attributes="
 	                  	src string:${portal_url}/delete_row_icon.gif;
@@ -63,7 +63,7 @@
           	<tal:comment replace="nothing">
           		<!-- Move up -->
           	</tal:comment>
-		    <td class="datagridwidget-manipulator">
+		    <td class="datagridwidget-manipulator datagridwidget-row-up">
 
 		       <img tal:attributes="
 		             	src string:${portal_url}/move_row_up_icon.gif;
@@ -80,7 +80,7 @@
           	<tal:comment replace="nothing">
           		<!-- Move down -->
           	</tal:comment>
-		    <td class="datagridwidget-manipulator">
+		    <td class="datagridwidget-manipulator datagridwidget-row-down">
 
 		    	<img tal:attributes="
 		             	src string:${portal_url}/move_row_down_icon.gif;
