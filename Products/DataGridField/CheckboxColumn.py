@@ -36,38 +36,6 @@ class CheckboxColumn(Column):
         """ Return macro used to render this column in view/edit """
         return "datagrid_checkbox_cell"
 
-    security.declarePublic('processCellData')
-    def processCellData(self, form, value, context, field, columnId):
-        """ Read cell values from raw form data
-        """
-
-        newValue = []
-
-        for row in value:
-
-            # we must clone row since
-            # row is readonly ZPublished.HTTPRequest.record object
-            newRow = {}
-            for key in row.keys():
-                newRow[key] = row[key]
-
-            orderIndex = row["orderindex_"]
-            cellId = "%s.%s.%s" % (field.getName(), columnId, orderIndex)
-            if form.has_key(cellId):
-                # If check button is set in HTML form
-                # it's id appears in form of field.column.orderIndex
-                # field value is hardcoded to '1'
-                newRow[columnId] = form[cellId]
-            else:
-                # if item is not in form, user did not check it.
-                newRow[columnId] = ''
-
-            newValue.append(newRow)
-
-        return newValue
-
-
-
 
 # Initializes class security
 InitializeClass(CheckboxColumn)
