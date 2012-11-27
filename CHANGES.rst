@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.8.4 (unreleased)
+------------------
+- added Italian locale [cekk]
+
 1.8.3 (2012-08-23)
 ------------------
 - support for brower view names as 'vocabulary' parameter
