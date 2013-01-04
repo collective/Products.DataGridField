@@ -16,6 +16,10 @@ setup(name='Products.DataGridField',
           "Programming Language :: Python",
           "Topic :: Software Development :: Libraries :: Python Modules",
           "Framework :: Plone",
+          "Framework :: Plone :: 4.0",
+          "Framework :: Plone :: 4.1",
+          "Framework :: Plone :: 4.2",
+          "Framework :: Plone :: 4.3",
           "Framework :: Zope2",
           "Development Status :: 5 - Production/Stable",
           ],
@@ -34,6 +38,11 @@ setup(name='Products.DataGridField',
           'setuptools',
           # -*- Extra requirements: -*-
       ],
+      extras_require=dict(
+        test=[
+            'Products.CMFTestCase',
+        ]
+      ),
       entry_points="""
       # -*- Entry points: -*-
       """,
