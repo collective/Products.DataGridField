@@ -82,7 +82,7 @@ msgstr "Behendigheid"
 
 #: ../examples/DataGridDemoType.py:88
 msgid "Some default text"
-msgstr "Standaart tekst"
+msgstr "Standaard tekst"
 
 #: ../examples/DataGridDemoType.py:87
 msgid "Toholampi city rox"
