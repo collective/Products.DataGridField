@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="portal_factory" meta_type="Plone Factory Tool">
+ <factorytypes>
+  <type portal_type="DataGridDemoType"/>
+  <type portal_type="DataGridDemoType2"/>
+  <type portal_type="FixedRowsDemoType"/>
+  <type portal_type="InvalidDataGridDemoType"/>
+ </factorytypes>
+</object>
