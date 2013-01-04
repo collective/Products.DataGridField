@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.8.4 (unreleased)
+1.8.4 (2013-01-04)
 ------------------
 - added Italian locale [cekk]
 
