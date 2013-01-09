@@ -4,10 +4,14 @@ Changelog
 1.9.1 (unreleased)
 ------------------
 
+- Fixed bug in adding new row. Now new rows inputs has an unique id [cekk]
+
 - Accessibility fix: wrap command icons inside links so can be reached using keyboard
   [keul]
+
 - Prevent a JavaScript error if user try to change row order a single-row table
   [keul]
+
 
 1.9.0 (2013-09-19)
 ------------------

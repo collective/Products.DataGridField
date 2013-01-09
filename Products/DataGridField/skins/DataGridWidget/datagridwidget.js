@@ -62,7 +62,7 @@ dataGridFieldFunctions.autoInsertRow = function(e) {
     /* Skip the very last row which is a hidden template row */
     if(rows.length-1 ==(thisRow.rowIndex)) {
 	    // Create a new row
-	    var newtr = this.createNewRow(lastRow);
+	    var newtr = this.createNewRow(lastRow, rows.length-1);
 	                                                        
 	    // Put new row to DOM tree before template row        
 		lastRow.parentNode.insertBefore(newtr, lastRow);
@@ -78,10 +78,11 @@ dataGridFieldFunctions.addRowAfter = function(currnode) {
 	*/
 	
 	// fetch required data structure
-    var tbody = this.getParentElementById(currnode, "datagridwidget-tbody"); 
-    var thisRow = this.getParentElementById(currnode, "datagridwidget-row"); 
-
-    var newtr = this.createNewRow(thisRow);
+    var tbody = this.getParentElementById(currnode, "datagridwidget-tbody");
+    var thisRow = this.getParentElementById(currnode, "datagridwidget-row");
+    var rows = this.getRows(tbody);
+    
+    var newtr = this.createNewRow(thisRow, rows.length-1);
         
 	thisRow.parentNode.insertBefore(newtr, thisRow);
 	
@@ -104,7 +105,7 @@ dataGridFieldFunctions.addRow = function(id) {
     var oldRows = rows.length;
                   
     // Create a new row
-    var newtr = this.createNewRow(lastRow);
+    var newtr = this.createNewRow(lastRow, rows.length-1);
     
     // Put new row to DOM tree before template row        
 	var newNode = lastRow.parentNode.insertBefore(newtr, lastRow);
@@ -126,7 +127,7 @@ dataGridFieldFunctions.addRow = function(id) {
       
 }
 
-dataGridFieldFunctions.createNewRow = function(tr) { 
+dataGridFieldFunctions.createNewRow = function(tr, row_index) { 
 	/* Creates a new row 
 		   
 	   @param tr A row in a table where we'll be adding the new row
@@ -151,14 +152,29 @@ dataGridFieldFunctions.createNewRow = function(tr) {
 	// So the code below is really a hack to satisfy Microsoft codeborgs.
 	// keywords: IE javascript clone clonenode hidden element render visibility visual
 	child = lastRow.firstChild;
-	while(child != null) {
+	while(child !== null) {
 		newchild = child.cloneNode(true);
+        // if row_index is given, try to replace "_new" in cloned columns ids.
+        //This avoid multiple items with the same id.
+        if (row_index !== undefined){
+            var $newchild = jq(newchild);
+            var newchild_children = jq('*', $newchild);
+            for (i=0; i < newchild_children.length; i++) {
+                var newchild_id = newchild_children[i].id;
+                if (newchild_id !== undefined) {
+                    if (newchild_id.indexOf('_new') !== -1) {
+                        var new_id = newchild_id.replace('_new', '_'+row_index);
+                        jq(newchild_children[i]).attr('id', new_id);
+                    }
+                }
+            }
+        }
 		newtr.appendChild(newchild);
 		child = child.nextSibling;
-	}		
-	    
-    return newtr;	 
-}
+	}
+
+    return newtr;
+};
 
 
 dataGridFieldFunctions.removeFieldRow = function(node) {
