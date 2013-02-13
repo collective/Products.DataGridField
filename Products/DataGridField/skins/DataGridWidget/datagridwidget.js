@@ -270,8 +270,6 @@ dataGridFieldFunctions.updateOrderIndex = function(tbody) {
             idx++;
         }
     }
-
-    this.initDatepicker();
 }
 
 dataGridFieldFunctions.updateRadioButtonGroupName = function(row, newIndex) {
@@ -353,11 +351,8 @@ dataGridFieldFunctions.getParentElementById = function(currnode, id) {
     return parent;
 }
 
-dataGridFieldFunctions.initDatepicker = function() {
-    console.log($j("input.calendarInput"));
-    $j('input.calendarInput').datepicker({showButtonPanel: true});
-}
-
 $j(function() {
-    dataGridFieldFunctions.initDatepicker();
+    $j("table.datagridwidget-table-edit").on("mouseover", "input.calendarInput", function() {
+        $j(this).datepicker({showButtonPanel: true});
+    })
 });
