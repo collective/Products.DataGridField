@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<object name="DataGridDemoDateTime"
+        meta_type="Factory-based Type Information"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        i18n:domain="plone">
+     
+ <property name="title" i18n:translate="">DataGridDemoDateTime</property>
+ <property name="description" i18n:translate=""> Very simple DataGridField demo.
+
+      This class is used in unit testing, mainly to check old interface compatibility
+      (without widget column definitions). Please see the more complex examples below.
+ </property>
+ <property name="content_icon">document_icon.gif</property>
+ <property name="content_meta_type">DataGridDemoDateTime</property>
+ <property name="product">DataGridField</property>
+ <property name="factory">addDataGridDemoDateTime</property>
+ <property name="immediate_view">base_edit</property>
+ <property name="global_allow">True</property>
+ <property name="filter_content_types">False</property>
+ <property name="allowed_content_types"/>
+ <property name="allow_discussion">False</property>
+ <alias from="(Default)" to="base_view"/>
+ <alias from="edit" to="base_edit"/>
+ <alias from="index.html" to="(Default)"/>
+ <alias from="properties" to="base_metadata"/>
+ <alias from="view" to="(Default)"/>
+ <action title="View" action_id="view" category="object" condition_expr="python:hasattr(object, '@@plone_lock_info') and object.restrictedTraverse('@@plone_lock_info').is_locked_for_current_user() or True"
+    url_expr="string:${object_url}/view" visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Edit" action_id="edit" category="object"
+    condition_expr="python:hasattr(object, '@@plone_lock_info') and object.restrictedTraverse('@@plone_lock_info').is_locked_for_current_user() or True"
+    url_expr="string:${object_url}/edit" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Properties" action_id="metadata" category="object"
+    condition_expr="python:hasattr(object, '@@plone_lock_info') and object.restrictedTraverse('@@plone_lock_info').is_locked_for_current_user() or True" url_expr="string:${object_url}/properties"
+    visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="References" action_id="references" category="object"
+    condition_expr="object/archetype_tool/has_graphviz"
+    url_expr="string:${object_url}/reference_graph" visible="True">
+  <permission value="Modify portal content"/>
+  <permission value="Review portal content"/>
+ </action>
+</object>

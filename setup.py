@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '1.8.3'
+version = '1.8.3-DateTimeColumn'
 readme = open("README.rst").read()
 history = open("CHANGES.rst").read()
 long_description = readme + "\n" + history
@@ -32,7 +32,7 @@ setup(name='Products.DataGridField',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          # -*- Extra requirements: -*-
+          'collective.js.jqueryui',
       ],
       entry_points="""
       # -*- Entry points: -*-

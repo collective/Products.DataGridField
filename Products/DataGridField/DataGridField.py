@@ -5,21 +5,20 @@
 
 """
 from __future__ import nested_scopes
-import json
-
-__docformat__ = 'epytext'
-__author__  = 'Mikko Ohtamaa <mikko@redinnovation.com>'
-
-import StringIO
-import logging
 from AccessControl import ClassSecurityInfo
+from DateTime import DateTime
+from Products.Archetypes.Field import ObjectField, encode, registerField
 from Products.Archetypes.atapi import DisplayList
-from Products.Archetypes.Field import ObjectField
-from Products.Archetypes.Field import encode
-from Products.Archetypes.Field import registerField
 from Products.DataGridField import DataGridWidget
 from Products.DataGridField.interfaces import IDataGridField
 from zope.interface import implements
+import StringIO
+import json
+import logging
+
+__docformat__ = 'epytext'
+__author__ = 'Mikko Ohtamaa <mikko@redinnovation.com>'
+
 
 # Our logger object
 logger = logging.getLogger('DataGridField')
@@ -106,7 +105,6 @@ class DataGridField(ObjectField):
         doSort = False
 
         logging.debug("Setting DGF value to " + str(value))
-
         if value == ({},):
             # With some Plone versions, it looks like that AT init
             # causes DGF to get one empty dictionary as the base value
@@ -122,7 +120,7 @@ class DataGridField(ObjectField):
 
             # if simple quotes are used as separators, replace them by '"'
             if value.replace(' ', '')[2] == "'":
-                value = value.replace("'",'"')
+                value = value.replace("'", '"')
 
             value = json.loads(value)
         else:
@@ -142,10 +140,12 @@ class DataGridField(ObjectField):
                     # input data
                     val = {}
                     for col in self.getColumnIds():
-                        row_value = row.get(col,'')
+                        row_value = row.get(col, '')
                         # LinesColumn provides list, not string.
                         if isinstance(row_value, basestring):
                             val[col] = row_value.strip()
+                        elif isinstance(row_value, DateTime):
+                            val[col] = row_value
                         else:
                             val[col] = [value.strip() for value in row_value]
 
@@ -196,7 +196,7 @@ class DataGridField(ObjectField):
 
             for row in value:
                 for col in self.getColumnIds():
-                    buffer.write(row.get(col,''))
+                    buffer.write(row.get(col, ''))
                     # separate the last word of a cell
                     # and the first of the next cell
                     buffer.write(' ')
@@ -220,9 +220,9 @@ class DataGridField(ObjectField):
     def get_size(self, instance):
         """Get size of the stored data used for get_size in BaseObject
         """
-        size=0
+        size = 0
         for line in self.get(instance):
-            size+=len(str(line))
+            size += len(str(line))
         return size
 
     # Grid API as defined in interfaces.py

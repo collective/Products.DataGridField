@@ -12,6 +12,7 @@ from Products.Archetypes import atapi
 from Products.DataGridField import DGFMessageFactory as _
 from Products.DataGridField import DataGridField, DataGridWidget
 from Products.DataGridField.Column import Column
+from Products.DataGridField.DateTimeColumn import DateTimeColumn
 from Products.DataGridField.SelectColumn import SelectColumn
 from Products.DataGridField.RadioColumn import RadioColumn
 from Products.DataGridField.CheckboxColumn import CheckboxColumn
@@ -19,6 +20,37 @@ from Products.DataGridField.FixedColumn import FixedColumn
 from Products.DataGridField.DataGridField import FixedRow
 from Products.DataGridField.HelpColumn import HelpColumn
 from Products.DataGridField.config import PKG_NAME
+
+class DataGridDemoDateTime(atapi.BaseContent):
+    """ Very simple DataGridField demo.
+
+    This class is used in unit testing, mainly to check old interface
+    compatibi lity (without widget column definitions). Please see the
+    more complex examples below.
+    """
+    security = ClassSecurityInfo()
+
+    schema = atapi.BaseSchema + atapi.Schema((
+
+    DataGridField('DemoField',
+                columns=('column1','column2','datetime'),
+                widget = DataGridWidget(
+                    description="Set default values for created rows. Choose SelectColumn value from the default dictionary",
+                    description_msgid='DataGridDemoType_help_DemoField2',
+                    i18n_domain='datagridfield',
+                    columns={
+                        'column1' : Column(_(u"Column 01")),
+                        'column2' : Column(_(u"Column 02"), default=_(u"Some default text")),
+                        'datetime' : DateTimeColumn(_(u"Dates")),
+                    },
+                ),
+                validators = ('isValidDate',),
+            ),
+),)
+
+    meta_type = portal_type = archetype_name = 'DataGridDemoDateTime'
+
+atapi.registerType(DataGridDemoDateTime, PKG_NAME)
 
 
 class DataGridDemoType(atapi.BaseContent):

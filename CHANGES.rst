@@ -1,15 +1,21 @@
 Changelog
 =========
 
-1.8.3 (2012-08-23)
-------------------
+1.8.3-DateTimeColumn
+--------------------
+
+- DateTimeColumn support
+
+
+1.8.3-DateTimeColumn (2013-02-13)
+---------------------------------
 - support for brower view names as 'vocabulary' parameter
   for SelectColumn class
 
 1.8.2 (2012-08-23)
 ------------------
 
-- added new CSS classes to the manipulator table cells in order 
+- added new CSS classes to the manipulator table cells in order
   to be able to attach custom JS handlers
   [ajung]
 
@@ -44,7 +50,7 @@ Changelog
   Added tests.
   [thomasdesvenain]
 
-- fixed check for 'empty' for LineColumns 
+- fixed check for 'empty' for LineColumns
   [ajung]
 
 

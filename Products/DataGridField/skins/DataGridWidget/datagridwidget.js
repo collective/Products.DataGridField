@@ -1,4 +1,5 @@
-dataGridFieldFunctions = new Object()
+var $j = jQuery.noConflict(),
+    dataGridFieldFunctions = new Object();
 
 dataGridFieldFunctions.getInputOrSelect = function(node) {
     /* Get the (first) input or select form element under the given node */
@@ -269,6 +270,8 @@ dataGridFieldFunctions.updateOrderIndex = function(tbody) {
             idx++;
         }
     }
+
+    this.initDatepicker();
 }
 
 dataGridFieldFunctions.updateRadioButtonGroupName = function(row, newIndex) {
@@ -349,3 +352,12 @@ dataGridFieldFunctions.getParentElementById = function(currnode, id) {
 
     return parent;
 }
+
+dataGridFieldFunctions.initDatepicker = function() {
+    console.log($j("input.calendarInput"));
+    $j('input.calendarInput').datepicker({showButtonPanel: true});
+}
+
+$j(function() {
+    dataGridFieldFunctions.initDatepicker();
+});
