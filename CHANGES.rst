@@ -1,16 +1,10 @@
 Changelog
 =========
 
-1.8.3-DateTimeColumn
---------------------
-
-- DateTimeColumn support
-
-
-1.8.5-DateTimeColumn (unreleased)
+1.8.4-DateTimeColumn (2013-02-13)
 ---------------------------------
 
-- Nothing changed yet.
+- fix typo in version
 
 
 1.8.4-DateTimeColumm (2013-02-13)
