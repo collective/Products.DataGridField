@@ -1,4 +1,5 @@
 recursive-include Products *
 include *
 exclude bootstrap.py
+exclude buildout.cfg
 global-exclude *.pyc

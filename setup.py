@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '1.8.5-DateTimeColumn.dev0'
+version = '1.8.5-DateTimeColumn'
 readme = open("README.rst").read()
 history = open("CHANGES.rst").read()
 long_description = readme + "\n" + history
