@@ -13,6 +13,7 @@ Changelog
 - Added a ``visualClear`` div after the "add new row" button.
   This fix visual issues when field validation error take place.
   [keul]
+- Give focus to first column of new added row [keul]
 
 1.8.4 (2013-01-04)
 ------------------
