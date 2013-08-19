@@ -109,10 +109,17 @@ dataGridFieldFunctions.addRow = function(id) {
     // Put new row to DOM tree before template row        
 	var newNode = lastRow.parentNode.insertBefore(newtr, lastRow);
 
-    //Set the focus on new row
-    var focusParent = newNode.getElementsByClassName('datagridwidget-cell')[0].getElementsByTagName('span')[0];
-    var focusInput = focusParent.firstElementChild;
-    focusInput.focus();
+    // Set input focus on the first cell in the new row
+	var focusParent = null;
+	if (typeof document.getElementsByClassName==='function') {
+		focusParent = newNode.getElementsByClassName('datagridwidget-cell')[0].getElementsByTagName('span')[0];
+	} else if (typeof document.querySelectorAll!=='undefined') {
+		focusParent = newNode.querySelectorAll('.datagridwidget-cell')[0].getElementsByTagName('span')[0];
+	}
+	if (focusParent) {
+		var focusChild = focusParent.firstElementChild || focusParent.children[0];
+	    focusChild.focus();		
+	}
 	
 	// update orderindex hidden fields
 	this.updateOrderIndex(tbody);		
