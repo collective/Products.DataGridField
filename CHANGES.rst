@@ -1,18 +1,24 @@
 Changelog
 =========
 
-1.8.5 (unreleased)
+1.9.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- new column option ``col_description``: display help text for column purpose
+  [keul]
+- new column option ``required``: mark data inside column as required
+  [keul]
+- added alpha channel to grid icons
+  [keul]
 
 1.8.4 (2013-01-04)
 ------------------
+
 - added Italian locale [cekk]
 
 1.8.3 (2012-08-23)
 ------------------
+
 - support for brower view names as 'vocabulary' parameter
   for SelectColumn class
 

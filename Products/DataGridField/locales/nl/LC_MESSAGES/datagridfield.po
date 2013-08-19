@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.1\n"
-"POT-Creation-Date: 2012-06-27 08:51+0000\n"
+"POT-Creation-Date: 2013-08-19 13:30+0000\n"
 "PO-Revision-Date: 2010-03-17 14:51+0100\n"
 "Last-Translator: Martijn Schenk <martijn.schenk@fourdigits.nl>\n"
 "Language-Team: Rob Gietema <rob@fourdigits.nl>\n"
@@ -89,7 +89,7 @@ msgid "Toholampi city rox"
 msgstr "Toholampi city rox"
 
 #. Default: "Add new row"
-#: ../skins/DataGridWidget/datagridwidget.pt:81
+#: ../skins/DataGridWidget/datagridwidget.pt:92
 msgid "label_datagridwidget_add_new_row"
 msgstr "Voeg regel toe"
 
@@ -122,4 +122,19 @@ msgstr "Verplaats regel naar boven"
 #: ../skins/DataGridWidget/datagrid_link_cell.pt:38
 msgid "label_datagridwidget_text"
 msgstr "Tekst"
+
+#. Default: "(Required)"
+#: ../skins/DataGridWidget/datagridwidget.pt:50
+msgid "label_required"
+msgstr ""
+
+#. Default: "The following columns are required but not all rows has been filled: ${columns}"
+#: ../validators.py:69
+msgid "missing_columns"
+msgstr ""
+
+#. Default: "Required"
+#: ../skins/DataGridWidget/datagridwidget.pt:50
+msgid "title_required"
+msgstr ""
 

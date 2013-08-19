@@ -35,7 +35,6 @@ from Products.DataGridField.LinkColumn import LinkColumn
 from Products.DataGridField.HelpColumn import HelpColumn
 from Products.DataGridField.CheckboxColumn import CheckboxColumn
 from Products.DataGridField.LinesColumn import LinesColumn
-from Products.DataGridField import validators
 
 from Products.DataGridField.config import PKG_NAME, GLOBALS
 
@@ -43,6 +42,8 @@ from Products.DataGridField.config import PKG_NAME, GLOBALS
 DGFMessageFactory = MessageFactory('datagridfield')
 # Import "MessageFactory" to create messages in the plone domain
 PloneMessageFactory = MessageFactory('plone')
+
+from Products.DataGridField import validators
 
 registerDirectory('skins', GLOBALS)
 

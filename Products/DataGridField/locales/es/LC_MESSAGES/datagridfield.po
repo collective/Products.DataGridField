@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DataGridField\n"
-"POT-Creation-Date: 2012-06-27 08:51+0000\n"
+"POT-Creation-Date: 2013-08-19 13:30+0000\n"
 "PO-Revision-Date: 2009-11-08 17:34-0400\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish <plone-conosur@lists.plone.org>\n"
@@ -95,7 +95,7 @@ msgid "Toholampi city rox"
 msgstr "Rox ciudad Toholampi"
 
 #. Default: "Add new row"
-#: ../skins/DataGridWidget/datagridwidget.pt:81
+#: ../skins/DataGridWidget/datagridwidget.pt:92
 msgid "label_datagridwidget_add_new_row"
 msgstr "Agregar nueva fila"
 
@@ -128,4 +128,19 @@ msgstr "Mover fila arriba"
 #: ../skins/DataGridWidget/datagrid_link_cell.pt:38
 msgid "label_datagridwidget_text"
 msgstr "Texto:"
+
+#. Default: "(Required)"
+#: ../skins/DataGridWidget/datagridwidget.pt:50
+msgid "label_required"
+msgstr ""
+
+#. Default: "The following columns are required but not all rows has been filled: ${columns}"
+#: ../validators.py:69
+msgid "missing_columns"
+msgstr ""
+
+#. Default: "Required"
+#: ../skins/DataGridWidget/datagridwidget.pt:50
+msgid "title_required"
+msgstr ""
 

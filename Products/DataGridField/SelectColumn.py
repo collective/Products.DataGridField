@@ -23,13 +23,13 @@ class SelectColumn(Column):
 
     security = ClassSecurityInfo()
 
-    def __init__(self, title, vocabulary, default=None):
+    def __init__(self, label, vocabulary, col_description=None, default=None, label_msgid=None, visible=True, required=False):
         """ Create a SelectColumn
 
         @param vocabulary Vocabulary method name. This method is called
                from Archetypes instance to get values for dropdown list.
         """
-        Column.__init__(self, title, default=default)
+        Column.__init__(self, label, col_description, default, label_msgid, required)
         self.vocabulary = vocabulary
 
 
