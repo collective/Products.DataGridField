@@ -93,7 +93,7 @@
                    i18n:translate="label_datagridwidget_add_new_row"
                    tal:condition="field/allow_insert"
                tal:attributes='onclick python: "dataGridFieldFunctions.addRow(\"" + field.getName() + "\")"'>Add new row</a>
-
+            <div class="visualClear"><!-- --></div>
             <tal:comment replace="nothing">
                 <!-- Button that allows creation of the initial row when DGF is empty -->
             </tal:comment>

@@ -4,11 +4,14 @@ Changelog
 1.9.0 (unreleased)
 ------------------
 
-- new column option ``col_description``: display help text for column purpose
+- New column option ``col_description``: display help text for column purpose
   [keul]
-- new column option ``required``: mark data inside column as required
+- New column option ``required``: mark data inside column as required
   [keul]
-- added alpha channel to grid icons
+- Added alpha channel to grid icons
+  [keul]
+- Added a ``visualClear`` div after the "add new row" button.
+  This fix visual issues when field validation error take place.
   [keul]
 
 1.8.4 (2013-01-04)
