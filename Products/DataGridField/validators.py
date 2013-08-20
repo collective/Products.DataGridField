@@ -62,6 +62,9 @@ class ColumnRequiredDataGridValidator:
             return True
         missing_columns = []
         for row in value:
+            if not row.get('orderindex_', '').isdigit():
+                # skipping the "template_row_marker" when on edit
+                continue
             for cname, cvalue in row.items():
                 if cname in required_cols and not cvalue and cname not in missing_columns:
                     missing_columns.append(cname)
