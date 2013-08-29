@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DataGridField\n"
-"POT-Creation-Date: 2013-08-29 07:32+0000\n"
+"POT-Creation-Date: 2013-08-29 13:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,6 +50,10 @@ msgstr ""
 
 #: ../examples/DataGridDemoType.py:89
 msgid "Friendly name"
+msgstr ""
+
+#: ../examples/DataGridDemoType.py:87
+msgid "Go Toholampi or go home."
 msgstr ""
 
 #: ../examples/DataGridDemoType.py:216
@@ -124,7 +128,7 @@ msgid "label_datagridwidget_text"
 msgstr ""
 
 #. Default: "The following columns are required but not all rows have been filled: ${columns}"
-#: ../validators.py:72
+#: ../validators.py:82
 msgid "missing_columns"
 msgstr ""
 

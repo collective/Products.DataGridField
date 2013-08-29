@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.1\n"
-"POT-Creation-Date: 2013-08-29 07:32+0000\n"
-"PO-Revision-Date: 2013-08-39 14:22+0200\n"
+"POT-Creation-Date: 2013-08-29 13:14+0000\n"
+"PO-Revision-Date: 2013-08-29 15:14+0200\n"
 "Last-Translator: Maurits van Rees <m.van.rees@zestsoftware.nl>\n"
 "Language-Team: Rob Gietema <rob@fourdigits.nl>\n"
 "MIME-Version: 1.0\n"
@@ -51,6 +51,10 @@ msgstr "Stel standaard waardes in voor de gemaakte regels. Kies SelectColumn waa
 #: ../examples/DataGridDemoType.py:89
 msgid "Friendly name"
 msgstr "Weergave naam"
+
+#: ../examples/DataGridDemoType.py:87
+msgid "Go Toholampi or go home."
+msgstr "Ga naar Toholampi of blijf thuis."
 
 #: ../examples/DataGridDemoType.py:216
 msgid "Good"
@@ -124,7 +128,7 @@ msgid "label_datagridwidget_text"
 msgstr "Tekst"
 
 #. Default: "The following columns are required but not all rows have been filled: ${columns}"
-#: ../validators.py:72
+#: ../validators.py:82
 msgid "missing_columns"
 msgstr "De volgende kolommen zijn verplicht, maar niet alle rijen zijn ingevuld: ${columns}"
 

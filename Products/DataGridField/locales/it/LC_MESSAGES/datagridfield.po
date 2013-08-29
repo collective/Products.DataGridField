@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.DataGridField 1.8.4\n"
-"POT-Creation-Date: 2013-08-29 07:32+0000\n"
+"POT-Creation-Date: 2013-08-29 13:14+0000\n"
 "PO-Revision-Date: 2012-11-27 09:32 +0100\n"
 "Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.it>\n"
 "Language-Team: RedTurtle Technology <sviluppoplone@redturtle.it>\n"
@@ -51,6 +51,10 @@ msgstr "Competenze"
 #: ../examples/DataGridDemoType.py:89
 msgid "Friendly name"
 msgstr "Nome"
+
+#: ../examples/DataGridDemoType.py:87
+msgid "Go Toholampi or go home."
+msgstr ""
 
 #: ../examples/DataGridDemoType.py:216
 msgid "Good"
@@ -124,7 +128,7 @@ msgid "label_datagridwidget_text"
 msgstr "Testo:"
 
 #. Default: "The following columns are required but not all rows have been filled: ${columns}"
-#: ../validators.py:72
+#: ../validators.py:82
 msgid "missing_columns"
 msgstr "Le seguenti colonne sono obbligatorie ma non tutte le righe sono state compilate: ${columns}"
 
