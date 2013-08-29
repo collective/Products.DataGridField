@@ -75,19 +75,27 @@ If a column is required, you must provide a value in every row of that column:
     ...                                        'col_a' : Column('A', required=True),
     ...                                        'col_b' : Column('B'),
     ...                                        })
-    >>> val([{'col_a': 'foo', 'col_b': 'bar'},
-    ...      {'col_a': 'baz', 'col_b': 'qux'}], field=field)
+    >>> val([{'orderindex_': '1', 'col_a': 'foo', 'col_b': 'bar'},
+    ...      {'orderindex_': '2', 'col_a': 'baz', 'col_b': 'qux'}], field=field)
     True
-    >>> val([{'col_a': '', 'col_b': 'bar'},
-    ...      {'col_a': 'baz', 'col_b': 'qux'}], field=field)
-    u'The following columns are required but not all rows has been filled: col_a'
+    >>> val([{'orderindex_': '1', 'col_a': '', 'col_b': 'bar'},
+    ...      {'orderindex_': '2', 'col_a': 'baz', 'col_b': 'qux'}], field=field)
+    u'The following columns are required but not all rows have been filled: col_a'
 
 Obviously you can still not provide data for not required columns:
 
-    >>> val([{'col_a': '', 'col_b': 'bar'},
-    ...      {'col_a': 'baz', 'col_b': ''}], field=field)
-    u'The following columns are required but not all rows has been filled: col_a'
+    >>> val([{'orderindex_': '1', 'col_a': '', 'col_b': 'bar'},
+    ...      {'orderindex_': '2', 'col_a': 'baz', 'col_b': ''}], field=field)
+    u'The following columns are required but not all rows have been filled: col_a'
     >>> field.widget.columns['col_b'].required = True
-    >>> val([{'col_a': '', 'col_b': 'bar'},
-    ...      {'col_a': 'baz', 'col_b': ''}], field=field)
-    u'The following columns are required but not all rows has been filled: col_a, col_b'
+    >>> val([{'orderindex_': '1', 'col_a': '', 'col_b': 'bar'},
+    ...      {'orderindex_': '2', 'col_a': 'baz', 'col_b': ''}], field=field)
+    u'The following columns are required but not all rows have been filled: col_a, col_b'
+
+When you are editing an existing item, a hidden row is automatically added to the field.
+Values in this row (marked by orderindex_='template_row_marker') can be empty:
+
+    >>> val([{'orderindex_': '1', 'col_a': 'foo', 'col_b': 'bar'},
+    ...      {'orderindex_': '2', 'col_a': 'baz', 'col_b': 'qux'},
+    ...      {'orderindex_': 'template_row_marker', 'col_a': '', 'col_b': ''}], field=field)
+    True

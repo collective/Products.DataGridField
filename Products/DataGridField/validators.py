@@ -71,7 +71,7 @@ class ColumnRequiredDataGridValidator:
         if missing_columns:
             return recursiveTranslate(_('missing_columns',
                                         default = u"The following columns are required but not all rows "
-                                                  u"has been filled: ${columns}",
+                                                  u"have been filled: ${columns}",
                                         mapping = {'columns': ', '.join(missing_columns)})
                                       , **kwargs)
         return True
