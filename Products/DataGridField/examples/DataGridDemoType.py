@@ -84,7 +84,7 @@ class DataGridDemoType2(atapi.BaseContent):
                     description_msgid='DataGridDemoType_help_DemoField2',
                     i18n_domain='datagridfield',
                     columns={
-                        'column1' : Column(_(u"Toholampi city rox")),
+                        'column1' : Column(_(u"Toholampi city rox"), required=True, col_description=_(u"Go Toholampi or go home.")),
                         'column2' : Column(_(u"My friendly name"), default=_(u"Some default text")),
                         'select_sample' : SelectColumn(_(u"Friendly name"), vocabulary="getSampleVocabulary", default="sample2")
                     },
