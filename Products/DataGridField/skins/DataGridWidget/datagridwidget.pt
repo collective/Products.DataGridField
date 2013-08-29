@@ -50,6 +50,7 @@
                                    <span class="fieldRequired"
                                          tal:condition="c/required|nothing"
                                          title="Required"
+										 i18n:domain="plone"
                                          i18n:translate="label_required"
                                          i18n:attributes="title title_required;">
                                        (Required)

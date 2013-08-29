@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-08-19 13:30+0000\n"
+"POT-Creation-Date: 2013-08-29 07:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,7 +92,7 @@ msgid "Toholampi city rox"
 msgstr ""
 
 #. Default: "Add new row"
-#: ../skins/DataGridWidget/datagridwidget.pt:92
+#: ../skins/DataGridWidget/datagridwidget.pt:93
 msgid "label_datagridwidget_add_new_row"
 msgstr ""
 
@@ -126,18 +126,8 @@ msgstr ""
 msgid "label_datagridwidget_text"
 msgstr ""
 
-#. Default: "(Required)"
-#: ../skins/DataGridWidget/datagridwidget.pt:50
-msgid "label_required"
-msgstr ""
-
-#. Default: "The following columns are required but not all rows has been filled: ${columns}"
-#: ../validators.py:69
+#. Default: "The following columns are required but not all rows have been filled: ${columns}"
+#: ../validators.py:72
 msgid "missing_columns"
-msgstr ""
-
-#. Default: "Required"
-#: ../skins/DataGridWidget/datagridwidget.pt:50
-msgid "title_required"
 msgstr ""
 
