@@ -67,7 +67,14 @@ class ColumnRequiredDataGridValidator:
                 continue
             for cname, cvalue in row.items():
                 if cname in required_cols and not cvalue and cname not in missing_columns:
-                    missing_columns.append(cname)
+                    # Try to get a translated label.
+                    try:
+                        cdef = field.widget.columns.get(cname)
+                        label = cdef.getLabel(kwargs.get('REQUEST'), field.widget)
+                    except:
+                        # fall back to the column id.
+                        label = cname
+                    missing_columns.append(label)
         if missing_columns:
             return recursiveTranslate(_('missing_columns',
                                         default = u"The following columns are required but not all rows "
