@@ -86,7 +86,7 @@ msgstr "Standaard tekst"
 
 #: ../examples/DataGridDemoType.py:87
 msgid "Toholampi city rox"
-msgstr "Toholampi city rox"
+msgstr "Toholampi stad is mieters"
 
 #. Default: "Add new row"
 #: ../skins/DataGridWidget/datagridwidget.pt:93

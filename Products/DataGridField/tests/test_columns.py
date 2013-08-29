@@ -72,7 +72,7 @@ class TestColumns(DataGridTestCase):
     def testGetColumnNames(self):
         """ Get user friendly column names """
         field = self.demo2.getField("DemoField2")
-        names = field.widget.getColumnLabels(field, self)
+        names = field.widget.getColumnLabels(field, self.demo2)
         self.assertEqual(
             names,
             ["Toholampi city rox", "My friendly name", "Friendly name"])

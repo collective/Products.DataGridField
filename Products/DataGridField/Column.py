@@ -15,6 +15,7 @@ __docformat__ = 'epytext'
 # Zope imports
 from AccessControl import ClassSecurityInfo
 from App.class_init import InitializeClass
+from zope.i18n import translate
 
 
 class Column(object):
@@ -42,29 +43,23 @@ class Column(object):
             self.label_msgid = label_msgid
 
     security.declarePublic('getLabel')
-    def getLabel(self, context, widget):
-        """ User friendly name for the columnt
+    def getLabel(self, context, widget=None):
+        """ User friendly name for the column.
 
-        @param context Context where translation happens
-        @param widget The parent widget of this column
+        This includes translation.
+
+        @param context Context where translation happens (should be a request)
+
+        @param widget The parent widget of this column. This is
+        ignored now, as we do not support specifying an i18n_domain in
+        the widget.  The labels should be specified with a message factory.
         """
-
-
-        # TODO: translation support disabled
-
-        #if HAS_PLONE25:
-            # No translation support yet
-        #    return zope.i18n.translate(
-        #        _(self.label_msgid,
-        #          self.label),
-        #          context=context)
-        #else:
-        #    context.translate(
-        #            msgid   = self.label_msgid,
-        #            domain  = widget.i18n_domain,
-        #            default = self.label)
-        return self.label
-
+        try:
+            return translate(self.label, context=context)
+        except:
+            # Fall back to the untranslated label instead of crashing
+            # simply because translation fails.
+            return self.label
 
     security.declarePublic('getDefault')
     def getDefault(self, context):

@@ -4,21 +4,31 @@ Changelog
 1.9.0 (unreleased)
 ------------------
 
+- Change ``Column.getLabel`` to support translation again.  You should
+  pass a request as the context.
+  [maurits]
+
 - New column option ``col_description``: display help text for column purpose
   [keul]
+
 - New column option ``required``: mark data inside column as required
   [keul]
+
 - Added alpha channel to grid icons
   [keul]
+
 - Added a ``visualClear`` div after the "add new row" button.
   This fix visual issues when field validation error take place.
   [keul]
+
 - Give focus to first column of new added row [keul]
+
 
 1.8.4 (2013-01-04)
 ------------------
 
 - added Italian locale [cekk]
+
 
 1.8.3 (2012-08-23)
 ------------------

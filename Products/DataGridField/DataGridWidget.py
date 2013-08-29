@@ -68,7 +68,7 @@ class DataGridWidget(TypesWidget):
                 raise AttributeError, "DataGridWidget missing column definition for " + id + " in field " + field.getName()
 
             col = self.columns[id]
-            names.append(col.getLabel(self, context))
+            names.append(col.getLabel(self, context.REQUEST))
 
         return names
 
@@ -111,7 +111,7 @@ class DataGridWidget(TypesWidget):
             item = {'id':id, 'label':'', 'visible':True}
             visible = getattr(c, 'visible', True)
             item['visible'] = visible
-            item['label'] = c.getLabel(instance, self)
+            item['label'] = c.getLabel(instance, self.REQUEST)
             item['required'] = getattr(c, 'required', False)
             item['col_description'] = getattr(c, 'col_description', '')
             result.append(item)

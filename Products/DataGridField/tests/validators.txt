@@ -80,17 +80,17 @@ If a column is required, you must provide a value in every row of that column:
     True
     >>> val([{'orderindex_': '1', 'col_a': '', 'col_b': 'bar'},
     ...      {'orderindex_': '2', 'col_a': 'baz', 'col_b': 'qux'}], field=field)
-    u'The following columns are required but not all rows have been filled: col_a'
+    u'The following columns are required but not all rows have been filled: A'
 
 Obviously you can still not provide data for not required columns:
 
     >>> val([{'orderindex_': '1', 'col_a': '', 'col_b': 'bar'},
     ...      {'orderindex_': '2', 'col_a': 'baz', 'col_b': ''}], field=field)
-    u'The following columns are required but not all rows have been filled: col_a'
+    u'The following columns are required but not all rows have been filled: A'
     >>> field.widget.columns['col_b'].required = True
     >>> val([{'orderindex_': '1', 'col_a': '', 'col_b': 'bar'},
     ...      {'orderindex_': '2', 'col_a': 'baz', 'col_b': ''}], field=field)
-    u'The following columns are required but not all rows have been filled: col_a, col_b'
+    u'The following columns are required but not all rows have been filled: A, B'
 
 When you are editing an existing item, a hidden row is automatically added to the field.
 Values in this row (marked by orderindex_='template_row_marker') can be empty:
