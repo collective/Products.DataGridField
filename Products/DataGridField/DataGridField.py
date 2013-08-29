@@ -76,6 +76,9 @@ class DataGridField(ObjectField):
 
         # Set to true to hifhligh odd/even rows in edit/view form
         'allow_oddeven' : False,
+        
+        # Validators that check for required columns
+        'validators': ('isColumnFilled',),
         })
 
     security = ClassSecurityInfo()

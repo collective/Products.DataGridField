@@ -112,6 +112,8 @@ class DataGridWidget(TypesWidget):
             visible = getattr(c, 'visible', True)
             item['visible'] = visible
             item['label'] = c.getLabel(instance, self)
+            item['required'] = getattr(c, 'required', False)
+            item['col_description'] = getattr(c, 'col_description', '')
             result.append(item)
 
         return result

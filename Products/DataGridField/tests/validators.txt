@@ -1,3 +1,6 @@
+isDataGridFilled validator
+==========================
+
 We create a DataGridValidator.
 
     >>> from Products.DataGridField.validators import isDataGridFilled as val
@@ -37,4 +40,62 @@ enough.
     >>> val('QA')
     True
     >>> val(range(5))
+    True
+
+isColumnFilled validator
+========================
+
+We create the validator instance.
+
+    >>> from Products.DataGridField.DataGridWidget import DataGridWidget
+    >>> from Products.DataGridField.Column import Column
+    >>> from Products.DataGridField.validators import isColumnFilled as val
+    >>> class Foo(object):
+    ...     widget = None
+    >>> field = Foo()
+
+Validator only works for DataGridWidget instances:
+
+    >>> field.widget = 'foo'
+    >>> val('bar', field=field)
+    True
+
+If no required columns are set, no action is taken:
+
+    >>> field.widget = DataGridWidget(columns={
+    ...                                        'col_a' : Column('A'),
+    ...                                        'col_b' : Column('B'),
+    ...                                        })
+    >>> val([{'col_a': '', 'col_b': ''}, ], field=field)
+    True
+
+If a column is required, you must provide a value in every row of that column:
+
+    >>> field.widget = DataGridWidget(columns={
+    ...                                        'col_a' : Column('A', required=True),
+    ...                                        'col_b' : Column('B'),
+    ...                                        })
+    >>> val([{'orderindex_': '1', 'col_a': 'foo', 'col_b': 'bar'},
+    ...      {'orderindex_': '2', 'col_a': 'baz', 'col_b': 'qux'}], field=field)
+    True
+    >>> val([{'orderindex_': '1', 'col_a': '', 'col_b': 'bar'},
+    ...      {'orderindex_': '2', 'col_a': 'baz', 'col_b': 'qux'}], field=field)
+    u'The following columns are required but not all rows have been filled: col_a'
+
+Obviously you can still not provide data for not required columns:
+
+    >>> val([{'orderindex_': '1', 'col_a': '', 'col_b': 'bar'},
+    ...      {'orderindex_': '2', 'col_a': 'baz', 'col_b': ''}], field=field)
+    u'The following columns are required but not all rows have been filled: col_a'
+    >>> field.widget.columns['col_b'].required = True
+    >>> val([{'orderindex_': '1', 'col_a': '', 'col_b': 'bar'},
+    ...      {'orderindex_': '2', 'col_a': 'baz', 'col_b': ''}], field=field)
+    u'The following columns are required but not all rows have been filled: col_a, col_b'
+
+When you are editing an existing item, a hidden row is automatically added to the field.
+Values in this row (marked by orderindex_='template_row_marker') can be empty:
+
+    >>> val([{'orderindex_': '1', 'col_a': 'foo', 'col_b': 'bar'},
+    ...      {'orderindex_': '2', 'col_a': 'baz', 'col_b': 'qux'},
+    ...      {'orderindex_': 'template_row_marker', 'col_a': '', 'col_b': ''}], field=field)
     True

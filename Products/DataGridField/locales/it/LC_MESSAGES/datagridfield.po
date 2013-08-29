@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.DataGridField 1.8.4\n"
-"POT-Creation-Date: 2012-11-27 08:11+0000\n"
+"POT-Creation-Date: 2013-08-29 07:32+0000\n"
 "PO-Revision-Date: 2012-11-27 09:32 +0100\n"
 "Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.it>\n"
 "Language-Team: RedTurtle Technology <sviluppoplone@redturtle.it>\n"
@@ -89,7 +89,7 @@ msgid "Toholampi city rox"
 msgstr ""
 
 #. Default: "Add new row"
-#: ../skins/DataGridWidget/datagridwidget.pt:81
+#: ../skins/DataGridWidget/datagridwidget.pt:93
 msgid "label_datagridwidget_add_new_row"
 msgstr "Aggiungi nuova riga"
 
@@ -122,4 +122,9 @@ msgstr "Sposta la riga in su"
 #: ../skins/DataGridWidget/datagrid_link_cell.pt:38
 msgid "label_datagridwidget_text"
 msgstr "Testo:"
+
+#. Default: "The following columns are required but not all rows have been filled: ${columns}"
+#: ../validators.py:72
+msgid "missing_columns"
+msgstr "Le seguenti colonne sono obbligatorie ma non tutte le righe sono state compilate: ${columns}"
 

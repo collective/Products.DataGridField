@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DataGridField\n"
-"POT-Creation-Date: 2012-06-27 08:57+0000\n"
+"POT-Creation-Date: 2013-08-29 07:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,7 +89,7 @@ msgid "Toholampi city rox"
 msgstr ""
 
 #. Default: "Add new row"
-#: ../skins/DataGridWidget/datagridwidget.pt:81
+#: ../skins/DataGridWidget/datagridwidget.pt:93
 msgid "label_datagridwidget_add_new_row"
 msgstr ""
 
@@ -121,5 +121,10 @@ msgstr ""
 #. Default: "Text:"
 #: ../skins/DataGridWidget/datagrid_link_cell.pt:38
 msgid "label_datagridwidget_text"
+msgstr ""
+
+#. Default: "The following columns are required but not all rows have been filled: ${columns}"
+#: ../validators.py:72
+msgid "missing_columns"
 msgstr ""
 
