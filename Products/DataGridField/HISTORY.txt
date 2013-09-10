@@ -4,8 +4,8 @@ History
 1.6.4-RT9 (unreleased)
 ----------------------
 
-- Nothing changed yet.
-
+- renamed ``row_description`` to ``col_description``
+  as official DTF 1.9+ [keul]
 
 1.6.4-RT8 (2012-09-20)
 ----------------------
