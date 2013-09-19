@@ -4,6 +4,10 @@ Changelog
 1.9.0 (unreleased)
 ------------------
 
+- No longer support ``label_msgid`` in Columns.  This was unused for
+  years.
+  [maurits]
+
 - Change ``Column.getLabel`` to support translation again.  You should
   pass a request as the context.
   [maurits]

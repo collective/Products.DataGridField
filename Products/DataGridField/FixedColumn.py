@@ -23,12 +23,15 @@ class FixedColumn(Column):
     """
     security = ClassSecurityInfo()
 
-    def __init__(self, label, col_description=None, default=None, label_msgid=None, visible=True, required=False):
+    def __init__(self, label, col_description=None, default=None,
+                 default_method=None, visible=True, required=False):
         """ Create a column
 
-            @param hide Hide column from displaying
+            @param visible Hide column from displaying by setting this to False
         """
-        Column.__init__(self, label, col_description, default, label_msgid, required)
+        Column.__init__(self, label, col_description=col_description,
+                        default=default, default_method=default_method,
+                        required=required)
         self.visible = visible
 
     security.declarePublic('getMacro')
