@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.9.0 (unreleased)
+1.9.0 (2013-09-19)
 ------------------
 
 - Support argument ``label`` plus the standard keyword arguments in
