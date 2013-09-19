@@ -30,13 +30,14 @@ class LinkColumn(Column):
 
     security = ClassSecurityInfo()
 
-    def __init__(self, title, linkClass="", required=False):
+    def __init__(self, label, **kwargs):
         """ Create a Links
 
         @param linkClass CSS class for <a> links in view mode
 
         """
-        Column.__init__(self, title, required=required)
+        linkClass = kwargs.pop('linkClass', '')
+        Column.__init__(self, label, **kwargs)
         self.linkClass = linkClass
 
     security.declarePublic('getMacro')

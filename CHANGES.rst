@@ -4,6 +4,12 @@ Changelog
 1.9.0 (unreleased)
 ------------------
 
+- Support argument ``label`` plus the standard keyword arguments in
+  all Columns: ``col_description ``, ``default``, ``default_method``,
+  ``visible``, ``required``.  Child classes may support more arguments
+  or keywords arguments.
+  [maurits]
+
 - No longer support ``label_msgid`` in Columns.  This was unused for
   years.
   [maurits]

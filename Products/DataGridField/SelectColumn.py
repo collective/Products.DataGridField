@@ -23,19 +23,14 @@ class SelectColumn(Column):
 
     security = ClassSecurityInfo()
 
-    def __init__(self, label, vocabulary, col_description=None, default=None,
-                 default_method=None, visible=True, required=False):
+    def __init__(self, label, vocabulary, **kwargs):
         """ Create a SelectColumn
 
         @param vocabulary Vocabulary method name. This method is called
                from Archetypes instance to get values for dropdown list.
-        @param visible Hide column from displaying by setting this to False
         """
-        Column.__init__(self, label, col_description=col_description,
-                        default=default, default_method=default_method,
-                        required=required)
+        Column.__init__(self, label, **kwargs)
         self.vocabulary = vocabulary
-        self.visible = visible
 
     security.declarePublic('getVocabulary')
     def getVocabulary(self, instance):

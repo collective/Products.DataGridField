@@ -23,19 +23,22 @@ class Column(object):
 
     security = ClassSecurityInfo()
 
-    def __init__(self, label, col_description=None, default=None, default_method=None, required=False):
+    def __init__(self, label, col_description=None, default=None,
+                 default_method=None, visible=True, required=False):
         """ Create a column
 
             @param label User visible name
             @param col_description General description for the column (when label is  not enough)
             @param default Default value for new rows
             @param default_method Default function to generate the default value for new rows
+            @param visible Hide column from displaying by setting this to False
             @param required Set to True when values in this column are required
         """
         self.label = label
         self.col_description = col_description
         self.default = default
         self.default_method = default_method
+        self.visible = visible
         self.required = required
 
     security.declarePublic('getLabel')

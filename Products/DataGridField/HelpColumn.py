@@ -24,15 +24,14 @@ class HelpColumn(Column):
 
     security = ClassSecurityInfo()
 
-    def __init__(self, title, helper_text, script, icon):
+    def __init__(self, label, helper_text, script, icon, **kwargs):
         """ Create a HelpColumn
 
         """
-        Column.__init__(self, title)
+        Column.__init__(self, label, **kwargs)
         self.helper_text = helper_text
         self.helper_url = script
         self.icon = icon
-
 
     security.declareProtected(View, 'getVocabulary')
     def getVocabulary(self, instance):
