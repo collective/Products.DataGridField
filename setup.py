@@ -38,14 +38,10 @@ setup(name='Products.DataGridField',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          # -*- Extra requirements: -*-
       ],
       extras_require=dict(
-        test=[
-            'Products.CMFTestCase',
-        ]
+          test=[
+              'Products.CMFTestCase',
+              ]
       ),
-      entry_points="""
-      # -*- Entry points: -*-
-      """,
       )
