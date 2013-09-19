@@ -11,7 +11,7 @@ Changelog
 ------------------
 
 - Support argument ``label`` plus the standard keyword arguments in
-  all Columns: ``col_description ``, ``default``, ``default_method``,
+  all Columns: ``col_description``, ``default``, ``default_method``,
   ``visible``, ``required``.  Child classes may support more arguments
   or keywords arguments.
   [maurits]
