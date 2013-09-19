@@ -14,6 +14,8 @@ setup(name='Products.DataGridField',
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
           "Programming Language :: Python",
+          "Programming Language :: Python :: 2.6",
+          "Programming Language :: Python :: 2.7",
           "Topic :: Software Development :: Libraries :: Python Modules",
           "Framework :: Plone",
           "Framework :: Plone :: 4.0",
