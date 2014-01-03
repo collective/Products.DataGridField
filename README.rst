@@ -10,22 +10,19 @@ there are no round trip HTTP requests to the server when inserting or deleting r
 Features
 --------
 
-	o Any number of columns set by a developer
-
-	o Any number of rows filled by a user
-
-	o Insert and deleting rows without submitting a form
-
-	o Many different column types
+* Any number of columns set by a developer
+* Any number of rows filled by a user
+* Insert and deleting rows without submitting a form
+* Many different column types
 
 
 Requirements
 ------------
 
-	o Plone 4 (for Plone 3, use the latest release in the 1.7 branch or 1.6 branch, for Plone 2.5, use the latest release in the 1.6 branch)
-
-	o A browser with Javascript support. There isn't yet graceful degradation for
-	  browsers without Javascript.
+* Plone 4 (for Plone 3, use the latest release in the 1.7 branch or 1.6 branch, for Plone 2.5,
+  use the latest release in the 1.6 branch)
+* A browser with Javascript support. There isn't yet graceful degradation for
+  browsers without Javascript.
 
 
 Installation
@@ -36,23 +33,19 @@ egg at the Python Package index.  Information about configuring either for a zop
 house a Plone site can be found by reading the `Installing an Add-on Product`_
 tutorial and the "Installing a third party product" section of the `Managing Project with zc.buildout`_ tutorial.
 
-.. _Installing an Add-on Product: http://plone.org/documentation/tutorial/third-party-products
+.. _Installing an Add-on Product: http://plone.org/documentation/kb/add-ons
 .. _Managing Project with zc.buildout: http://plone.org/documentation/tutorial/buildout/installing-a-third-party-product
 
 Once you've succesfully done this, you can use the Add/Remove Products screen to install the DataGridField into your
 site. See below for information about experimenting with the demo types.
 
 
-Quality
--------
-
-	o Tested with Firefox 2.0, IE 6, IE 7
-
-
 Usage examples
 --------------
 
-Simple example with three free text columns::
+Simple example with three free text columns:
+
+.. code-block:: python
 
         schema = BaseSchema + Schema((
 
@@ -62,45 +55,47 @@ Simple example with three free text columns::
                 ),
         ))
 
-Complex example with different column types and user friendly labels::
+Complex example with different column types and user friendly labels:
 
-	# Plone imports
-	from Products.Archetypes.public import DisplayList
-	from Products.Archetypes.public import *
+.. code-block:: python
 
-	# Local imports
-	from Products.DataGridField import DataGridField, DataGridWidget
-	from Products.DataGridField.Column import Column
-	from Products.DataGridField.SelectColumn import SelectColumn
+    # Plone imports
+    from Products.Archetypes.public import DisplayList
+    from Products.Archetypes.public import *
 
-	class DataGridDemoType(BaseContent):
-	    """A simple archetype
+    # Local imports
+    from Products.DataGridField import DataGridField, DataGridWidget
+    from Products.DataGridField.Column import Column
+    from Products.DataGridField.SelectColumn import SelectColumn
 
-	    """
+    class DataGridDemoType(BaseContent):
+        """A simple archetype
 
-	    schema = BaseSchema + Schema((
-	        DataGridField('DemoField',
-	                searchable = True,
-	                columns=("column1", "column2", "select_sample"),
-	                widget = DataGridWidget(
-	                    columns={
-	                        'column1' : Column("Toholampi city rox"),
-	                        'column2' : Column("My friendly name"),
-	                        'select_sample' : SelectColumn("Friendly name", vocabulary="getSampleVocabulary")
-	                    },
-	                 ),
-	         ),
+        """
 
-	        ))
+        schema = BaseSchema + Schema((
+            DataGridField('DemoField',
+                    searchable = True,
+                    columns=("column1", "column2", "select_sample"),
+                    widget = DataGridWidget(
+                        columns={
+                            'column1' : Column("Toholampi city rox"),
+                            'column2' : Column("My friendly name"),
+                            'select_sample' : SelectColumn("Friendly name", vocabulary="getSampleVocabulary")
+                        },
+                     ),
+             ),
 
-	    def getSampleVocabulary(self):
-	        """
-	        """
-	        """ Get list of possible taggable features from ATVocabularyManager """
-	        return DisplayList(
+            ))
 
-	            (("sample", "Sample value 1",),
-	            ("sample2", "Sample value 2",),))
+        def getSampleVocabulary(self):
+            """
+            """
+            """ Get list of possible taggable features from ATVocabularyManager """
+            return DisplayList(
+
+                (("sample", "Sample value 1",),
+                ("sample2", "Sample value 2",),))
 
 For more examples, see unit test code.
 
@@ -108,26 +103,22 @@ For more examples, see unit test code.
 Notes
 -----
 
-	o Since DataGridField 1.5, if you wish to retain old way of automatic row inserting.
-	  Here is a bit logic behind all this - otherwise there will be an extra row
-	  added when you edit DGF and press save.
-
-		o You must set property auto_insert = True to DataGridWidget
-
-		o You must set property allow_empty_rows = False to DataGridField
+* Since DataGridField 1.5, if you wish to retain old way of automatic row inserting.
+  Here is a bit logic behind all this - otherwise there will be an extra row
+  added when you edit DGF and press save.
+* You must set property auto_insert = True to DataGridWidget
+* You must set property allow_empty_rows = False to DataGridField
 
 
 Known bugs
 ----------
 
-	o Sometimes on Firefox column sizes start changing after the user enters some
-	  data. Not sure if this is a Firefox bug, though.
-
-	o Prefilled default values work only for text and select columns
-
-	o Radio button and link column postback is not handled properly. This needs
-	  fixes very deep into Zope (ZPublisher). If the form validation fails,
-	  link column and radio button columns lost their values.
+* Sometimes on Firefox column sizes start changing after the user enters some
+  data. Not sure if this is a Firefox bug, though.
+* Prefilled default values work only for text and select columns
+* Radio button and link column postback is not handled properly. This needs
+  fixes very deep into Zope (ZPublisher). If the form validation fails,
+  link column and radio button columns lost their values.
 
 
 Demo
@@ -141,52 +132,43 @@ running the "DataGridField (Example DGF content types)" from the Generic Setup t
 References
 ----------
 
-"Custom Search product":http://plone.org/products/custom-search/ uses DataGridField for editing search form query fields.
+* `Custom Search product`__ uses DataGridField for editing search form query fields.
+* `London School of Marketing`__ uses DataGridField extensively
 
-"London School of Marketing":http://www.londonschoolofmarketing.com site
-uses DataGridField extensively
-
+__ http://plone.org/products/custom-search/
+__ http://www.londonschoolofmarketing.com site
 
 Contributors
 ------------
 
 People who have been making this true:
 
-	o Mikko Ohtamaa, "Red Innovation":http://www.redinnovation.com
+* Mikko Ohtamaa, `Red Innovation`__
+* Danny Bloemendaal
+* Radim Novotny
+* Justin Ryan
+* Alexander Limi
+* PloneSolutions <info@plonesolutions.com>
+* Martin Aspeli <optilude@gmx.net>
+* Paul Everitt, Zope Europe Association <paul@zope-europe.org>
+* Development was helped by Vincent Bonamy
+* Maurits van Rees
+* Andreas Jung
 
-	o Danny Bloemendaal
-
-	o Radim Novotny
-
-	o Justin Ryan
-
-	o Alexander Limi
-
-	o PloneSolutions <info@plonesolutions.com>
-
-	o Martin Aspeli <optilude@gmx.net>
-
-	o Paul Everitt, Zope Europe Association <paul@zope-europe.org>
-
-	o Development was helped by Vincent Bonamy
-
-	o Maurits van Rees
-
-	o Andreas Jung
-
+__ http://www.redinnovation.com
 
 Original concept and prototype:
 
-	o Geir Baekholt, Plone Solutions <info@plonesolutions.com>
-
-	o Paul Everitt, Zope Europe Association <paul@zope-europe.org>
-
+* Geir Baekholt, Plone Solutions <info@plonesolutions.com>
+* Paul Everitt, Zope Europe Association <paul@zope-europe.org>
 
 Sponsorship
 -----------
 
-Organizations paying up for the development
+Organizations paying up for the development:
 
-	o "London School of Marketing":http://www.londonschoolofmarketing.com
+* `London School of Marketing`__
+* `United Nations Environment Programme`__
 
-	o "United Nations Environment Programme":http://www.unep.org
+__ http://www.londonschoolofmarketing.com
+__ http://www.unep.org
