@@ -4,8 +4,10 @@ Changelog
 1.9.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Accessibility fix: wrap command icons inside links so can be reached using keyboard
+  [keul]
+- Prevent a JavaScript error if user try to change row order a single-row table
+  [keul]
 
 1.9.0 (2013-09-19)
 ------------------
