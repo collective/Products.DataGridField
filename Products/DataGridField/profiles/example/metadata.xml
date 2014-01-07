@@ -1,3 +1,6 @@
 <metadata>
- <version>1.7</version>
+ <version>1000</version>
+ <dependencies>
+   <dependency>profile-Products.DataGridField:default</dependency>
+ </dependencies>
 </metadata>
