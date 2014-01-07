@@ -1,10 +1,12 @@
 DataGridField
 =============
 
+.. contents:: **Table of contents**
+
 Released under the GNU General Public License
 
-A table input component for Plone. Uses Javascript to make entering tabular data more user friendly process -
-there are no round trip HTTP requests to the server when inserting or deleting rows.
+A table input component for the Plone Archetypes framework. Uses JavaScript to make entering tabular data more
+user friendly process - there are no round trip HTTP requests to the server when inserting or deleting rows.
 
 
 Features
@@ -21,8 +23,8 @@ Requirements
 
 * Plone 4 (for Plone 3, use the latest release in the 1.7 branch or 1.6 branch, for Plone 2.5,
   use the latest release in the 1.6 branch)
-* A browser with Javascript support. There isn't yet graceful degradation for
-  browsers without Javascript.
+* A browser with JavaScript support. There isn't yet graceful degradation for
+  browsers without JavaScript.
 
 
 Installation
@@ -31,17 +33,114 @@ Installation
 This version of DataGridField is distributed as an
 egg at the Python Package index.  Information about configuring either for a zope instance
 house a Plone site can be found by reading the `Installing an Add-on Product`_
-tutorial and the "Installing a third party product" section of the `Managing Project with zc.buildout`_ tutorial.
+tutorial.
 
 .. _Installing an Add-on Product: http://plone.org/documentation/kb/add-ons
-.. _Managing Project with zc.buildout: http://plone.org/documentation/tutorial/buildout/installing-a-third-party-product
 
 Once you've succesfully done this, you can use the Add/Remove Products screen to install the DataGridField into your
 site. See below for information about experimenting with the demo types.
 
+How to use
+----------
+
+When developing an `Archetypes`__ content type you will be able to add a new kind of field: the ``DataGridField``.
+Low level data stored inside this field will be a Python tuple of dicts.
+
+__ http://developer.plone.org/content/archetypes/
+
+The widget used for this new type of field is the ``DataGridWidget``.
+
+Field definition
+~~~~~~~~~~~~~~~~
+
+Follow a list of all ``DataGridField`` configurations:
+
+``columns``
+    A tuple of all columns ids.
+    Default is a single column named "*default*".
+``fixed_rows``
+    A sequence of ``FixedRow`` instances that are row values that must exists.
+    If those rows are deleted, they will be re-added when saving the content.
+    
+    See examples in the code for implementation details.
+``allow_insert``
+    User can append new rows. Currently is only an UI feature, this is not yet checked
+    at application level.
+    Default is True.
+``allow_delete``
+    User can delete rows. This is currently UI feature, this is not yet checked at
+    application level.
+    Default is True.
+``allow_reorder``
+    User can reorder rows. This is currently UI feature, this is not yet checked at
+    application level.
+    Default is True.
+``searchable``
+    If true all the contents of the DataGridField is concatenated to searchable text
+    and given to text indexer.
+    Default is False.
+``allow_empty_rows``
+    Set to false to allow empty rows in the data.
+    Default is True.
+``allow_oddeven``
+    Set to true to hifhligh odd/even rows in edit/view form.
+    Default is False
+
+Widget definition
+~~~~~~~~~~~~~~~~~
+
+When defining a new ``DataGridWidget`` you can manage following options:
+
+``show_header``
+   Choose to display or not table headers in view or edit.
+``auto_insert``
+   Automatically add new rows when the last row is being edited.
+``columns``
+   A dict containing columns definition.
+   
+   This option is not required, but you must provide it for advanced datagrid configuration (see below).
+
+Columns definition
+~~~~~~~~~~~~~~~~~~
+
+When defining columns (using the ``columns`` option in the *widget* definition above) you must provide a dict
+composed by:
+
+* a key that must be found in the ``columns`` definition of *field*.
+* a ``Column`` class (or subclass) instance
+
+Every ``Column`` instance have following options:
+
+``label`` (required)
+    The pretty label for the column.
+``col_description``
+    Additional description for the column scope
+``default``
+    Default value for every new value of the column
+``default_method``
+    Like ``default`` above, but instead of a static value it must be an attribute for a method
+    that can be called on the context (similar to the *default_method* of Archetypes fields)
+``visible``
+    Define if the column will be visible.
+    Default is True.
+``required``
+    If true, for every provided row, values in this columns must be filled.
+    Default is False.
+
+Apart the simple ``Column`` implementation, this product will provide additional kind of columns classes like:
+
+* SelectColumn
+* LinesColumn
+* LinkColumn
+* RadioColumn
+* ...
+
+Please refer to the `source code`__ for a complete list of columns and details of additional options.
+
+__ https://github.com/collective/Products.DataGridField/tree/master/Products/DataGridField
 
 Usage examples
---------------
+~~~~~~~~~~~~~~
 
 Simple example with three free text columns:
 
@@ -79,7 +178,9 @@ Complex example with different column types and user friendly labels:
                     columns=("column1", "column2", "select_sample"),
                     widget = DataGridWidget(
                         columns={
-                            'column1' : Column("Toholampi city rox"),
+                            'column1' : Column("Toholampi city rox",
+                                               col_description="Go Toholampi or go home.",
+                                               required=True),
                             'column2' : Column("My friendly name"),
                             'select_sample' : SelectColumn("Friendly name", vocabulary="getSampleVocabulary")
                         },
@@ -103,11 +204,12 @@ For more examples, see unit test code.
 Notes
 -----
 
-* Since DataGridField 1.5, if you wish to retain old way of automatic row inserting.
-  Here is a bit logic behind all this - otherwise there will be an extra row
-  added when you edit DGF and press save.
-* You must set property auto_insert = True to DataGridWidget
-* You must set property allow_empty_rows = False to DataGridField
+Since DataGridField 1.5, if you wish to retain old way of automatic row inserting.
+Here is a bit logic behind all this - otherwise there will be an extra row added when
+you edit DGF and press save.
+
+* You must set property ``auto_insert`` = True to DataGridWidget
+* You must set property ``allow_empty_rows`` = False to DataGridField
 
 
 Known bugs
