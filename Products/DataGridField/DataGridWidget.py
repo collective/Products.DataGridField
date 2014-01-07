@@ -27,7 +27,7 @@ class DataGridWidget(TypesWidget):
               - CSS file used with the widget
           - auto_insert
               - Automatically add new rows when the last row is being edited.
-                This doesn't work if the
+                This doesn't work if the (... what?)
 
     """
 
@@ -162,7 +162,7 @@ class DataGridWidget(TypesWidget):
 
     security.declarePublic('hasHeader')
     def hasHeader(self, context, field):
-        """ Render columns names in view mode"""
+        """ Render columns names """
         return self.show_header
 
     security.declarePublic('process_form')
