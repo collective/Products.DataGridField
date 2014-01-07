@@ -6,116 +6,111 @@
 
 <!-- DataGridWidget row manipulators renderer
 
-	Render delete and reorder buttons for DataGridWidget
-	in edit mode. They are rendered as two table cell where
-	images with Javascript code are placed.
+    Render delete and reorder buttons for DataGridWidget
+    in edit mode. They are rendered as two table cell where
+    images with Javascript code are placed.
 
-	Uses variable newRow define if the row is the automatically
-	added new edit row and thus e.g. delete button should be hide.
+    Uses variable newRow define if the row is the automatically
+    added new edit row and thus e.g. delete button should be hide.
 
-	Also, include the hidden orderindex field here.
+    Also, include the hidden orderindex field here.
 
-	Author: Mikko Ohtamaa, Red Innovation, 2006 <http://www.redinnovation.com>
+    Author: Mikko Ohtamaa, Red Innovation, 2006 <http://www.redinnovation.com>
 -->
 
 <body>
 
     <metal:define define-macro="edit_manipulators">
 
-     	 <tal:manipulator-cells>
+          <tal:manipulator-cells>
 
-     	 	<tal:comment replace="nothing">
-	             IE doesn't seem to respect em unit paddings here so we
-	             use absolute pixel paddings.
-          	</tal:comment>
+              <tal:comment replace="nothing">
+                 IE doesn't seem to respect em unit paddings here so we
+                 use absolute pixel paddings.
+              </tal:comment>
 
-          	<tal:comment replace="nothing">
-          		<!-- Insert -->
-          	</tal:comment>
+              <tal:comment replace="nothing">
+                  <!-- Insert -->
+              </tal:comment>
 
-	         <td  class="datagridwidget-manipulator datagridwidget-add-row"
-	         	tal:condition="python: widget.isInsertEnabled(context, field)">
-	             <img tal:attributes="
-	                  	src string:${portal_url}/add_row_icon.gif;
-	                  	"
-	                  alt="Add row"
-	                  title="Add row"
-                      i18n:attributes="alt label_datagridwidget_manipulators_addrow;
-                                       title label_datagridwidget_manipulators_addrow;"
-	                  onclick="dataGridFieldFunctions.addRowAfter(this); return false"/>
-	         </td>
+             <td class="datagridwidget-manipulator datagridwidget-add-row"
+                  tal:condition="python: widget.isInsertEnabled(context, field)">
+                 <a href="" onclick="dataGridFieldFunctions.addRowAfter(this); return false">
+                    <img tal:attributes="src string:${portal_url}/add_row_icon.gif;"
+                         alt="Add row"
+                         title="Add row"
+                         i18n:attributes="alt label_datagridwidget_manipulators_addrow;
+                                          title label_datagridwidget_manipulators_addrow;" />
+                </a>
+             </td>
 
-          	<tal:comment replace="nothing">
-          		<!-- Delete -->
-          	</tal:comment>
-	         <td  class="datagridwidget-manipulator datagridwidget-delete-row"
-	         	tal:condition="python: widget.isDeleteEnabled(context, field)">
-	             <img tal:attributes="
-	                  	src string:${portal_url}/delete_row_icon.gif;
-	                  	"
-	                  alt="Delete row"
-                      title="Delete row"
-                      i18n:attributes="alt label_datagridwidget_manipulators_deleterow;
-                                       title label_datagridwidget_manipulators_deleterow;"
-	                  onclick="dataGridFieldFunctions.removeFieldRow(this);return false"/>
-	         </td>
+             <tal:comment replace="nothing">
+                 <!-- Delete -->
+             </tal:comment>
+             <td class="datagridwidget-manipulator datagridwidget-delete-row"
+                    tal:condition="python: widget.isDeleteEnabled(context, field)">
+                 <a href="" onclick="dataGridFieldFunctions.removeFieldRow(this); return false">
+                    <img tal:attributes="src string:${portal_url}/delete_row_icon.gif;"
+                         alt="Delete row"
+                         title="Delete row"
+                         i18n:attributes="alt label_datagridwidget_manipulators_deleterow;
+                                          title label_datagridwidget_manipulators_deleterow;" />
+                </a>
+             </td>
 
-          	<tal:comment replace="nothing">
-          		<!-- Move up -->
-          	</tal:comment>
-		    <td class="datagridwidget-manipulator datagridwidget-row-up">
+            <tal:comment replace="nothing">
+                <!-- Move up -->
+            </tal:comment>
+            <td class="datagridwidget-manipulator datagridwidget-row-up">
+                 <a href="" onclick="dataGridFieldFunctions.moveRowUp(this);return false"
+                    tal:condition="python: widget.isReorderEnabled(context, field)">
+                        <img tal:attributes="src string:${portal_url}/move_row_up_icon.gif;"
+                             alt="Move row up"
+                             title="Move row up"
+                             i18n:attributes="alt label_datagridwidget_manipulators_moverowup;
+                                              title label_datagridwidget_manipulators_moverowup;" />
+                 </a>
 
-		       <img tal:attributes="
-		             	src string:${portal_url}/move_row_up_icon.gif;
-		             	"
-		             alt="Move row up"
-		             title="Move row up"
-                     i18n:attributes="alt label_datagridwidget_manipulators_moverowup;
-                                      title label_datagridwidget_manipulators_moverowup;"
-		             tal:condition="python: widget.isReorderEnabled(context, field)"
-		             onclick="dataGridFieldFunctions.moveRowUp(this);return false"/>
+            </td>
 
-		    </td>
+            <tal:comment replace="nothing">
+                <!-- Move down -->
+            </tal:comment>
+            <td class="datagridwidget-manipulator datagridwidget-row-down">
 
-          	<tal:comment replace="nothing">
-          		<!-- Move down -->
-          	</tal:comment>
-		    <td class="datagridwidget-manipulator datagridwidget-row-down">
+				<a href="" onclick="dataGridFieldFunctions.moveRowDown(this);return false"
+                   tal:condition="python: widget.isReorderEnabled(context, field)">
+                    <img tal:attributes="src string:${portal_url}/move_row_down_icon.gif;"
+                         alt="Move row down"
+                         title="Move row down"
+                         i18n:attributes="alt label_datagridwidget_manipulators_moverowdown;
+                                          title label_datagridwidget_manipulators_moverowdown;" />
+				</a>
 
-		    	<img tal:attributes="
-		             	src string:${portal_url}/move_row_down_icon.gif;
-		             	"
-		             alt="Move row down"
-                     title="Move row down"
-                     i18n:attributes="alt label_datagridwidget_manipulators_moverowdown;
-                                      title label_datagridwidget_manipulators_moverowdown;"
-		             tal:condition="python: widget.isReorderEnabled(context, field)"
-		             onclick="dataGridFieldFunctions.moveRowDown(this);return false"/>
-
-		    </td>
+            </td>
 
 
-          	<tal:comment replace="nothing">
-          		<!-- The index field of this row -->
-          	</tal:comment>
-		    <td class="datagridwidget-hidden-data">
+              <tal:comment replace="nothing">
+                  <!-- The index field of this row -->
+              </tal:comment>
+            <td class="datagridwidget-hidden-data">
 
-			   <tal:ordering-field tal:condition="newRow">
-	               <input type="hidden"
-	                       value="template_row_marker"
-	                       tal:attributes="name string:${fieldName}.orderindex_:records;
-	                                       id string:orderindex__${fieldId};" />
-				</tal:ordering-field>
+               <tal:ordering-field tal:condition="newRow">
+                   <input type="hidden"
+                           value="template_row_marker"
+                           tal:attributes="name string:${fieldName}.orderindex_:records;
+                                           id string:orderindex__${fieldId};" />
+                </tal:ordering-field>
 
-			   <tal:ordering-field tal:condition="not: newRow">
-			       <input type="hidden"
-			               tal:attributes="name string:${fieldName}.orderindex_:records;
-			                               id string:orderindex__${fieldId};
-			                               value repeat/rows/number;" />
-			   </tal:ordering-field>
-		    </td>
+               <tal:ordering-field tal:condition="not: newRow">
+                   <input type="hidden"
+                           tal:attributes="name string:${fieldName}.orderindex_:records;
+                                           id string:orderindex__${fieldId};
+                                           value repeat/rows/number;" />
+               </tal:ordering-field>
+            </td>
 
-		</tal:manipulator-cells>
+        </tal:manipulator-cells>
     </metal:define>
 </body>
 

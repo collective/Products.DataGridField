@@ -175,6 +175,10 @@ dataGridFieldFunctions.moveRowDown = function(currnode){
     var tbody = this.getParentElementById(currnode, "datagridwidget-tbody");    
     
     var rows = this.getWidgetRows(currnode);
+	if (rows.length<=2) {
+		// Only a single row
+		return;
+	}
     
     var row = this.getParentElementById(currnode, "datagridwidget-row");      
     if(row == null) {
