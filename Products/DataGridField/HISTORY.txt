@@ -1,7 +1,7 @@
 History
 =======
 
-1.6.4-RT10 (unreleased)
+1.6.4-RT10 (2014-01-13)
 -----------------------
 
 - Added support for lines-style columns
