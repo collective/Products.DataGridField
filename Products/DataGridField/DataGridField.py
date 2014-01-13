@@ -161,7 +161,12 @@ class DataGridField(ObjectField):
                     
                     val = {}
                     for col in self.getColumnIds():
-                        val[col] = (row.get(col,'')).strip()
+                        row_value = row.get(col,'')
+                        # LinesColumn provides list, not string.
+                        if isinstance(row_value, basestring):
+                            val[col] = row_value.strip()
+                        else:
+                            val[col] = [value.strip() for value in row_value]
                         
                         if val[col] != '':
                             empty = False

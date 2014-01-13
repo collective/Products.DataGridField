@@ -4,8 +4,9 @@ History
 1.6.4-RT10 (unreleased)
 -----------------------
 
-- Nothing changed yet.
-
+- Added support for lines-style columns
+  (taken from changes done after version 1.7)
+  [keul]
 
 1.6.4-RT9 (2013-09-10)
 ----------------------
