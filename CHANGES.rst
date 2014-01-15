@@ -4,6 +4,9 @@ Changelog
 1.9.1 (unreleased)
 ------------------
 
+- Replace uses of .gif images from Plone with .png.
+  [maurits]
+
 - Fixed bug in adding new row. Now new rows inputs has an unique id [cekk]
 
 - Accessibility fix: wrap command icons inside links so can be reached using keyboard

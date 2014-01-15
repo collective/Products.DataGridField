@@ -128,7 +128,7 @@ dataGridFieldFunctions.addRow = function(id) {
       
 }
 
-dataGridFieldFunctions.createNewRow = function(tr, row_index) { 
+dataGridFieldFunctions._createNewRow = function(tr, row_index, $) {
     /* Creates a new row 
            
        @param tr A row in a table where we'll be adding the new row
@@ -158,14 +158,14 @@ dataGridFieldFunctions.createNewRow = function(tr, row_index) {
         // if row_index is given, try to replace "_new" in cloned columns ids.
         //This avoid multiple items with the same id.
         if (row_index !== undefined){
-            var $newchild = jq(newchild);
-            var newchild_children = jq('*', $newchild);
+            var $newchild = $(newchild);
+            var newchild_children = $('*', $newchild);
             for (i=0; i < newchild_children.length; i++) {
                 var newchild_id = newchild_children[i].id;
                 if (newchild_id !== undefined) {
                     if (newchild_id.indexOf('_new') !== -1) {
                         var new_id = newchild_id.replace('_new', '_'+row_index);
-                        jq(newchild_children[i]).attr('id', new_id);
+                        $(newchild_children[i]).attr('id', new_id);
                     }
                 }
             }
@@ -175,6 +175,10 @@ dataGridFieldFunctions.createNewRow = function(tr, row_index) {
     }
 
     return newtr;
+};
+
+dataGridFieldFunctions.createNewRow = function(tr, row_index) {
+    return dataGridFieldFunctions._createNewRow(tr, row_index, jQuery);
 };
 
 dataGridFieldFunctions.removeFieldRow = function(node) {

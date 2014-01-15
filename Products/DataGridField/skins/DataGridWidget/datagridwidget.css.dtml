@@ -79,7 +79,7 @@ td.datagridwidget-hidden-data {
 
 a.datagridwidget-add-button, a.datagridwidget-add-button:hover {
 	text-decoration: none;
-    background: &dtml-globalBackgroundColor; url(&dtml-portal_url;/linkOpaque.gif) 9px 1px no-repeat;
+    background: &dtml-globalBackgroundColor; url(&dtml-portal_url;/linkOpaque.png) 9px 1px no-repeat;
     cursor: pointer;
     font-size: &dtml-fontSmallSize;;
     padding: 1px 1px 1px 15px;

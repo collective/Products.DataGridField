@@ -113,7 +113,7 @@ class DataGridDemoType2(atapi.BaseContent):
                     columns={
                         'text_column' : Column("Text column"),
                         # Help is help.pt
-                        'help_column' : HelpColumn("Help", _(u"See help here"), "help", "info.gif")
+                        'help_column' : HelpColumn("Help", _(u"See help here"), "help", "info.png")
                     },
                  ),
          ),
