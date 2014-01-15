@@ -85,8 +85,8 @@
                     </tal:comment>
 
                     <tal:empty-row tal:define="newRow python: True">
-                        <tal:template metal:use-macro="here/datagridwidget_edit_row/macros/edit_empty_row"/>    
-                    </tal:empty-row>                        
+                        <tal:template metal:use-macro="here/datagridwidget_edit_row/macros/edit_empty_row"/>
+                    </tal:empty-row>
                  </tbody>
             </table>
 
@@ -98,7 +98,7 @@
             <tal:comment replace="nothing">
                 <!-- Button that allows creation of the initial row when DGF is empty -->
             </tal:comment>
-                            
+
         </metal:body>
       </metal:use>
     </metal:define>

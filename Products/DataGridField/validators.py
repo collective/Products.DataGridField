@@ -39,7 +39,7 @@ class DataGridValidator:
         return True
 
 class ColumnRequiredDataGridValidator:
-    """Validate as True when data inside a column is required 
+    """Validate as True when data inside a column is required
     """
 
     implements(IValidator)
