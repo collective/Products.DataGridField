@@ -13,7 +13,7 @@
           - Rows are inserted automatically when a value is filled in
           - Select column has sample 2 as a default value
  </property>
- <property name="content_icon">document_icon.gif</property>
+ <property name="content_icon">document_icon.png</property>
  <property name="content_meta_type">DataGridDemoType2</property>
  <property name="product">DataGridField</property>
  <property name="factory">addDataGridDemoType2</property>

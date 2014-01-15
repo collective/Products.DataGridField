@@ -9,7 +9,7 @@
 
       This class is used in unit testing
  </property>
- <property name="content_icon">document_icon.gif</property>
+ <property name="content_icon">document_icon.png</property>
  <property name="content_meta_type">FixedRowsDemoType</property>
  <property name="product">DataGridField</property>
  <property name="factory">addFixedRowsDemoType</property>
