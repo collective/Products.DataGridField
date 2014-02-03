@@ -18,6 +18,7 @@ from Products.DataGridField.CheckboxColumn import CheckboxColumn
 from Products.DataGridField.FixedColumn import FixedColumn
 from Products.DataGridField.DataGridField import FixedRow
 from Products.DataGridField.HelpColumn import HelpColumn
+from Products.DataGridField.LinkColumn import LinkColumn
 from Products.DataGridField.config import PKG_NAME
 
 
@@ -25,7 +26,7 @@ class DataGridDemoType(atapi.BaseContent):
     """ Very simple DataGridField demo.
 
     This class is used in unit testing, mainly to check old interface
-    compatibi lity (without widget column definitions). Please see the
+    compatibility (without widget column definitions). Please see the
     more complex examples below.
     """
     security = ClassSecurityInfo()
@@ -114,6 +115,16 @@ class DataGridDemoType2(atapi.BaseContent):
                         'text_column' : Column("Text column"),
                         # Help is help.pt
                         'help_column' : HelpColumn("Help", _(u"See help here"), "help", "info.png")
+                    },
+                 ),
+         ),
+
+        DataGridField('DemoField5',
+                columns=("link_column",),
+                widget = DataGridWidget(
+                    description="Set of links",
+                    columns={
+                        'link_column' : LinkColumn("Link column"),
                     },
                  ),
          ),

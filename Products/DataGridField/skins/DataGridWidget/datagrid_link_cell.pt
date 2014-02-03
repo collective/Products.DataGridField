@@ -11,17 +11,15 @@
     <!-- VIEW -->
     <metal:view_cell_macro define-macro="view_cell"
       tal:define="desc python: column_definition.getDescription(cell_value);
-      			  link python: column_definition.getLink(here, cell_value)">
-      			
-
+                    link python: column_definition.getLink(here, cell_value)">
       <a
-      	tal:condition="python: link != ''"
-      	tal:attributes="href link;
-      					class python:column_definition.getLinkClass()"	
-      	tal:content="desc" />
-      	
+          tal:condition="python: link != ''"
+          tal:attributes="href link;
+                          class python:column_definition.getLinkClass()"
+          tal:content="desc" />
+
       <span tal:condition="python: link == ''"
-          	tal:content="desc" />
+              tal:content="desc" />
 
     </metal:view_cell_macro>
 
@@ -29,34 +27,36 @@
     <!-- EDIT -->
     <metal:edit_cell_macro define-macro="edit_cell">
 
-    	  <tal:block  tal:define="desc python: column_definition.getDescription(cell_value);
-      			  link python: column_definition.getRelativeLink(here, cell_value)">
+          <tal:block  tal:define="desc python: column_definition.getDescription(cell_value);
+                    link python: column_definition.getRelativeLink(here, cell_value)">
 
-    		  <table class="link-cell" style="width: 100%">
-    		  	<tr>
-    		  	  <td>
-			    	  <span class="discreet"
-					i18n:translate="label_datagridwidget_text">Text:</span>
-			   	  </td>
-			   	  <td tal:define="name string:${fieldName}.${column}_desc:records;">
-			    	  <input class="link-cell-desc" tal:attributes="
-			    	  		 name name;
-	                         id string:${column}_${fieldId};
-	                         value python: test(desc!='', desc, request.get(name, here.session_restore_value(name, desc)));
-	                         "/>
-				  </td>
+              <table class="link-cell" style="width: 100%">
+                  <tr>
+                    <td>
+                      <label class="discreet"
+                             i18n:translate="label_datagridwidget_text"
+                             tal:attributes="for string:${column}_${fieldId}_label;">Text:</label>
+                     </td>
+                     <td tal:define="name string:${fieldName}.${column}_desc:records;">
+                      <input class="link-cell-desc" tal:attributes="
+                               name name;
+                             id string:${column}_${fieldId}_label;
+                             value python: test(desc!='', desc, request.get(name, here.session_restore_value(name, desc)));
+                             "/>
+                  </td>
                 </tr>
                 <tr>
-                	<td>                	
-			    	  <span class="discreet"
-					i18n:translate="label_datagridwidget_link">Link:</span>
-			    	</td>
-			    	<td tal:define="name string:${fieldName}.${column}_link:records;">
-			    	  <input class="link-cell-link" tal:attributes="
-			    	  		 name name;
-	                         id string:${column}_${fieldId};
-	                         value python: test(link != '', link, request.get(name, here.session_restore_value(name, link)));
-	                         "/>
+                    <td>
+                      <label class="discreet"
+                             i18n:translate="label_datagridwidget_link"
+                             tal:attributes="for string:${column}_${fieldId}_url;">Link:</label>
+                    </td>
+                    <td tal:define="name string:${fieldName}.${column}_link:records;">
+                      <input class="link-cell-link" tal:attributes="
+                               name name;
+                             id string:${column}_${fieldId}_url;
+                             value python: test(link != '', link, request.get(name, here.session_restore_value(name, link)));
+                             "/>
                     </td>
                 </tr>
               </table>
@@ -67,29 +67,31 @@
 
    <!-- EMPTY EDIT -->
     <metal:edit_cell_macro define-macro="edit_empty_cell">
-    	  <tal:block>
+          <tal:block>
 
-    		  <table class="link-cell" style="width: 100%">
-    		  	<tr>
-    		  	  <td>
-			    	  <span class="discreet"
-					i18n:translate="label_datagridwidget_text">Text:</span>
-			   	  </td>
-			   	  <td>
-			    	  <input class="link-cell-desc" tal:attributes="name string:${fieldName}.${column}_desc:records;
-	                         id string:${column}_${fieldId};
-	                         "/>
-				  </td>
+              <table class="link-cell" style="width: 100%">
+                  <tr>
+                    <td>
+                      <label class="discreet"
+                             i18n:translate="label_datagridwidget_text"
+                             tal:attributes="for string:${column}_${fieldId}_label;">Text:</label>
+                     </td>
+                     <td>
+                      <input class="link-cell-desc" tal:attributes="name string:${fieldName}.${column}_desc:records;
+                             id string:${column}_${fieldId}_label;
+                             "/>
+                  </td>
                 </tr>
                 <tr>
-                	<td>                	
-			    	  <span class="discreet"
-					i18n:translate="label_datagridwidget_link">Link:</span>
-			    	</td>
-			    	<td>
-			    	  <input class="link-cell-link" tal:attributes="name string:${fieldName}.${column}_link:records;
-	                         id string:${column}_${fieldId};
-	                         "/>
+                    <td>
+                      <label class="discreet"
+                             i18n:translate="label_datagridwidget_link"
+                             tal:attributes="for string:${column}_${fieldId}_url;">Link:</label>
+                    </td>
+                    <td>
+                      <input class="link-cell-link" tal:attributes="name string:${fieldName}.${column}_link:records;
+                             id string:${column}_${fieldId}_url;
+                             "/>
                     </td>
                 </tr>
               </table>

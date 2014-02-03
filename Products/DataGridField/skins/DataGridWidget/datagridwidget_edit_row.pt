@@ -6,12 +6,12 @@
 
 <!-- DataGridWidget row renderer
 
-	Render one row in DataGridWidget edit mode.
-	By overriding this file, one can custom and provide different
-	styles for rows in same DataGridWidget
-	(condition logic is to be added by the customer).
-	
-	Author: Mikko Ohtamaa, 2006
+    Render one row in DataGridWidget edit mode.
+    By overriding this file, one can custom and provide different
+    styles for rows in same DataGridWidget
+    (condition logic is to be added by the customer).
+
+    Author: Mikko Ohtamaa, 2006
 
  -->
 
@@ -21,61 +21,63 @@
     <metal:define define-macro="edit_row">
 
          <tr id="datagridwidget-row" class="datagridwidget-row"
-		     tal:define="oddrow repeat/rows/odd"
-		     tal:condition="python: rows.get('orderindex_') != 'template_row_marker'"
-		     tal:attributes="class python:field.allow_oddeven and (oddrow and 'odd' or 'even') or nothing;">
-         	
+             tal:define="oddrow repeat/rows/odd"
+             tal:condition="python: rows.get('orderindex_') != 'template_row_marker'"
+             tal:attributes="class python:field.allow_oddeven and (oddrow and 'odd' or 'even') or nothing;">
+
             <tal:vars define="fieldId string:${fieldName}_${repeat/rows/number};">
               <tal:block tal:repeat="columnd columns">
-	            <td tal:attributes="class python:'%s datagridwidget-column-%s datagridwidget-cell' % (
+                <td tal:attributes="class python:'%s datagridwidget-column-%s datagridwidget-cell' % (
                                                  not columnd['visible'] and 'dgw-hidden-column' or '',
                                                  repeat['columnd'].number());">
-		             <tal:cell tal:define="
-					       column columnd/id;
-		                   column_definition python: widget.getColumnDefinition(field, column);
-		                   cell_macro python: path('here/%s/macros' % column_definition.getMacro());
-		                   edit_macro cell_macro/edit_cell;
-		                   cell_value python:rows.get(column);">
-		                   <span metal:use-macro="edit_macro"/>
-		             </tal:cell>
-	            </td>
-			  </tal:block>
-	
-	     		<tal:comment replace="nothing">
-					Following code renders DataGridWidget manipulation buttons
-				</tal:comment>
-	
-	            <tal:call metal:use-macro="here/datagridwidget_manipulators/macros/edit_manipulators"/>
+                     <tal:cell tal:define="
+                           column columnd/id;
+                           column_label columnd/label;
+                           column_definition python: widget.getColumnDefinition(field, column);
+                           cell_macro python: path('here/%s/macros' % column_definition.getMacro());
+                           edit_macro cell_macro/edit_cell;
+                           cell_value python:rows.get(column);">
+                           <span metal:use-macro="edit_macro"/>
+                     </tal:cell>
+                </td>
+              </tal:block>
 
-          	</tal:vars>
+                 <tal:comment replace="nothing">
+                    Following code renders DataGridWidget manipulation buttons
+                </tal:comment>
+
+                <tal:call metal:use-macro="here/datagridwidget_manipulators/macros/edit_manipulators"/>
+
+              </tal:vars>
          </tr>
 
     </metal:define>
 
     <metal:define define-macro="edit_empty_row">
-	    <tr id="datagridwidget-empty-row"
-	    	class="datagridwidget-empty-row"
-	    	tal:define="fieldId string:${fieldName}_new;">
+        <tr id="datagridwidget-empty-row"
+            class="datagridwidget-empty-row"
+            tal:define="fieldId string:${fieldName}_new;">
            <tal:block tal:repeat="columnd columns">
-	         <td tal:attributes="class python:not columnd['visible'] and 'dgw-hidden-column datagridwidget-cell' or 'datagridwidget-cell';">
-	            <span tal:define="
-				   column columnd/id;
-	               column_definition python: widget.getColumnDefinition(field, column);
-	               cell_macro python: path('here/%s/macros' % column_definition.getMacro());
-	               edit_empty_macro cell_macro/edit_empty_cell;">
-		               <span metal:use-macro="edit_empty_macro"/>	
-	             </span>
-	         </td>
+             <td tal:attributes="class python:not columnd['visible'] and 'dgw-hidden-column datagridwidget-cell' or 'datagridwidget-cell';">
+                <span tal:define="
+                   column columnd/id;
+                   column_label columnd/label;
+                   column_definition python: widget.getColumnDefinition(field, column);
+                   cell_macro python: path('here/%s/macros' % column_definition.getMacro());
+                   edit_empty_macro cell_macro/edit_empty_cell;">
+                       <span metal:use-macro="edit_empty_macro"/>
+                 </span>
+             </td>
            </tal:block>
-	
-	         <tal:comment replace="nothing">
-	         	Following code renders DataGridWidget manipulation buttons
-	         </tal:comment>
-	
-           	 <tal:call metal:use-macro="here/datagridwidget_manipulators/macros/edit_manipulators"/>	
-           	
-	     </tr>
-	</metal:define>
+
+             <tal:comment replace="nothing">
+                 Following code renders DataGridWidget manipulation buttons
+             </tal:comment>
+
+                <tal:call metal:use-macro="here/datagridwidget_manipulators/macros/edit_manipulators"/>    
+
+         </tr>
+    </metal:define>
 </body>
 
 </html>

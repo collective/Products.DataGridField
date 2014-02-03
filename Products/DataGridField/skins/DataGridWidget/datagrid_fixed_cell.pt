@@ -10,24 +10,26 @@
 <body>
     <!-- VIEW -->
     <metal:view_cell_macro define-macro="view_cell">
-    	<div tal:content="cell_value" />
+        <div tal:content="cell_value" />
     </metal:view_cell_macro>
 
     <!-- EDIT -->
     <metal:edit_cell_macro define-macro="edit_cell">
-	   <div tal:content="python:rows.get(column)" />
+       <div tal:content="python:rows.get(column)" />
 
-       <input tal:attributes="name string:${fieldName}.${column}:records;
-                                       id string:${column}_${fieldId};
-                                       value cell_value;"
-                       type="hidden" />
-	
+       <input type="hidden"
+              tal:attributes="name string:${fieldName}.${column}:records;
+                              id string:${column}_${fieldId};
+                              value cell_value;
+                              title column_label;"
+              />
+
     </metal:edit_cell_macro>
 
 
    <!-- EMPTY EDIT -->
     <metal:edit_cell_macro define-macro="edit_empty_cell">
-		<div/>
+        <div/>
     </metal:edit_cell_macro>
 
 </body>

@@ -20,6 +20,7 @@
        <input style="width: 100%" name="myfield.name:records"
                        tal:attributes="name string:${fieldName}.${column}:records;
                                        id string:${column}_${fieldId};
+                                       title column_label;
                                        value cell_value;
                                        onchange eventHandler;
                                        "
@@ -31,6 +32,7 @@
        <input style="width: 100%" name="myfield.name:records"
                        tal:attributes="name string:${fieldName}.${column}:records;
                                        id string:${column}_${fieldId};
+                                       title column_label;
                                        value python: column_definition.getDefault(here);
                                        onchange eventHandler;
                                        "

@@ -19,6 +19,7 @@
        <textarea style="width: 100%" name="myfield.name:records"
                  tal:attributes="name string:${fieldName}.${column}:records;
                                  id string:${column}_${fieldId};
+                                 title column_label;
                                  onchange eventHandler;"
                  tal:content="python:'\n'.join(cell_value or [])"></textarea>
     </metal:edit_cell_macro>
@@ -28,6 +29,7 @@
        <textarea style="width: 100%" name="myfield.name:records"
                        tal:attributes="name string:${fieldName}.${column}:records;
                                        id string:${column}_${fieldId};
+                                       title column_label;
                                        onchange eventHandler;"
                        tal:content="python:column_definition.getDefault(here)"></textarea>
     </metal:edit_empty_cell_macro>
