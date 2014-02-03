@@ -15,6 +15,9 @@ Changelog
 - Prevent a JavaScript error if user try to change row order a single-row table
   [keul]
 
+- Accessibility fix: every form field inside columns now has a ``title`` attribute that repeat
+  the column's label
+  [keul]
 
 1.9.0 (2013-09-19)
 ------------------
