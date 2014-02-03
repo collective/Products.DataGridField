@@ -16,45 +16,44 @@
 
     <!-- EDIT -->
     <metal:edit_cell_macro define-macro="edit_cell">
-    	<table style="width: 100%"
-	       	   	tal:define="vocab python: column_definition.getVocabulary(context)">
-			<tr>       	 		
-		       <td class ="datagridwidget-radio" tal:repeat="item vocab" style="text-align: center">
-		       	   <span tal:content="python: widget.getUserFriendlySelectionItem(here, item, vocab)"/>
-		       	   <br/>
-				   <input class="noborder"
-			   		  type="radio"
-			   		  tal:attributes="checked python:rows.get(column) == item;
-			   		  				 name string:${fieldName}.${column}.${repeat/rows/number};
-			   		  				 value string:${item};
-			   		  				 id string:${column}_${fieldId};			   		  				
-			   		  				 "/>
-
-			  	</td>
-			</tr>
-		</table>
+        <table style="width: 100%"
+                      tal:define="vocab python: column_definition.getVocabulary(context)">
+            <tr>
+               <td class ="datagridwidget-radio" tal:repeat="item vocab" style="text-align: center">
+                      <span tal:content="python: widget.getUserFriendlySelectionItem(here, item, vocab)"/>
+                      <br/>
+                   <input class="noborder"
+                         type="radio"
+                         tal:attributes="checked python:rows.get(column) == item;
+                                          name string:${fieldName}.${column}.${repeat/rows/number};
+                                          value string:${item};
+                                          id string:${column}_${fieldId};
+                                          title column_label;
+                                          "/>
+                  </td>
+            </tr>
+        </table>
     </metal:edit_cell_macro>
 
 
    <!-- EMPTY EDIT -->
     <metal:edit_cell_macro define-macro="edit_empty_cell">
-		<table style="width: 100%"
-	       	   	tal:define="vocab python: column_definition.getVocabulary(context)">
+        <table style="width: 100%"
+                      tal:define="vocab python: column_definition.getVocabulary(context)">
 
-			<tr>       	 		
-		       <td class="radio" tal:repeat="item vocab" style="text-align: center">
-		       	   <span tal:content="python: widget.getUserFriendlySelectionItem(here, item, vocab)"/>
-		       	   <br/>
-				   <input class="noborder"
-				   		  type="radio"
-				   		  tal:attributes="name string:${fieldName}.${column}.999999;
-				   		  				  value string:${item};
-	  			   		  				
-				   		  				  "/>
-		
-			  	</td>
-			</tr>
-		</table>       	
+            <tr>
+               <td class="radio" tal:repeat="item vocab" style="text-align: center">
+                      <span tal:content="python: widget.getUserFriendlySelectionItem(here, item, vocab)"/>
+                      <br/>
+                   <input class="noborder"
+                             type="radio"
+                             tal:attributes="name string:${fieldName}.${column}.999999;
+                                             value string:${item};
+                                             title column_label;
+                                             "/>
+                  </td>
+            </tr>
+        </table>
     </metal:edit_cell_macro>
 
 </body>
