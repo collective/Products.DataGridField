@@ -19,6 +19,9 @@ Changelog
   the column's label
   [keul]
 
+- SelectColumn. Removed the value attribute on ``select`` HTML tag
+  [keul] 
+
 1.9.0 (2013-09-19)
 ------------------
 
