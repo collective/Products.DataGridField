@@ -19,7 +19,6 @@
        <select class="datagridwidget-select" name="myfield.name:records"
             tal:define="vocab python: column_definition.getVocabulary(context)"
             tal:attributes="name string:${fieldName}.${column}:records;
-                            value python:rows.get(column);
                             id string:${column}_${fieldId};
                             title column_label;
                             ">
