@@ -10,3 +10,4 @@ eggs
 parts
 rebuild_i18n.log
 var
+*.mo
