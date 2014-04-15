@@ -133,6 +133,7 @@ Apart the simple ``Column`` implementation, this product will provide additional
 * LinesColumn
 * LinkColumn
 * RadioColumn
+* DateColumn
 * ...
 
 Please refer to the `source code`__ for a complete list of columns and details of additional options.
@@ -221,6 +222,10 @@ Known bugs
 * Radio button and link column postback is not handled properly. This needs
   fixes very deep into Zope (ZPublisher). If the form validation fails,
   link column and radio button columns lost their values.
+* DateColumn requires plone.app.jquerytools>=1.2.
+  If you did not have that version installed, you must add or activate
+  ``++resource++plone.app.jquerytools.dateinput.js`` (JS registry) and
+  ``++resource++plone.app.jquerytools.dateinput.css`` (CSS registry).
 
 
 Demo

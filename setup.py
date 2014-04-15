@@ -38,6 +38,7 @@ setup(name='Products.DataGridField',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'plone.app.jquerytools>=1.2',
       ],
       extras_require=dict(
           test=[

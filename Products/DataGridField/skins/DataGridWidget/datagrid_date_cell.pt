@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+
+
+<!-- View/edit drop down select menu cells -->
+
+<body>
+  <!-- VIEW -->
+  <metal:view_cell_macro define-macro="view_cell">
+    <span tal:replace="python: cell_value.strftime('%m/%d/%y')">8/29/76</span>
+  </metal:view_cell_macro>
+
+  <!-- EDIT -->
+  <metal:edit_cell_macro define-macro="edit_cell"
+      tal:define="
+        datestr_method nocall: column_definition/datestr;
+        ">
+    <!-- HTML5 date input -->
+    <input type="date"
+        tal:define="date_str python:
+          datestr_method(context,cell_value) or cell_value"
+        tal:attributes="
+          name string:${fieldName}.${column}:records;
+          id string:${column}_${fieldId};
+          value date_str;
+          "
+      />
+  </metal:edit_cell_macro>
+
+  <!-- EMPTY EDIT -->
+  <metal:edit_empty_cell_macro define-macro="edit_empty_cell">
+    <input type="date"
+        tal:attributes="
+          name string:${fieldName}.${column}:records;
+          id string:${column}_${fieldId};
+          "
+      />
+  </metal:edit_empty_cell_macro>
+
+</body>
+
+</html>

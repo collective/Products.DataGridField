@@ -36,7 +36,7 @@ class DataGridWidget(TypesWidget):
     _properties.update({
         'macro' : "datagridwidget",
         'helper_css': ('datagridwidget.css',),
-        'helper_js': ('datagridwidget.js',),
+        'helper_js': ('datagridwidget.js', 'datecolumn.js'),
         'show_header' : True,
         'auto_insert': False,
         'columns' : {}, # Sequence of Column instances

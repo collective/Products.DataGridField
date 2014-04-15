@@ -4,6 +4,10 @@ Changelog
 1.9.1 (unreleased)
 ------------------
 
+- DateColumn. Uses jQueryTools's DateInput widget.
+  Some code was copied from the lepri-datetime-column branch.
+  [khink, lepri]
+
 - Replace uses of .gif images from Plone with .png.
   [maurits]
 
