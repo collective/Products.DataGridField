@@ -8,7 +8,7 @@ from __future__ import nested_scopes
 import json
 
 __docformat__ = 'epytext'
-__author__  = 'Mikko Ohtamaa <mikko@redinnovation.com>'
+__author__ = 'Mikko Ohtamaa <mikko@redinnovation.com>'
 
 import StringIO
 import logging
@@ -25,6 +25,7 @@ from zope.interface import implements
 logger = logging.getLogger('DataGridField')
 logger.debug("DataGridField loading")
 
+
 class DataGridField(ObjectField):
     """ Table field with undefined number of rows
 
@@ -40,49 +41,50 @@ class DataGridField(ObjectField):
 
     _properties = ObjectField._properties.copy()
     _properties.update({
-        'type' : 'datagrid',
-        'mode' : 'rw',
+        'type': 'datagrid',
+        'mode': 'rw',
         # inital data of the field in form sequence of dicts
-        'default' : ({},),
+        'default': ({},),
 
-        'widget' : DataGridWidget,
+        'widget': DataGridWidget,
 
         # Column id list (sequence of strings)
-        'columns' : ('default',),
+        'columns': ('default',),
 
         # sequence of FixedRow instances.
         # See FixedRow class documentation
-        'fixed_rows' : [],
+        'fixed_rows': [],
 
-        # User can append new rows. Currently UI feature. This is not yet checked
-        # at application level in set().
-        'allow_insert' : True,
-
-        # User can delete rows. This is currently UI feature (red delete button).
+        # User can append new rows. Currently UI feature.
         # This is not yet checked at application level in set().
-        'allow_delete' : True,
+        'allow_insert': True,
 
-        # User can reorder rows. This is currently UI feature (ordering buttons).
+        # User can delete rows.
+        # This is currently UI feature (red delete button).
         # This is not yet checked at application level in set().
-        'allow_reorder' : True,
+        'allow_delete': True,
 
-         # If true all the contents of the DataGridField is concatenated
-         # to searchable text and given to text indexer
-        'searchable' : False,
+        # User can reorder rows.
+        # This is currently UI feature (ordering buttons).
+        # This is not yet checked at application level in set().
+        'allow_reorder': True,
+
+        # If true all the contents of the DataGridField is concatenated
+        # to searchable text and given to text indexer
+        'searchable': False,
 
         # Set to false to allow empty rows in the data.
         # Needed for auto insert feature
-        'allow_empty_rows' : True,
+        'allow_empty_rows': True,
 
         # Set to true to hifhligh odd/even rows in edit/view form
-        'allow_oddeven' : False,
+        'allow_oddeven': False,
 
         # Validators that check for required columns
         'validators': ('isColumnFilled',),
-        })
+    })
 
     security = ClassSecurityInfo()
-
 
     def __init__(self, name=None, **kwargs):
         """ Create DataGridField instance
@@ -96,9 +98,11 @@ class DataGridField(ObjectField):
         return self.columns
 
     security.declarePrivate('set')
+
     def set(self, instance, value, **kwargs):
         """
-        The passed in object should be a records object, or a sequence of dictionaries
+        The passed in object should be a records object, or a sequence of
+        dictionaries
         """
 
         # Help to localize problems in Zope trace back
@@ -125,7 +129,7 @@ class DataGridField(ObjectField):
 
             # if simple quotes are used as separators, replace them by '"'
             if value.replace(' ', '')[2] == "'":
-                value = value.replace("'",'"')
+                value = value.replace("'", '"')
 
             value = json.loads(value)
         else:
@@ -145,7 +149,7 @@ class DataGridField(ObjectField):
                     # input data
                     val = {}
                     for col in self.getColumnIds():
-                        row_value = row.get(col,'')
+                        row_value = row.get(col, '')
                         # LinesColumn provides list, not string.
                         if isinstance(row_value, basestring):
                             val[col] = row_value.strip()
@@ -179,6 +183,7 @@ class DataGridField(ObjectField):
         ObjectField.set(self, instance, value, **kwargs)
 
     security.declarePrivate('get')
+
     def get(self, instance, **kwargs):
         """ Return DataGridField value
 
@@ -189,7 +194,7 @@ class DataGridField(ObjectField):
         This is for site indexing services (DataGridField.searchable = true).
         """
 
-        if(kwargs.has_key('mimetype') and kwargs['mimetype'] == 'text/plain'):
+        if('mimetype' in kwargs and kwargs['mimetype'] == 'text/plain'):
             # Data is returned for text indexing
             # Concatenate all cell values
             buffer = StringIO.StringIO()
@@ -199,7 +204,7 @@ class DataGridField(ObjectField):
 
             for row in value:
                 for col in self.getColumnIds():
-                    buffer.write(row.get(col,''))
+                    buffer.write(row.get(col, ''))
                     # separate the last word of a cell
                     # and the first of the next cell
                     buffer.write(' ')
@@ -216,25 +221,29 @@ class DataGridField(ObjectField):
             return tuple(data)
 
     security.declarePrivate('getRaw')
+
     def getRaw(self, instance, **kwargs):
         return self.get(instance, **kwargs)
 
     security.declarePublic('get_size')
+
     def get_size(self, instance):
         """Get size of the stored data used for get_size in BaseObject
         """
-        size=0
+        size = 0
         for line in self.get(instance):
-            size+=len(str(line))
+            size += len(str(line))
         return size
 
     # Grid API as defined in interfaces.py
 
     security.declarePublic('getColumns')
+
     def getColumns(self, instance):
         return self.columns
 
     security.declarePublic('getRowCount')
+
     def getRowCount(self, instance):
         return len(self.get(instance))
 
@@ -244,7 +253,8 @@ class DataGridField(ObjectField):
         """
         data = self.get(instance)
         if rowNumber > len(data):
-            raise IndexError, "Tried to access row %d when there are %d available" % (rowNumber, len(data))
+            message = "Tried to access row %d when there are %d available"
+            raise IndexError(message % (rowNumber, len(data)))
         return data[rowNumber]
 
     def getColumn(self, instance, columnName):
@@ -277,12 +287,12 @@ class DataGridField(ObjectField):
                 matches.append(r)
         return tuple(matches)
 
-
     def lookup(self, instance, key, column, lookupColumn=None):
         """Look for the given key in the column specified by lookupColumn.
-        If no lookupColumn is given, look in the first column. For the first row
-        found, return the value stored in the corresponding column as given by
-        the 'column' parameter. Returns None if the key could not be found.
+        If no lookupColumn is given, look in the first column.
+        For the first row found, return the value stored in the corresponding
+        column as given by the 'column' parameter.
+        Returns None if the key could not be found.
 
         (if you've used Excel, this is similar to VLOOKUP)
         """
@@ -293,7 +303,6 @@ class DataGridField(ObjectField):
             if r[lookupColumn] == key:
                 return r[column]
         return None
-
 
     def getAsDisplayList(self, instance, keyCol=None, valueCol=None):
         """Get two columns of each row as a DisplayList - the key columns is
@@ -327,7 +336,8 @@ class DataGridField(ObjectField):
     def resetFixedRows(self, instance, data):
         """ See that fixed rows exists.
 
-        Go through data (list of rows/dict) and add fixed rows if they are missing.
+        Go through data (list of rows/dict) and add fixed rows if they are
+        missing.
 
         1. Go through all fixed rows
         2. See if the key column of the fixed row has value in user data
@@ -338,7 +348,7 @@ class DataGridField(ObjectField):
         """
 
         # is fixed row property used
-        if hasattr(self, "fixed_rows") and self.fixed_rows != None:
+        if hasattr(self, "fixed_rows") and self.fixed_rows is not None:
 
             if isinstance(self.fixed_rows, basestring):
                 # fixed rows is a name of a member function
@@ -346,7 +356,9 @@ class DataGridField(ObjectField):
                 try:
                     func = getattr(instance, self.fixed_rows)
                 except AttributeError:
-                    raise AttributeError, "Class %s is missing fixed row data function %s" % (str(instance), self.fixed_rows)
+                    raise AttributeError(
+                        "Class %s is missing fixed row data function %s" %
+                        (str(instance), self.fixed_rows))
 
                 fixedRowsData = func()
 
@@ -364,7 +376,7 @@ class DataGridField(ObjectField):
                 exist = False
 
                 for row in data:
-                    if row.has_key(fixedRow.keyColumn):
+                    if fixedRow.keyColumn in row:
                         if row[fixedRow.keyColumn] == keyValue:
                             # row exists and has user set value
                             exist = True
@@ -385,20 +397,22 @@ class FixedRow:
 
     This is a useful use case for situations where user must be
     forced to fill in some rows containing pre-set data. An example could
-    be the filling of programming language knowledge in CV. Languages are preset
-    and user fills in his/her experience. User can also add some weird languages outside
-    pre-set languages.
+    be the filling of programming language knowledge in CV.
+    Languages are preset and user fills in his/her experience.
+    User can also add some weird languages outside pre-set languages.
 
-    Instead of going with normal field.default behavior, fixed rows allow some flexibility
-    when changing the fixed data set after item initialization. For example,
-    the set of programming languages can be updated and user refills missing values
-    to his/her CV.
+    Instead of going with normal field.default behavior, fixed rows allow some
+    flexibility when changing the fixed data set after item initialization.
+    For example, the set of programming languages can be updated and user
+    refills missing values to his/her CV.
     """
 
     def __init__(self, keyColumn, initialData):
         """
-        @param initialData Dictionary for the row when user has deleted the fiexd row/item is initialized
-        @param keyColumn Column which existence of value determines the need for a fixed row
+        @param initialData Dictionary for the row when user has deleted the
+        fixed row/item is initialized
+        @param keyColumn Column which existence of value determines the need
+        for a fixed row
         """
         self.keyColumn = keyColumn
         self.initialData = initialData
