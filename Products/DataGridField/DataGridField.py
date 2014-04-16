@@ -13,6 +13,7 @@ __author__ = 'Mikko Ohtamaa <mikko@redinnovation.com>'
 import StringIO
 import logging
 from AccessControl import ClassSecurityInfo
+from DateTime import DateTime
 from Products.Archetypes.atapi import DisplayList
 from Products.Archetypes.Field import ObjectField
 from Products.Archetypes.Field import encode
@@ -154,7 +155,11 @@ class DataGridField(ObjectField):
                         if isinstance(row_value, basestring):
                             val[col] = row_value.strip()
                         else:
-                            val[col] = [value.strip() for value in row_value]
+                            if isinstance(row_value, DateTime):
+                                val[col] = row_value
+                            else:
+                                val[col] = [value.strip()
+                                    for value in row_value]
 
                         if val[col]:
                             empty = False
