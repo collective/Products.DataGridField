@@ -20,7 +20,7 @@ Changelog
   [keul]
 
 - SelectColumn. Removed the value attribute on ``select`` HTML tag
-  [keul] 
+  [keul]
 
 1.9.0 (2013-09-19)
 ------------------
@@ -70,7 +70,7 @@ Changelog
 1.8.2 (2012-08-23)
 ------------------
 
-- added new CSS classes to the manipulator table cells in order 
+- added new CSS classes to the manipulator table cells in order
   to be able to attach custom JS handlers
   [ajung]
 
@@ -105,7 +105,7 @@ Changelog
   Added tests.
   [thomasdesvenain]
 
-- fixed check for 'empty' for LineColumns 
+- fixed check for 'empty' for LineColumns
   [ajung]
 
 

@@ -61,7 +61,7 @@ Follow a list of all ``DataGridField`` configurations:
 ``fixed_rows``
     A sequence of ``FixedRow`` instances that are row values that must exists.
     If those rows are deleted, they will be re-added when saving the content.
-    
+
     See examples in the code for implementation details.
 ``allow_insert``
     User can append new rows. Currently is only an UI feature, this is not yet checked
@@ -97,7 +97,7 @@ When defining a new ``DataGridWidget`` you can manage following options:
    Automatically add new rows when the last row is being edited.
 ``columns``
    A dict containing columns definition.
-   
+
    This option is not required, but you must provide it for advanced datagrid configuration (see below).
 
 Columns definition
