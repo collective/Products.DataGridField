@@ -72,6 +72,12 @@ dataGridFieldFunctions.autoInsertRow = function(e) {
     }
 }
 
+dataGridFieldFunctions.setDateWidget = function() {
+    var selector = ".datagridwidget-cell input[type='date']";
+    $(selector).removeData('dateinput');
+    $(selector).dateinput();
+}
+
 dataGridFieldFunctions.addRowAfter = function(currnode) {
 	/*
 		Creates a new row before the clicked row
@@ -88,7 +94,7 @@ dataGridFieldFunctions.addRowAfter = function(currnode) {
 
 	// update orderindex hidden fields
 	this.updateOrderIndex(tbody);
-
+    dataGridFieldFunctions.setDateWidget();
 }
 
 dataGridFieldFunctions.addRow = function(id) {
@@ -124,7 +130,7 @@ dataGridFieldFunctions.addRow = function(id) {
 
 	// update orderindex hidden fields
 	this.updateOrderIndex(tbody);
-
+    dataGridFieldFunctions.setDateWidget();
 }
 
 dataGridFieldFunctions._createNewRow = function(tr, row_index, $) {
