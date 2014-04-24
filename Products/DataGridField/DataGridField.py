@@ -139,7 +139,6 @@ class DataGridField(ObjectField):
             # from DataGridWidget. Value is Python array,
             # each item being a dictionary with column_name : value mappins
             # + orderinder which is used in JS reordering
-
             for row in value:
                 order = row.get('orderindex_', None)
 
@@ -177,7 +176,6 @@ class DataGridField(ObjectField):
                     else:
                         logger.debug("Appending cleaned row:" + str(val))
                         cleaned.append((order, val.copy()))
-
             if doSort:
                 cleaned.sort()
 
@@ -198,7 +196,6 @@ class DataGridField(ObjectField):
         a string containing all cell values concatenated together is returned.
         This is for site indexing services (DataGridField.searchable = true).
         """
-
         if('mimetype' in kwargs and kwargs['mimetype'] == 'text/plain'):
             # Data is returned for text indexing
             # Concatenate all cell values

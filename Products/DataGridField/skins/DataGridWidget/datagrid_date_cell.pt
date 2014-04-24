@@ -19,7 +19,7 @@
         datestr_method nocall: column_definition/datestr;
         ">
     <!-- HTML5 date input -->
-    <input type="date"
+    <input class="date"
         tal:define="date_str python:
           datestr_method(context,cell_value) or cell_value"
         tal:attributes="
