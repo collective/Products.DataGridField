@@ -73,7 +73,8 @@ dataGridFieldFunctions.autoInsertRow = function(e) {
 }
 
 dataGridFieldFunctions.setDateWidget = function() {
-    var selector = ".datagridwidget-cell input[type='date']";
+    var selector = ".datagridwidget-cell input[class='date'], .datagridwidget-cell input[type='date']";
+
     $(selector).removeData('dateinput');
     $(selector).dateinput();
 }
