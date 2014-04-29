@@ -42,7 +42,9 @@ setup(name='Products.DataGridField',
       ],
       extras_require=dict(
           test=[
+              # Yes, we need both CMFTestCase and PloneTestCase:
               'Products.CMFTestCase',
+              'Products.PloneTestCase',
               ]
       ),
       )
