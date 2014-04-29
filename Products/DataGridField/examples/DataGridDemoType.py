@@ -19,6 +19,7 @@ from Products.DataGridField.FixedColumn import FixedColumn
 from Products.DataGridField.DataGridField import FixedRow
 from Products.DataGridField.HelpColumn import HelpColumn
 from Products.DataGridField.LinkColumn import LinkColumn
+from Products.DataGridField.DateColumn import DateColumn
 from Products.DataGridField.config import PKG_NAME
 
 
@@ -125,6 +126,17 @@ class DataGridDemoType2(atapi.BaseContent):
                     description="Set of links",
                     columns={
                         'link_column' : LinkColumn("Link column"),
+                    },
+                 ),
+         ),
+
+
+        DataGridField('DemoField6',
+                columns=("date_column",),
+                widget = DataGridWidget(
+                    description="Date",
+                    columns={
+                        'date_column' : DateColumn("Date column"),
                     },
                  ),
          ),
