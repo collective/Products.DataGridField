@@ -5,9 +5,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DataGridField\n\n"
 "POT-Creation-Date: 2013-08-29 13:14+0000\n"
-"PO-Revision-Date: 2014-06-10 16:19-0000\n"
-"Last-Translator: Luciano Camargo Cruz <luciano@lccruz.net>\n"
-"Language-Team: lccruz luciano@lccruz.net\n"
+"PO-Revision-Date: 2014-06-10 17:00-0000\n"
+"Last-Translator: João Toss Molon <jtmolon@gmail.com>\n"
+"Language-Team: lccruz luciano@lccruz.net jtmolon jtmolon@gmail.com\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,66 +34,66 @@ msgstr "Definir valores padrão para linhas criadas. Escolha o valor SelectColum
 #. Default: "Test radio and checkbox columns"
 #: ../examples/DataGridDemoType.py:95
 msgid "DataGridDemoType_help_DemoField3"
-msgstr ""
+msgstr "Testar colunas de radio e checkbox"
 
 #. Default: "Help column test"
 #: ../examples/DataGridDemoType.py:108
 msgid "DataGridDemoType_help_DemoField4"
-msgstr ""
+msgstr "Teste de coluna de ajuda"
 
 #. Default: "Language/technology/tool/method for which employer has special interest"
 #: ../examples/DataGridDemoType.py:199
 msgid "DataGridDemoType_help_Skills"
-msgstr ""
+msgstr "Linguagem/tecnologia/ferramenta/método para o qual o empregador tem interesse em especial"
 
 #. Default: "Skills"
 #: ../examples/DataGridDemoType.py:197
 msgid "DataGridDemoType_label_Skills"
-msgstr ""
+msgstr "Habilidades"
 
 #: ../examples/DataGridDemoType.py:89
 msgid "Friendly name"
-msgstr ""
+msgstr "Nome amigável"
 
 #: ../examples/DataGridDemoType.py:87
 msgid "Go Toholampi or go home."
-msgstr ""
+msgstr "Vá para Toholampi ou vá para casa"
 
 #: ../examples/DataGridDemoType.py:216
 msgid "Good"
-msgstr ""
+msgstr "Bom"
 
 #: ../examples/DataGridDemoType.py:205
 msgid "Level"
-msgstr ""
+msgstr "Nível"
 
 #: ../examples/DataGridDemoType.py:88
 msgid "My friendly name"
-msgstr ""
+msgstr "Meu nome amigável"
 
 #: ../examples/DataGridDemoType.py:131
 msgid "Sample value 1"
-msgstr ""
+msgstr "Valor de amostra 1"
 
 #: ../examples/DataGridDemoType.py:132
 msgid "Sample value 2"
-msgstr ""
+msgstr "Valor de amostra 1"
 
 #: ../examples/DataGridDemoType.py:116
 msgid "See help here"
-msgstr ""
+msgstr "Veja ajuda aqui"
 
 #: ../examples/DataGridDemoType.py:204
 msgid "Skill"
-msgstr ""
+msgstr "Habilidade"
 
 #: ../examples/DataGridDemoType.py:88
 msgid "Some default text"
-msgstr ""
+msgstr "Algum texto padrão"
 
 #: ../examples/DataGridDemoType.py:87
 msgid "Toholampi city rox"
-msgstr ""
+msgstr "Cidade de Toholampi rox"
 
 #. Default: "Add new row"
 #: ../skins/DataGridWidget/datagridwidget.pt:93
@@ -103,7 +103,7 @@ msgstr "Adicionar nova linha"
 #. Default: "Link:"
 #: ../skins/DataGridWidget/datagrid_link_cell.pt:51
 msgid "label_datagridwidget_link"
-msgstr "Link: Padrão"
+msgstr "Link:"
 
 #. Default: "Add row"
 #: ../skins/DataGridWidget/datagridwidget_manipulators.pt:38
@@ -113,25 +113,24 @@ msgstr "Adicionar linha"
 #. Default: "Delete row"
 #: ../skins/DataGridWidget/datagridwidget_manipulators.pt:53
 msgid "label_datagridwidget_manipulators_deleterow"
-msgstr ""
+msgstr "Apagar linha"
 
 #. Default: "Move row down"
 #: ../skins/DataGridWidget/datagridwidget_manipulators.pt:85
 msgid "label_datagridwidget_manipulators_moverowdown"
-msgstr ""
+msgstr "Mover linha para baixo"
 
 #. Default: "Move row up"
 #: ../skins/DataGridWidget/datagridwidget_manipulators.pt:68
 msgid "label_datagridwidget_manipulators_moverowup"
-msgstr ""
+msgstr "Mover linha para cima"
 
 #. Default: "Text:"
 #: ../skins/DataGridWidget/datagrid_link_cell.pt:38
 msgid "label_datagridwidget_text"
-msgstr ""
+msgstr "Texto:"
 
 #. Default: "The following columns are required but not all rows have been filled: ${columns}"
 #: ../validators.py:82
 msgid "missing_columns"
-msgstr ""
-
+msgstr "As seguintes colunas são obrigatórias mas nem todas as linhas foram preenchidas: ${columns}"
