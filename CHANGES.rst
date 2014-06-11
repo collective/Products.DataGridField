@@ -4,6 +4,8 @@ Changelog
 1.9.1 (unreleased)
 ------------------
 
+- Portuguese pt-br translation. [lccruz + jtmolon]
+
 - Replace uses of .gif images from Plone with .png.
   [maurits]
 
