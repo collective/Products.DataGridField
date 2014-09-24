@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.9.1 (unreleased)
+1.9.1 (2014-09-24)
 ------------------
 
 - Added support for many more types of fields (DateColumn,
