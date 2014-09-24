@@ -223,7 +223,7 @@ Known bugs
   link column and radio button columns lost their values.
 * Not all types of columns are supported by all browsers because of
   HTML incompatibilities.  See
-  http://www.w3schools.com/tags/tag_input.asp for
+  http://www.w3schools.com/tags/tag_input.asp for details.
 
 
 Demo
@@ -259,7 +259,7 @@ People who have been making this true:
 * Development was helped by Vincent Bonamy
 * Maurits van Rees
 * Andreas Jung
-* T. Kim Nguyen <nguyen@uwosh.edu>
+* T Kim Nguyen <nguyen@uwosh.edu>
 
 __ http://www.redinnovation.com
 
