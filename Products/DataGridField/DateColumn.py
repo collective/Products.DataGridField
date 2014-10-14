@@ -4,8 +4,6 @@
 
 """
 
-from __future__ import nested_scopes
-
 __author__ = "T. Kim Nguyen <nguyen@uwosh.edu>"
 __docformat__ = 'plaintext'
 

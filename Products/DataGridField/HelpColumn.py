@@ -6,7 +6,6 @@
 
 """
 
-from __future__ import nested_scopes
 __docformat__ = 'epytext'
 __author__ = "Juan Grigera <juan@grigera.com.ar>"
 
