@@ -4,6 +4,8 @@ Changelog
 1.9.1 (2014-10-14)
 ------------------
 
+- added new demo data fields in examples profile [tkimnguyen]
+
 - removed old nested_scopes imports [tkimnguyen]
 
 - Added support for many more types of fields (DateColumn,
