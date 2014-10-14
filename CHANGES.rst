@@ -1,8 +1,10 @@
 Changelog
 =========
 
-1.9.1 (2014-09-24)
+1.9.1 (2014-10-14)
 ------------------
+
+- removed old nested_scopes imports [tkimnguyen]
 
 - Added support for many more types of fields (DateColumn,
   DatetimeColumn, DatetimeLocalColumn, FileColumn, EmailColumn,
