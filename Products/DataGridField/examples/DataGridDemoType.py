@@ -19,6 +19,19 @@ from Products.DataGridField.FixedColumn import FixedColumn
 from Products.DataGridField.DataGridField import FixedRow
 from Products.DataGridField.HelpColumn import HelpColumn
 from Products.DataGridField.LinkColumn import LinkColumn
+from Products.DataGridField.DateColumn import DateColumn
+from Products.DataGridField.DatetimeColumn import DatetimeColumn
+from Products.DataGridField.DatetimeLocalColumn import DatetimeLocalColumn
+from Products.DataGridField.FileColumn import FileColumn
+from Products.DataGridField.EmailColumn import EmailColumn
+from Products.DataGridField.ColorColumn import ColorColumn
+from Products.DataGridField.PasswordColumn import PasswordColumn
+from Products.DataGridField.RangeColumn import RangeColumn
+from Products.DataGridField.MonthColumn import MonthColumn
+from Products.DataGridField.SearchColumn import SearchColumn
+from Products.DataGridField.TimeColumn import TimeColumn
+from Products.DataGridField.UrlColumn import UrlColumn
+from Products.DataGridField.WeekColumn import WeekColumn
 from Products.DataGridField.config import PKG_NAME
 
 
@@ -125,6 +138,136 @@ class DataGridDemoType2(atapi.BaseContent):
                     description="Set of links",
                     columns={
                         'link_column' : LinkColumn("Link column"),
+                    },
+                 ),
+         ),
+
+        DataGridField('DemoField6',
+                columns=("date_column",),
+                widget = DataGridWidget(
+                    description="date column",
+                    columns={
+                        'date_column' : DateColumn("Date column"),
+                    },
+                 ),
+         ),
+
+        DataGridField('DemoField7',
+                columns=("datetime_column",),
+                widget = DataGridWidget(
+                    description="datetime column",
+                    columns={
+                        'datetime_column' : DatetimeColumn("Datetime column"),
+                    },
+                 ),
+         ),
+
+        DataGridField('DemoField8',
+                columns=("datetimelocal_column",),
+                widget = DataGridWidget(
+                    description="datetime column, local time zone",
+                    columns={
+                        'datetimelocal_column' : DatetimeLocalColumn("DatetimeLocal column"),
+                    },
+                 ),
+         ),
+
+        DataGridField('DemoField9',
+                columns=("file_column",),
+                widget = DataGridWidget(
+                    description="file column",
+                    columns={
+                        'file_column' : FileColumn("File column"),
+                    },
+                 ),
+         ),
+
+        DataGridField('DemoField10',
+                columns=("email_column",),
+                widget = DataGridWidget(
+                    description="email column",
+                    columns={
+                        'email_column' : EmailColumn("Email column"),
+                    },
+                 ),
+         ),
+
+        DataGridField('DemoField11',
+                columns=("color_column",),
+                widget = DataGridWidget(
+                    description="color column",
+                    columns={
+                        'color_column' : ColorColumn("Color column"),
+                    },
+                 ),
+         ),
+
+        DataGridField('DemoField12',
+                columns=("password_column",),
+                widget = DataGridWidget(
+                    description="password column",
+                    columns={
+                        'password_column' : PasswordColumn("Password column"),
+                    },
+                 ),
+         ),
+
+        DataGridField('DemoField13',
+                columns=("range_column",),
+                widget = DataGridWidget(
+                    description="range column",
+                    columns={
+                        'range_column' : RangeColumn("Range column"),
+                    },
+                 ),
+         ),
+
+        DataGridField('DemoField14',
+                columns=("month_column",),
+                widget = DataGridWidget(
+                    description="month column",
+                    columns={
+                        'month_column' : MonthColumn("Month column"),
+                    },
+                 ),
+         ),
+
+        DataGridField('DemoField15',
+                columns=("search_column",),
+                widget = DataGridWidget(
+                    description="search column",
+                    columns={
+                        'search_column' : SearchColumn("Search column"),
+                    },
+                 ),
+         ),
+
+        DataGridField('DemoField16',
+                columns=("time_column",),
+                widget = DataGridWidget(
+                    description="time column",
+                    columns={
+                        'time_column' : TimeColumn("Time column"),
+                    },
+                 ),
+         ),
+
+        DataGridField('DemoField17',
+                columns=("url_column",),
+                widget = DataGridWidget(
+                    description="url column",
+                    columns={
+                        'url_column' : UrlColumn("Url column"),
+                    },
+                 ),
+         ),
+
+        DataGridField('DemoField18',
+                columns=("week_column",),
+                widget = DataGridWidget(
+                    description="week column",
+                    columns={
+                        'week_column' : WeekColumn("Week column"),
                     },
                  ),
          ),

@@ -4,7 +4,6 @@
     Copyright 2006 DataGridField authors, see documentation for details
 
 """
-from __future__ import nested_scopes
 import json
 
 __docformat__ = 'epytext'

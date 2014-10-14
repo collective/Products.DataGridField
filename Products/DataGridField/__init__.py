@@ -8,7 +8,6 @@
 
 """
 
-from __future__ import nested_scopes
 __author__ = "Mikko Ohtamaa <mikko@redinnovation.com>"
 __docformat__ = 'epytext'
 
@@ -35,6 +34,19 @@ from Products.DataGridField.LinkColumn import LinkColumn
 from Products.DataGridField.HelpColumn import HelpColumn
 from Products.DataGridField.CheckboxColumn import CheckboxColumn
 from Products.DataGridField.LinesColumn import LinesColumn
+from Products.DataGridField.DateColumn import DateColumn
+from Products.DataGridField.DatetimeColumn import DatetimeColumn
+from Products.DataGridField.DatetimeLocalColumn import DatetimeLocalColumn
+from Products.DataGridField.FileColumn import FileColumn
+from Products.DataGridField.EmailColumn import EmailColumn
+from Products.DataGridField.ColorColumn import ColorColumn
+from Products.DataGridField.PasswordColumn import PasswordColumn
+from Products.DataGridField.RangeColumn import RangeColumn
+from Products.DataGridField.MonthColumn import MonthColumn
+from Products.DataGridField.SearchColumn import SearchColumn
+from Products.DataGridField.TimeColumn import TimeColumn
+from Products.DataGridField.UrlColumn import UrlColumn
+from Products.DataGridField.WeekColumn import WeekColumn
 
 from Products.DataGridField.config import PKG_NAME, GLOBALS
 

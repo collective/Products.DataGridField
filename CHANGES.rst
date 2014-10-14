@@ -1,8 +1,20 @@
 Changelog
 =========
 
-1.9.1 (unreleased)
+1.9.1 (2014-10-14)
 ------------------
+
+- added new demo data fields in examples profile [tkimnguyen]
+
+- removed old nested_scopes imports [tkimnguyen]
+
+- Added support for many more types of fields (DateColumn,
+  DatetimeColumn, DatetimeLocalColumn, FileColumn, EmailColumn,
+  ColorColumn, PasswordColumn, RangeColumn, MonthColumn, SearchColumn,
+  TimeColumn, UrlColumn, WeekColumn) to match <input> tag types
+  according to http://www.w3schools.com/tags/tag_input.asp Beware not
+  all browsers support these! See that page for browser specific
+  limitations.  [tkimnguyen]
 
 - Portuguese pt-br translation. [lccruz + jtmolon]
 
