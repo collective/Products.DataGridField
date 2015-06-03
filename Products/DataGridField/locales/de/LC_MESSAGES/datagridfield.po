@@ -131,5 +131,5 @@ msgstr "Text:"
 #. Default: "The following columns are required but not all rows have been filled: ${columns}"
 #: ../validators.py:82
 msgid "missing_columns"
-msgstr ""
+msgstr "Die folgenden Spalten sind erforderlich, aber es wurden nicht alle Zeilen dafür befüllt: ${columns}"
 
