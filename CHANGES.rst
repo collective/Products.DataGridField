@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.9.2 (Unreleased)
+------------------
+
+- Fixed demotypes registration on modern Plone (Default alias was not working)
+  [keul]
+
 1.9.1 (2014-10-14)
 ------------------
 

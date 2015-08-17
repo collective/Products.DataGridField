@@ -23,7 +23,7 @@
  <alias from="edit" to="base_edit"/>
  <alias from="index.html" to="(Default)"/>
  <alias from="properties" to="base_metadata"/>
- <alias from="view" to="(Default)"/>
+ <alias from="view" to="base_view"/>
  <action title="View" action_id="view" category="object" condition_expr="python:hasattr(object, '@@plone_lock_info') and object.restrictedTraverse('@@plone_lock_info').is_locked_for_current_user() or True"
     url_expr="string:${object_url}/view" visible="True">
   <permission value="View"/>
