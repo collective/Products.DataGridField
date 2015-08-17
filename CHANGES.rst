@@ -6,6 +6,9 @@ Changelog
 
 - Fixed demotypes registration on modern Plone (Default alias was not working)
   [keul]
+- Added a real support for Archetypes ``required`` attribute. This will probably deprecate
+  the need of the ``isDataGridFilled`` validator
+  [keul]
 
 1.9.1 (2014-10-14)
 ------------------

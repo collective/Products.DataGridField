@@ -48,6 +48,7 @@ class DataGridDemoType(atapi.BaseContent):
 
         DataGridField('DemoField',
                 searchable=True, # One unit tests checks whether text search works
+                required=True,
                 widget = DataGridWidget(),
                 columns=('column1','column2','The third'),
                 default=[
