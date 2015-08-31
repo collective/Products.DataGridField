@@ -74,7 +74,7 @@
                  Following code renders DataGridWidget manipulation buttons
              </tal:comment>
 
-                <tal:call metal:use-macro="here/datagridwidget_manipulators/macros/edit_manipulators"/>    
+                <tal:call metal:use-macro="here/datagridwidget_manipulators/macros/edit_manipulators"/>
 
          </tr>
     </metal:define>
