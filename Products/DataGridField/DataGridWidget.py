@@ -102,8 +102,6 @@ class DataGridWidget(TypesWidget):
         """
         result = []
 
-        columns = getattr(self, 'columns', {})
-
         for id in field.columns:
             c = self.getColumnDefinition(field, id)
             if c is None:
