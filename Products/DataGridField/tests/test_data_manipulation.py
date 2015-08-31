@@ -77,7 +77,9 @@ class TestInstallation(DataGridTestCase):
 
         obj = self.folder.foo
         field = obj.Schema()['DemoField']
-        self.assertEqual(field.validate_required(obj, (raw_data,), {}), None)
+        errors = {}
+        self.assertEqual(field.validate_required(obj, (raw_data,), errors), None)
+        self.assertEqual(errors, {})
 
     def testSettingEmptyTable(self):
         """ It should not be possible to set no rows at all when field is required """
@@ -91,7 +93,12 @@ class TestInstallation(DataGridTestCase):
 
         obj = self.folder.foo
         field = obj.Schema()['DemoField']
-        self.assertEqual(str(field.validate_required(obj, (raw_data,), {})),
+        errors = {}
+        self.assertEqual(str(field.validate_required(obj, (raw_data,), errors)),
+                         'DemoField is required, please correct.')
+        self.assertTrue(errors)
+        self.assertTrue('DemoField' in errors)
+        self.assertEqual(errors['DemoField'],
                          'DemoField is required, please correct.')
 
     def testRenderingDoesNotFail(self):
