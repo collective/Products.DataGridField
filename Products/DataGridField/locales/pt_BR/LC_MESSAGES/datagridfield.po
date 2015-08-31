@@ -3,8 +3,8 @@
 # Luciano Camargo Cruz <luciano@lccruz.net>, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: DataGridField\n\n"
-"POT-Creation-Date: 2013-08-29 13:14+0000\n"
+"Project-Id-Version: DataGridField\n"
+"POT-Creation-Date: 2015-08-31 21:27+0000\n"
 "PO-Revision-Date: 2014-06-10 17:00-0000\n"
 "Last-Translator: João Toss Molon <jtmolon@gmail.com>\n"
 "Language-Team: lccruz luciano@lccruz.net jtmolon jtmolon@gmail.com\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: datagridfield\n"
 
-#: ../examples/DataGridDemoType.py:215
+#: ../examples/DataGridDemoType.py:370
 msgid "Bad"
 msgstr "Mal"
 
@@ -51,47 +51,47 @@ msgstr "Linguagem/tecnologia/ferramenta/método para o qual o empregador tem int
 msgid "DataGridDemoType_label_Skills"
 msgstr "Habilidades"
 
-#: ../examples/DataGridDemoType.py:89
+#: ../examples/DataGridDemoType.py:104
 msgid "Friendly name"
 msgstr "Nome amigável"
 
-#: ../examples/DataGridDemoType.py:87
+#: ../examples/DataGridDemoType.py:102
 msgid "Go Toholampi or go home."
 msgstr "Vá para Toholampi ou vá para casa"
 
-#: ../examples/DataGridDemoType.py:216
+#: ../examples/DataGridDemoType.py:371
 msgid "Good"
 msgstr "Bom"
 
-#: ../examples/DataGridDemoType.py:205
+#: ../examples/DataGridDemoType.py:360
 msgid "Level"
 msgstr "Nível"
 
-#: ../examples/DataGridDemoType.py:88
+#: ../examples/DataGridDemoType.py:103
 msgid "My friendly name"
 msgstr "Meu nome amigável"
 
-#: ../examples/DataGridDemoType.py:131
+#: ../examples/DataGridDemoType.py:286
 msgid "Sample value 1"
 msgstr "Valor de amostra 1"
 
-#: ../examples/DataGridDemoType.py:132
+#: ../examples/DataGridDemoType.py:287
 msgid "Sample value 2"
 msgstr "Valor de amostra 1"
 
-#: ../examples/DataGridDemoType.py:116
+#: ../examples/DataGridDemoType.py:131
 msgid "See help here"
 msgstr "Veja ajuda aqui"
 
-#: ../examples/DataGridDemoType.py:204
+#: ../examples/DataGridDemoType.py:359
 msgid "Skill"
 msgstr "Habilidade"
 
-#: ../examples/DataGridDemoType.py:88
+#: ../examples/DataGridDemoType.py:103
 msgid "Some default text"
 msgstr "Algum texto padrão"
 
-#: ../examples/DataGridDemoType.py:87
+#: ../examples/DataGridDemoType.py:102
 msgid "Toholampi city rox"
 msgstr "Cidade de Toholampi rox"
 
@@ -101,12 +101,12 @@ msgid "label_datagridwidget_add_new_row"
 msgstr "Adicionar nova linha"
 
 #. Default: "Link:"
-#: ../skins/DataGridWidget/datagrid_link_cell.pt:51
+#: ../skins/DataGridWidget/datagrid_link_cell.pt:50
 msgid "label_datagridwidget_link"
 msgstr "Link:"
 
 #. Default: "Add row"
-#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:38
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:39
 msgid "label_datagridwidget_manipulators_addrow"
 msgstr "Adicionar linha"
 
@@ -116,17 +116,17 @@ msgid "label_datagridwidget_manipulators_deleterow"
 msgstr "Apagar linha"
 
 #. Default: "Move row down"
-#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:85
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:83
 msgid "label_datagridwidget_manipulators_moverowdown"
 msgstr "Mover linha para baixo"
 
 #. Default: "Move row up"
-#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:68
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:67
 msgid "label_datagridwidget_manipulators_moverowup"
 msgstr "Mover linha para cima"
 
 #. Default: "Text:"
-#: ../skins/DataGridWidget/datagrid_link_cell.pt:38
+#: ../skins/DataGridWidget/datagrid_link_cell.pt:36
 msgid "label_datagridwidget_text"
 msgstr "Texto:"
 
@@ -134,3 +134,4 @@ msgstr "Texto:"
 #: ../validators.py:82
 msgid "missing_columns"
 msgstr "As seguintes colunas são obrigatórias mas nem todas as linhas foram preenchidas: ${columns}"
+

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.1\n"
-"POT-Creation-Date: 2013-08-29 13:14+0000\n"
+"POT-Creation-Date: 2015-08-31 21:27+0000\n"
 "PO-Revision-Date: 2013-08-29 15:14+0200\n"
 "Last-Translator: Maurits van Rees <m.van.rees@zestsoftware.nl>\n"
 "Language-Team: Rob Gietema <rob@fourdigits.nl>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: datagridfield\n"
 
-#: ../examples/DataGridDemoType.py:215
+#: ../examples/DataGridDemoType.py:370
 msgid "Bad"
 msgstr "Incorrect"
 
@@ -48,47 +48,47 @@ msgstr "Taal/technologie/gereedschap/methode voor medewerkers met speciale inter
 msgid "DataGridDemoType_label_Skills"
 msgstr "Stel standaard waardes in voor de gemaakte regels. Kies SelectColumn waardes vanuit het standaard woordenboek"
 
-#: ../examples/DataGridDemoType.py:89
+#: ../examples/DataGridDemoType.py:104
 msgid "Friendly name"
 msgstr "Weergave naam"
 
-#: ../examples/DataGridDemoType.py:87
+#: ../examples/DataGridDemoType.py:102
 msgid "Go Toholampi or go home."
 msgstr "Ga naar Toholampi of blijf thuis."
 
-#: ../examples/DataGridDemoType.py:216
+#: ../examples/DataGridDemoType.py:371
 msgid "Good"
 msgstr "Goed"
 
-#: ../examples/DataGridDemoType.py:205
+#: ../examples/DataGridDemoType.py:360
 msgid "Level"
 msgstr "Niveau"
 
-#: ../examples/DataGridDemoType.py:88
+#: ../examples/DataGridDemoType.py:103
 msgid "My friendly name"
 msgstr "Mijn weergave naam"
 
-#: ../examples/DataGridDemoType.py:131
+#: ../examples/DataGridDemoType.py:286
 msgid "Sample value 1"
 msgstr "Voorbeeld 1"
 
-#: ../examples/DataGridDemoType.py:132
+#: ../examples/DataGridDemoType.py:287
 msgid "Sample value 2"
 msgstr "Voorbeeld 2"
 
-#: ../examples/DataGridDemoType.py:116
+#: ../examples/DataGridDemoType.py:131
 msgid "See help here"
 msgstr "Help"
 
-#: ../examples/DataGridDemoType.py:204
+#: ../examples/DataGridDemoType.py:359
 msgid "Skill"
 msgstr "Behendigheid"
 
-#: ../examples/DataGridDemoType.py:88
+#: ../examples/DataGridDemoType.py:103
 msgid "Some default text"
 msgstr "Standaard tekst"
 
-#: ../examples/DataGridDemoType.py:87
+#: ../examples/DataGridDemoType.py:102
 msgid "Toholampi city rox"
 msgstr "Toholampi stad is mieters"
 
@@ -98,12 +98,12 @@ msgid "label_datagridwidget_add_new_row"
 msgstr "Voeg regel toe"
 
 #. Default: "Link:"
-#: ../skins/DataGridWidget/datagrid_link_cell.pt:51
+#: ../skins/DataGridWidget/datagrid_link_cell.pt:50
 msgid "label_datagridwidget_link"
 msgstr "Link"
 
 #. Default: "Add row"
-#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:38
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:39
 msgid "label_datagridwidget_manipulators_addrow"
 msgstr "Voeg regel toe"
 
@@ -113,17 +113,17 @@ msgid "label_datagridwidget_manipulators_deleterow"
 msgstr "Verwijder regel"
 
 #. Default: "Move row down"
-#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:85
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:83
 msgid "label_datagridwidget_manipulators_moverowdown"
 msgstr "Verplaats regel naar beneden"
 
 #. Default: "Move row up"
-#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:68
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:67
 msgid "label_datagridwidget_manipulators_moverowup"
 msgstr "Verplaats regel naar boven"
 
 #. Default: "Text:"
-#: ../skins/DataGridWidget/datagrid_link_cell.pt:38
+#: ../skins/DataGridWidget/datagrid_link_cell.pt:36
 msgid "label_datagridwidget_text"
 msgstr "Tekst"
 

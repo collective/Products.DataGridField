@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DataGridField\n"
-"POT-Creation-Date: 2013-08-29 13:14+0000\n"
+"POT-Creation-Date: 2015-08-31 21:27+0000\n"
 "PO-Revision-Date: 2009-11-08 17:34-0400\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish <plone-conosur@lists.plone.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Domain: datagridfield\n"
 "X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
 
-#: ../examples/DataGridDemoType.py:215
+#: ../examples/DataGridDemoType.py:370
 msgid "Bad"
 msgstr "Malo"
 
@@ -53,47 +53,47 @@ msgstr "Lenguaje/tecnología/herramienta/método para cada empleador tiene espec
 msgid "DataGridDemoType_label_Skills"
 msgstr "Habilidades"
 
-#: ../examples/DataGridDemoType.py:89
+#: ../examples/DataGridDemoType.py:104
 msgid "Friendly name"
 msgstr "Nombre amigable"
 
-#: ../examples/DataGridDemoType.py:87
+#: ../examples/DataGridDemoType.py:102
 msgid "Go Toholampi or go home."
 msgstr ""
 
-#: ../examples/DataGridDemoType.py:216
+#: ../examples/DataGridDemoType.py:371
 msgid "Good"
 msgstr "Bueno"
 
-#: ../examples/DataGridDemoType.py:205
+#: ../examples/DataGridDemoType.py:360
 msgid "Level"
 msgstr "Nivel"
 
-#: ../examples/DataGridDemoType.py:88
+#: ../examples/DataGridDemoType.py:103
 msgid "My friendly name"
 msgstr "Mi nombre amigable"
 
-#: ../examples/DataGridDemoType.py:131
+#: ../examples/DataGridDemoType.py:286
 msgid "Sample value 1"
 msgstr "Ejemplo de valor 1"
 
-#: ../examples/DataGridDemoType.py:132
+#: ../examples/DataGridDemoType.py:287
 msgid "Sample value 2"
 msgstr "Ejemplo de valor 2"
 
-#: ../examples/DataGridDemoType.py:116
+#: ../examples/DataGridDemoType.py:131
 msgid "See help here"
 msgstr "Ver la ayuda aquí"
 
-#: ../examples/DataGridDemoType.py:204
+#: ../examples/DataGridDemoType.py:359
 msgid "Skill"
 msgstr "Habilidad"
 
-#: ../examples/DataGridDemoType.py:88
+#: ../examples/DataGridDemoType.py:103
 msgid "Some default text"
 msgstr "Algún texto por defecto"
 
-#: ../examples/DataGridDemoType.py:87
+#: ../examples/DataGridDemoType.py:102
 #, fuzzy
 msgid "Toholampi city rox"
 msgstr "Rox ciudad Toholampi"
@@ -104,12 +104,12 @@ msgid "label_datagridwidget_add_new_row"
 msgstr "Agregar nueva fila"
 
 #. Default: "Link:"
-#: ../skins/DataGridWidget/datagrid_link_cell.pt:51
+#: ../skins/DataGridWidget/datagrid_link_cell.pt:50
 msgid "label_datagridwidget_link"
 msgstr "Enlace:"
 
 #. Default: "Add row"
-#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:38
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:39
 msgid "label_datagridwidget_manipulators_addrow"
 msgstr "Agregar fila"
 
@@ -119,17 +119,17 @@ msgid "label_datagridwidget_manipulators_deleterow"
 msgstr "Borrar fila"
 
 #. Default: "Move row down"
-#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:85
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:83
 msgid "label_datagridwidget_manipulators_moverowdown"
 msgstr "Mover fila abajo"
 
 #. Default: "Move row up"
-#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:68
+#: ../skins/DataGridWidget/datagridwidget_manipulators.pt:67
 msgid "label_datagridwidget_manipulators_moverowup"
 msgstr "Mover fila arriba"
 
 #. Default: "Text:"
-#: ../skins/DataGridWidget/datagrid_link_cell.pt:38
+#: ../skins/DataGridWidget/datagrid_link_cell.pt:36
 msgid "label_datagridwidget_text"
 msgstr "Texto:"
 
