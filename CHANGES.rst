@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.9.2 (Unreleased)
+1.9.2 (2015-08-31)
 ------------------
 
 - Fixed demotypes registration on modern Plone (Default alias was not working)
