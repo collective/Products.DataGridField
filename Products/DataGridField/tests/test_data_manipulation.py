@@ -63,13 +63,43 @@ class TestInstallation(DataGridTestCase):
         """ It should be possible to set empty rows """
         self.folder.invokeFactory('DataGridDemoType', 'foo')
 
-        vals = ({'The third': '', 'column1': 'xxx', 'column2': '', }, )
-        self.folder.foo.setDemoField(vals)
-        self.assertEqual(self.folder.foo.getDemoField(), vals)
+        data = {'The third': '', 'column1': 'xxx', 'column2': ''}
+        raw_data = data.copy()
+        raw_data['orderindex_'] = '1'
+        self.folder.foo.setDemoField((raw_data,))
+        self.assertEqual(self.folder.foo.getDemoField(), (data,))
 
-        vals = ({'The third': '', 'column1': '', 'column2': '', },)
-        self.folder.foo.setDemoField(vals)
-        self.assertEqual(self.folder.foo.getDemoField(), vals)
+        data = {'The third': '', 'column1': '', 'column2': ''}
+        raw_data = data.copy()
+        raw_data['orderindex_'] = '1'
+        self.folder.foo.setDemoField((raw_data,))
+        self.assertEqual(self.folder.foo.getDemoField(), (data,))
+
+        obj = self.folder.foo
+        field = obj.Schema()['DemoField']
+        errors = {}
+        self.assertEqual(field.validate_required(obj, (raw_data,), errors), None)
+        self.assertEqual(errors, {})
+
+    def testSettingEmptyTable(self):
+        """ It should not be possible to set no rows at all when field is required """
+        self.folder.invokeFactory('DataGridDemoType', 'foo')
+
+        data = {'The third': '', 'column1': '', 'column2': ''}
+        raw_data = data.copy()
+        raw_data['orderindex_'] = 'template_row_marker' # whatever is not a position digit
+        self.folder.foo.setDemoField((raw_data,))
+        self.assertEqual(self.folder.foo.getDemoField(), tuple())
+
+        obj = self.folder.foo
+        field = obj.Schema()['DemoField']
+        errors = {}
+        self.assertEqual(str(field.validate_required(obj, (raw_data,), errors)),
+                         'DemoField is required, please correct.')
+        self.assertTrue(errors)
+        self.assertTrue('DemoField' in errors)
+        self.assertEqual(errors['DemoField'],
+                         'DemoField is required, please correct.')
 
     def testRenderingDoesNotFail(self):
         """See if a page containing DGF will output HTML without
