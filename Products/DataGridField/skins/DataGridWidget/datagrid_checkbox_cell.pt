@@ -33,7 +33,8 @@
            <input class="noborder"
                   type="checkbox"
                   value="1"
-                  tal:attributes="name string:${fieldName}.${column}.999999;
+                  tal:attributes="checked python: column_definition.getDefault(here) == '1';
+                                  name string:${fieldName}.${column}.999999;
                                   title column_label;"
                 />
         </tal:block>
@@ -42,4 +43,3 @@
 </body>
 
 </html>
-

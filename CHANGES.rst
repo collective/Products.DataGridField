@@ -4,7 +4,9 @@ Changelog
 1.9.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Take default value of CheckboxColumn into account while adding
+  a new row in the edit form.
+  [gbastien]
 
 
 1.9.3 (2015-09-07)
