@@ -114,7 +114,7 @@ class DataGridDemoType2(atapi.BaseContent):
                     i18n_domain='datagridfield',
                     columns={
                         'column1' : RadioColumn("Radio column", vocabulary="getSampleVocabulary"),
-                        'column2' : CheckboxColumn("Checkbox column")
+                        'column2' : CheckboxColumn("Checkbox column", default='1')
                     },
                  ),
          ),
