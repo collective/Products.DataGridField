@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.9.3 (unreleased)
+1.9.3 (2015-09-07)
 ------------------
 
 - Make sure validate_required validates stored data correctly,
