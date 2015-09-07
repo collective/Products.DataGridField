@@ -5,8 +5,9 @@ Changelog
 ------------------
 
 - Make sure validate_required validates stored data correctly,
-  indeed the 'orderindex_' key is missing when data is stored.
+  indeed the `orderindex_` key is missing when data is stored.
   [gbastien]
+
 
 1.9.2 (2015-08-31)
 ------------------
