@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.9.4 (unreleased)
+1.9.4 (2015-09-07)
 ------------------
 
 - Take default value of CheckboxColumn into account while adding
