@@ -5,7 +5,7 @@ Changelog
 ------------------
 
 - Take default value of CheckboxColumn into account while adding
-  a new column in the edit form.
+  a new row in the edit form.
   [gbastien]
 
 
