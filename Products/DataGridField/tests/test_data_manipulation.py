@@ -50,8 +50,8 @@ class TestInstallation(DataGridTestCase):
 
     def testSettingFieldWithOrder(self):
         self.folder.invokeFactory('DataGridDemoType', 'foo')
-        vals = [{'column1':'joe', 'orderindex_': 1},
-                {'column1':'jack', 'orderindex_': 0}]
+        vals = [{'column1': 'joe', 'orderindex_': 1},
+                {'column1': 'jack', 'orderindex_': 0}]
         self.folder.foo.setDemoField(vals)
         self.assertEqual(len(self.folder.foo.getDemoField()), 2)
         self.assertEqual(self.folder.foo.getDemoField()[0]['column1'],
@@ -81,13 +81,18 @@ class TestInstallation(DataGridTestCase):
         self.assertEqual(field.validate_required(obj, (raw_data,), errors), None)
         self.assertEqual(errors, {})
 
+        # validate_required stored data, it will miss the 'orderindex_' key
+        del raw_data['orderindex_']
+        self.assertEqual(field.validate_required(obj, (raw_data,), errors), None)
+        self.assertEqual(errors, {})
+
     def testSettingEmptyTable(self):
         """ It should not be possible to set no rows at all when field is required """
         self.folder.invokeFactory('DataGridDemoType', 'foo')
 
         data = {'The third': '', 'column1': '', 'column2': ''}
         raw_data = data.copy()
-        raw_data['orderindex_'] = 'template_row_marker' # whatever is not a position digit
+        raw_data['orderindex_'] = 'template_row_marker'  # whatever is not a position digit
         self.folder.foo.setDemoField((raw_data,))
         self.assertEqual(self.folder.foo.getDemoField(), tuple())
 

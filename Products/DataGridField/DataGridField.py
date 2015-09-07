@@ -393,7 +393,7 @@ class DataGridField(ObjectField):
     security.declarePrivate('validate_required')
     def validate_required(self, instance, value, errors):
         value = value or []
-        value = [d for d in value if d.get('orderindex_', '').isdigit()]
+        value = [d for d in value if d.get('orderindex_', '1').isdigit()]
         return ObjectField.validate_required(self, instance, value, errors)
 
 
