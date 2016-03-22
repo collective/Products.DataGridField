@@ -13,7 +13,7 @@
             <thead tal:condition="python: widget.hasHeader(context, field)">
                 <tr>
                     <tal:block tal:repeat="c columns"
-                      ><th tal:attributes="class python:not c['visible'] and 'dgw-hidden-column' or '';"
+                      ><th tal:attributes="class python:not c['visible'] and 'dgw-hidden-column %s' % c['id'] or '';"
                         tal:content="c/label" i18n:translate="">NAME</th
                     ></tal:block>
                 </tr>
