@@ -4,7 +4,7 @@ Changelog
 1.9.5 (unreleased)
 ------------------
 
-- While hidding a column it is hidden in both view/edit mode without
+- While hiding a column it is hidden in both view/edit mode without
   distinction. In "view" mode, while generating the used class
   'dgw-hidden-column', append the column id so it is possible, like
   in "edit" mode to use a CSS selector to show a hidden column.
