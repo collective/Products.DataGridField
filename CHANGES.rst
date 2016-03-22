@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.9.5 (unreleased)
+1.9.5 (2016-03-22)
 ------------------
 
 - While hiding a column it is hidden in both view/edit mode without
