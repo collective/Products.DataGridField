@@ -4,7 +4,9 @@ Changelog
 1.9.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed error when used as widget in PloneFormGen 1.7.19 or higher.
+  The widget has no ``REQUEST`` attribute there, because it is not
+  acquisition wrapped.  [maurits]
 
 
 1.9.5 (2016-03-22)
