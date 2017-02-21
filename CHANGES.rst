@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.9.6 (unreleased)
+1.9.6 (2017-02-21)
 ------------------
 
 - Fixed error when used as widget in PloneFormGen 1.7.19 or higher.
