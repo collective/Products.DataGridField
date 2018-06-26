@@ -4,7 +4,7 @@ Changelog
 1.9.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix LinkColumn with "https://" links [petschki]
 
 
 1.9.6 (2017-02-21)

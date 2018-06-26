@@ -324,6 +324,8 @@ class TestLinkUtils(DataGridTestCase):
                          "http://nohost/plone/test")
         self.assertEqual(makeAbsoluteLink("http://test", context),
                          "http://test")
+        self.assertEqual(makeAbsoluteLink("https://test", context),
+                         "https://test")
 
     def testMakeRelativeURL(self):
         """ Test converting full URLs to site relative links
@@ -337,6 +339,8 @@ class TestLinkUtils(DataGridTestCase):
         self.assertEqual(makeRelativeLink("test", context), "test")
         self.assertEqual(makeRelativeLink("http://test", context),
                          "http://test")
+        self.assertEqual(makeRelativeLink("https://test", context),
+                         "https://test")
 
 
 def test_suite():

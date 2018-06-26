@@ -9,6 +9,8 @@
 __author__ = 'Mikko Ohtamaa <mikko@redinnovation.com>'
 __docformat__ = 'restructuredtext'
 
+import re
+
 from AccessControl import ModuleSecurityInfo, allow_module
 from Products.CMFCore.utils import getToolByName
 
@@ -16,6 +18,8 @@ from Products.CMFCore.utils import getToolByName
 module = "Products.DataGridField.utils"
 security = ModuleSecurityInfo(module)
 allow_module(module)
+is_link = re.compile(r'^https?://')
+
 
 security.declarePublic("makeAbsoluteLink")
 def makeAbsoluteLink(link, context):
@@ -24,22 +28,24 @@ def makeAbsoluteLink(link, context):
     Absolute links are passed through as is.
     Assume all http:// prefixed links are absolute.
     """
+    clean_link = link.strip()
 
-    if link == "":
+    if clean_link == "":
         # this prevents makeAbsoluteLink not to
         # do nasty things with empty fields
         return ""
 
     # see if the link is absolute
-    if link.startswith("http://"):
-        return link
+    if is_link.match(clean_link):
+        return clean_link
     else:
         portal_url = getToolByName(context, "portal_url")
-        if link[:1] == "/":
-            return portal_url() + link
+        if clean_link[:1] == "/":
+            return portal_url() + clean_link
         else:
             # if first character is / don't add it twice
-            return portal_url() + "/" + link
+            return portal_url() + "/" + clean_link
+
 
 security.declarePublic("makeRelativeLink")
 def makeRelativeLink(link, context):
@@ -50,12 +56,12 @@ def makeRelativeLink(link, context):
 
     Assume are http:// prefixed links are absolute.
     """
+    clean_link = link.strip()
 
     # check for absolute, avoid extra work below
-    if link.startswith("http://"):
+    if is_link.match(clean_link):
         portal_url = getToolByName(context, "portal_url")()
-        if link.startswith(portal_url):
-            return link[len(portal_url):]
+        if clean_link.startswith(portal_url):
+            return clean_link[len(portal_url):]
 
-    # if first character is / don't add it twice
-    return link
+    return clean_link
